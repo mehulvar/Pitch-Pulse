@@ -1,20 +1,30 @@
 Pitch Pulse stack
 
 Frontend: Next.js with TypeScript, Tailwind, and D3.
-Next.js gives each team its own shareable page. D3 draws custom pitch graphics like shot maps, which off-the-shelf chart libraries do poorly.
+    Next.js gives each team its own shareable page. D3 draws custom pitch graphics like shot 
+    maps, which off-the-shelf chart libraries do poorly.
 
 Backend: FastAPI with DuckDB.
-The ML tools are all Python, so one language covers the models and the API. DuckDB queries match data files directly with no database server to run.
+    The ML tools are all Python, so one language covers the models and the API. DuckDB 
+    queries match data files directly with no database server to run.
 
 Data: StatsBomb open data via `statsbombpy`.
-It is free and includes shot events with defender positions.
+    It is free and includes shot events with defender positions.
 
 Models:
 
 1. Expected goals (LightGBM classifier).
-    Predicts the chance each shot scores from distance, angle, body part, and defender positions. I chose it because gradient boosting works best on tabular data like this, and it trains in seconds.
+    Predicts the chance each shot scores from distance, angle, body part, and defender 
+    positions. I chose it because gradient boosting works best on tabular data like this, 
+    and it trains in seconds.
 2. Expected shots against (Poisson regression). 
-    Predicts how many shots a team concedes in a match. Inputs are the team's recent shots conceded, pressing intensity, opponent shot volume, and home or away. Shot counts are small whole numbers, which is exactly what Poisson regression is built for. It is also easy to explain and interpret.
+    Predicts how many shots a team concedes in a match. Inputs are the team's recent shots 
+    conceded, pressing intensity, opponent shot volume, and home or away. Shot counts are 
+    small whole numbers, which is exactly what Poisson regression is built for. It is also 
+    easy to explain and interpret.
 
 LLM: Claude Sonnet 5.5 (`claude-sonnet-5-5`).
-Its only job is writing the scouting report. It calls tools like `get_team_stats` and `get_shot_map` and can only state numbers those tools return. I chose Sonnet because it handles tool calls well and writes clear prose at a reasonable cost. The models do the math and Claude does the explaining.
+    Its only job is writing the scouting report. It calls tools like `get_team_stats` and 
+    `get_shot_map` and can only state numbers those tools return. I chose Sonnet because it 
+    handles tool calls well and writes clear prose at a reasonable cost. The models do the math 
+    and Claude does the explaining.
