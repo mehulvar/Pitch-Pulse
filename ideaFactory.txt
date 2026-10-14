@@ -30,5 +30,5 @@ LLM: Claude Sonnet 5.5 (`claude-sonnet-5-5`).
     and Claude does the explaining.
 
 Example output: 
-    Brighton concede about 13 shots a game, mostly from the left side of the box. Their press
-    weakens late in matches, so expect chances after the 70th minute.
+    Real Madrid concede about 13 shots a game, mostly from the left side of the box. Their 
+    press weakens late in matches, so expect chances after the 70th minute.
