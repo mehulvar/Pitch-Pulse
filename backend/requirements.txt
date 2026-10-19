@@ -1,0 +1,8 @@
+statsbombpy
+pandas
+numpy
+scikit-learn
+lightgbm
+fastapi
+uvicorn
+anthropic

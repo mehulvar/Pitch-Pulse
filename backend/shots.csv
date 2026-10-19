@@ -1,0 +1,1668 @@
+match_id,team,against,x,y,xg,goal,minute
+8650,Belgium,Brazil,91.0,51.0,0.003,0,1
+8650,Brazil,Belgium,115.0,39.0,0.248,0,7
+8650,Belgium,Brazil,106.0,31.0,0.087,0,7
+8650,Belgium,Brazil,92.0,29.0,0.019,0,7
+8650,Brazil,Belgium,109.0,46.0,0.121,0,9
+8650,Brazil,Belgium,111.0,37.0,0.307,0,9
+8650,Belgium,Brazil,98.0,38.0,0.009,0,12
+8650,Brazil,Belgium,115.0,37.0,0.252,0,14
+8650,Brazil,Belgium,96.0,33.0,0.018,0,18
+8650,Brazil,Belgium,99.0,18.0,0.005,0,25
+8650,Brazil,Belgium,103.0,42.0,0.064,0,29
+8650,Brazil,Belgium,96.0,20.0,0.002,0,29
+8650,Belgium,Brazil,102.0,54.0,0.203,1,30
+8650,Brazil,Belgium,110.0,45.0,0.086,0,35
+8650,Brazil,Belgium,98.0,21.0,0.098,0,36
+8650,Belgium,Brazil,99.0,20.0,0.124,0,40
+8650,Belgium,Brazil,115.0,32.0,0.064,0,41
+8650,Brazil,Belgium,97.0,27.0,0.018,0,51
+8650,Brazil,Belgium,117.0,51.0,0.015,0,54
+8650,Belgium,Brazil,108.0,27.0,0.037,0,61
+8650,Brazil,Belgium,112.0,58.0,0.012,0,61
+8650,Brazil,Belgium,98.0,36.0,0.009,0,63
+8650,Brazil,Belgium,91.0,58.0,0.001,0,69
+8650,Brazil,Belgium,96.0,56.0,0.004,0,70
+8650,Brazil,Belgium,110.0,58.0,0.008,0,74
+8650,Brazil,Belgium,109.0,45.0,0.093,0,74
+8650,Brazil,Belgium,111.0,42.0,0.14,1,75
+8650,Brazil,Belgium,111.0,30.0,0.198,0,77
+8650,Brazil,Belgium,102.0,42.0,0.031,0,80
+8650,Brazil,Belgium,107.0,33.0,0.065,0,83
+8650,Brazil,Belgium,96.0,37.0,0.007,0,91
+8650,Brazil,Belgium,98.0,39.0,0.009,0,93
+8650,Brazil,Belgium,115.0,42.0,0.131,0,93
+7584,Japan,Belgium,98.0,47.0,0.007,0,0
+7584,Japan,Belgium,74.0,41.0,0.001,0,9
+7584,Belgium,Japan,95.0,33.0,0.009,0,15
+7584,Belgium,Japan,111.0,51.0,0.009,0,15
+7584,Belgium,Japan,105.0,40.0,0.056,0,16
+7584,Belgium,Japan,111.0,48.0,0.06,0,17
+7584,Belgium,Japan,112.0,50.0,0.094,0,17
+7584,Belgium,Japan,101.0,50.0,0.008,0,20
+7584,Belgium,Japan,114.0,41.0,0.172,0,24
+7584,Belgium,Japan,102.0,46.0,0.032,0,26
+7584,Belgium,Japan,102.0,26.0,0.037,0,26
+7584,Belgium,Japan,118.0,45.0,0.115,0,27
+7584,Japan,Belgium,110.0,45.0,0.038,0,30
+7584,Belgium,Japan,103.0,33.0,0.064,0,35
+7584,Belgium,Japan,93.0,49.0,0.007,0,35
+7584,Japan,Belgium,109.0,24.0,0.01,0,43
+7584,Japan,Belgium,109.0,54.0,0.222,1,47
+7584,Belgium,Japan,105.0,47.0,0.037,0,48
+7584,Belgium,Japan,110.0,41.0,0.319,0,48
+7584,Japan,Belgium,94.0,33.0,0.418,1,51
+7584,Belgium,Japan,102.0,26.0,0.049,0,56
+7584,Japan,Belgium,107.0,49.0,0.008,0,58
+7584,Belgium,Japan,115.0,46.0,0.244,0,61
+7584,Japan,Belgium,110.0,48.0,0.091,0,63
+7584,Belgium,Japan,100.0,54.0,0.067,0,65
+7584,Belgium,Japan,112.0,46.0,0.303,0,67
+7584,Belgium,Japan,116.0,23.0,0.485,1,68
+7584,Belgium,Japan,102.0,45.0,0.061,0,72
+7584,Belgium,Japan,114.0,42.0,0.321,1,73
+7584,Japan,Belgium,109.0,30.0,0.131,0,74
+7584,Japan,Belgium,113.0,23.0,0.033,0,74
+7584,Belgium,Japan,114.0,47.0,0.031,0,77
+7584,Belgium,Japan,114.0,57.0,0.021,0,79
+7584,Japan,Belgium,113.0,30.0,0.04,0,83
+7584,Belgium,Japan,113.0,35.0,0.068,0,85
+7584,Belgium,Japan,114.0,44.0,0.156,0,85
+7584,Belgium,Japan,80.0,42.0,0.001,0,85
+7584,Belgium,Japan,96.0,24.0,0.002,0,86
+7584,Japan,Belgium,79.0,39.0,0.006,0,92
+7584,Belgium,Japan,111.0,37.0,0.307,1,93
+7554,Panama,England,81.0,40.0,0.004,0,3
+7554,Panama,England,102.0,32.0,0.043,0,4
+7554,England,Panama,109.0,42.0,0.079,1,7
+7554,Panama,England,96.0,49.0,0.005,0,15
+7554,England,Panama,109.0,41.0,0.429,1,21
+7554,England,Panama,98.0,34.0,0.006,1,35
+7554,England,Panama,115.0,40.0,0.107,0,39
+7554,England,Panama,118.0,36.0,0.244,1,39
+7554,England,Panama,100.0,40.0,0.024,0,41
+7554,England,Panama,109.0,41.0,0.429,1,45
+7554,England,Panama,97.0,51.0,0.015,0,61
+7554,England,Panama,105.0,49.0,0.047,1,61
+7554,Panama,England,115.0,51.0,0.017,0,65
+7554,England,Panama,104.0,45.0,0.056,0,72
+7554,Panama,England,116.0,36.0,0.406,0,75
+7554,Panama,England,109.0,44.0,0.348,1,77
+7554,England,Panama,93.0,30.0,0.008,0,81
+7554,Panama,England,106.0,41.0,0.132,0,93
+7554,Panama,England,94.0,20.0,0.003,0,94
+7539,Senegal,Poland,84.0,34.0,0.005,0,12
+7539,Poland,Senegal,95.0,35.0,0.021,0,19
+7539,Poland,Senegal,111.0,49.0,0.014,0,19
+7539,Poland,Senegal,101.0,46.0,0.021,0,22
+7539,Senegal,Poland,99.0,48.0,0.005,0,36
+7539,Senegal,Poland,114.0,43.0,0.459,0,41
+7539,Senegal,Poland,98.0,62.0,0.007,0,46
+7539,Poland,Senegal,96.0,47.0,0.031,0,50
+7539,Senegal,Poland,109.0,35.0,0.094,0,51
+7539,Senegal,Poland,108.0,40.0,0.636,0,53
+7539,Poland,Senegal,113.0,53.0,0.014,0,55
+7539,Senegal,Poland,113.0,40.0,0.309,1,59
+7539,Poland,Senegal,92.0,46.0,0.009,0,66
+7539,Poland,Senegal,116.0,46.0,0.683,0,69
+7539,Poland,Senegal,111.0,45.0,0.079,0,78
+7539,Poland,Senegal,114.0,39.0,0.28,1,85
+7539,Poland,Senegal,88.0,38.0,0.005,0,91
+7550,Switzerland,Serbia,84.0,51.0,0.003,0,3
+7550,Serbia,Switzerland,114.0,38.0,0.287,0,4
+7550,Serbia,Switzerland,108.0,37.0,0.179,0,4
+7550,Serbia,Switzerland,115.0,39.0,0.286,1,4
+7550,Switzerland,Serbia,95.0,58.0,0.004,0,8
+7550,Switzerland,Serbia,111.0,38.0,0.324,0,9
+7550,Serbia,Switzerland,104.0,33.0,0.041,0,13
+7550,Serbia,Switzerland,100.0,52.0,0.039,0,15
+7550,Serbia,Switzerland,104.0,32.0,0.17,0,18
+7550,Switzerland,Serbia,100.0,41.0,0.024,0,22
+7550,Switzerland,Serbia,97.0,51.0,0.043,0,22
+7550,Switzerland,Serbia,113.0,37.0,0.132,0,25
+7550,Switzerland,Serbia,111.0,39.0,0.29,0,29
+7550,Switzerland,Serbia,113.0,44.0,0.032,0,30
+7550,Serbia,Switzerland,99.0,49.0,0.007,0,36
+7550,Serbia,Switzerland,109.0,43.0,0.079,0,41
+7550,Serbia,Switzerland,118.0,32.0,0.049,0,43
+7550,Serbia,Switzerland,100.0,49.0,0.008,0,45
+7550,Switzerland,Serbia,98.0,18.0,0.007,0,49
+7550,Serbia,Switzerland,114.0,43.0,0.459,0,51
+7550,Switzerland,Serbia,106.0,55.0,0.008,0,51
+7550,Switzerland,Serbia,95.0,22.0,0.004,1,51
+7550,Switzerland,Serbia,107.0,62.0,0.013,0,57
+7550,Serbia,Switzerland,104.0,29.0,0.028,0,76
+7550,Switzerland,Serbia,86.0,40.0,0.001,0,81
+7550,Switzerland,Serbia,86.0,36.0,0.001,0,82
+7550,Switzerland,Serbia,110.0,43.0,0.217,0,83
+7550,Switzerland,Serbia,94.0,30.0,0.01,0,85
+7550,Switzerland,Serbia,108.0,37.0,0.179,0,85
+7550,Switzerland,Serbia,111.0,31.0,0.058,1,89
+7550,Switzerland,Serbia,99.0,33.0,0.008,0,95
+7538,Sweden,South Korea,85.0,51.0,0.004,0,12
+7538,Sweden,South Korea,113.0,38.0,0.354,0,19
+7538,Sweden,South Korea,109.0,39.0,0.084,0,20
+7538,Sweden,South Korea,111.0,32.0,0.061,0,28
+7538,Sweden,South Korea,112.0,34.0,0.056,0,28
+7538,South Korea,Sweden,106.0,56.0,0.022,0,36
+7538,Sweden,South Korea,90.0,24.0,0.006,0,38
+7538,Sweden,South Korea,118.0,29.0,0.012,0,42
+7538,Sweden,South Korea,94.0,29.0,0.009,0,43
+7538,Sweden,South Korea,104.0,28.0,0.011,0,43
+7538,Sweden,South Korea,111.0,38.0,0.075,0,46
+7538,Sweden,South Korea,99.0,37.0,0.023,0,48
+7538,South Korea,Sweden,107.0,30.0,0.022,0,51
+7538,Sweden,South Korea,113.0,37.0,0.223,0,55
+7538,South Korea,Sweden,97.0,25.0,0.013,0,56
+7538,Sweden,South Korea,109.0,41.0,0.429,1,64
+7538,Sweden,South Korea,83.0,47.0,0.002,0,68
+7538,Sweden,South Korea,98.0,33.0,0.006,0,68
+7538,Sweden,South Korea,99.0,48.0,0.007,0,70
+7538,South Korea,Sweden,100.0,56.0,0.025,0,81
+7538,South Korea,Sweden,110.0,38.0,0.121,0,90
+7534,Mexico,Germany,111.0,29.0,0.113,0,0
+7534,Germany,Mexico,114.0,54.0,0.004,0,2
+7534,Germany,Mexico,103.0,41.0,0.061,0,6
+7534,Mexico,Germany,95.0,38.0,0.012,0,8
+7534,Mexico,Germany,91.0,40.0,0.018,0,9
+7534,Mexico,Germany,110.0,39.0,0.121,0,13
+7534,Germany,Mexico,94.0,28.0,0.008,0,15
+7534,Germany,Mexico,87.0,23.0,0.002,0,15
+7534,Germany,Mexico,105.0,46.0,0.037,0,19
+7534,Germany,Mexico,97.0,27.0,0.018,0,21
+7534,Mexico,Germany,100.0,31.0,0.008,0,22
+7534,Mexico,Germany,95.0,39.0,0.007,0,26
+7534,Mexico,Germany,97.0,34.0,0.006,0,28
+7534,Mexico,Germany,109.0,32.0,0.35,1,34
+7534,Germany,Mexico,107.0,50.0,0.022,0,36
+7534,Germany,Mexico,95.0,49.0,0.041,0,38
+7534,Mexico,Germany,102.0,32.0,0.033,0,44
+7534,Germany,Mexico,95.0,30.0,0.013,0,47
+7534,Germany,Mexico,93.0,40.0,0.034,0,52
+7534,Germany,Mexico,105.0,25.0,0.01,0,54
+7534,Germany,Mexico,102.0,36.0,0.06,0,54
+7534,Mexico,Germany,102.0,29.0,0.008,0,56
+7534,Germany,Mexico,99.0,31.0,0.007,0,60
+7534,Germany,Mexico,109.0,41.0,0.429,0,64
+7534,Germany,Mexico,104.0,31.0,0.026,0,66
+7534,Germany,Mexico,114.0,34.0,0.221,0,67
+7534,Germany,Mexico,114.0,58.0,0.015,0,70
+7534,Germany,Mexico,100.0,49.0,0.008,0,75
+7534,Germany,Mexico,106.0,40.0,0.097,0,76
+7534,Mexico,Germany,97.0,48.0,0.013,0,77
+7534,Germany,Mexico,99.0,52.0,0.055,0,78
+7534,Mexico,Germany,101.0,54.0,0.016,0,81
+7534,Germany,Mexico,99.0,33.0,0.008,0,83
+7534,Germany,Mexico,113.0,35.0,0.068,0,85
+7534,Germany,Mexico,113.0,40.0,0.072,0,86
+7534,Germany,Mexico,117.0,39.0,0.215,0,88
+7534,Germany,Mexico,96.0,31.0,0.006,0,88
+7534,Germany,Mexico,95.0,59.0,0.062,0,89
+7543,Spain,Iran,101.0,62.0,0.012,0,3
+7543,Iran,Spain,95.0,26.0,0.004,0,5
+7543,Spain,Iran,114.0,45.0,0.137,0,9
+7543,Iran,Spain,93.0,37.0,0.061,0,13
+7543,Spain,Iran,97.0,48.0,0.018,0,18
+7543,Spain,Iran,88.0,34.0,0.011,0,21
+7543,Spain,Iran,95.0,49.0,0.041,0,24
+7543,Spain,Iran,113.0,40.0,0.309,0,29
+7543,Spain,Iran,98.0,61.0,0.005,0,30
+7543,Spain,Iran,113.0,36.0,0.157,0,41
+7543,Spain,Iran,96.0,29.0,0.009,0,44
+7543,Spain,Iran,104.0,48.0,0.068,0,46
+7543,Spain,Iran,114.0,41.0,0.466,0,48
+7543,Spain,Iran,96.0,43.0,0.004,0,49
+7543,Spain,Iran,113.0,31.0,0.024,0,50
+7543,Spain,Iran,105.0,51.0,0.027,0,51
+7543,Iran,Spain,104.0,28.0,0.011,0,52
+7543,Spain,Iran,107.0,36.0,0.246,1,53
+7543,Iran,Spain,112.0,39.0,0.044,0,59
+7543,Spain,Iran,109.0,46.0,0.121,0,69
+7543,Spain,Iran,118.0,39.0,0.414,0,69
+7543,Spain,Iran,99.0,56.0,0.161,0,77
+7543,Iran,Spain,117.0,47.0,0.183,0,81
+7543,Iran,Spain,109.0,37.0,0.084,0,90
+7544,Uruguay,Saudi Arabia,101.0,30.0,0.006,0,1
+7544,Saudi Arabia,Uruguay,93.0,31.0,0.009,0,7
+7544,Uruguay,Saudi Arabia,110.0,34.0,0.217,0,12
+7544,Uruguay,Saudi Arabia,119.0,53.0,0.009,0,14
+7544,Saudi Arabia,Uruguay,111.0,57.0,0.005,0,20
+7544,Uruguay,Saudi Arabia,114.0,43.0,0.572,1,22
+7544,Uruguay,Saudi Arabia,110.0,52.0,0.011,0,24
+7544,Saudi Arabia,Uruguay,96.0,58.0,0.022,0,25
+7544,Saudi Arabia,Uruguay,112.0,49.0,0.096,0,28
+7544,Saudi Arabia,Uruguay,83.0,40.0,0.001,0,37
+7544,Uruguay,Saudi Arabia,87.0,42.0,0.01,0,50
+7544,Uruguay,Saudi Arabia,112.0,47.0,0.17,0,61
+7544,Uruguay,Saudi Arabia,105.0,59.0,0.195,0,63
+7544,Uruguay,Saudi Arabia,114.0,43.0,0.245,0,67
+7544,Uruguay,Saudi Arabia,112.0,34.0,0.109,0,76
+7544,Uruguay,Saudi Arabia,92.0,40.0,0.021,0,79
+7544,Uruguay,Saudi Arabia,105.0,45.0,0.013,0,79
+7544,Uruguay,Saudi Arabia,104.0,41.0,0.056,0,85
+7544,Uruguay,Saudi Arabia,102.0,40.0,0.085,0,88
+7544,Saudi Arabia,Uruguay,94.0,21.0,0.028,0,89
+7544,Saudi Arabia,Uruguay,111.0,47.0,0.097,0,89
+7544,Saudi Arabia,Uruguay,98.0,24.0,0.02,0,90
+7546,Peru,France,96.0,43.0,0.003,0,1
+7546,Peru,France,62.0,36.0,0.002,0,5
+7546,France,Peru,114.0,54.0,0.004,0,10
+7546,France,Peru,88.0,54.0,0.003,0,11
+7546,France,Peru,115.0,34.0,0.1,0,13
+7546,France,Peru,102.0,51.0,0.016,0,15
+7546,Peru,France,97.0,27.0,0.015,0,23
+7546,Peru,France,110.0,33.0,0.112,0,30
+7546,France,Peru,112.0,38.0,0.169,0,32
+7546,France,Peru,109.0,29.0,0.112,0,33
+7546,France,Peru,119.0,41.0,0.65,1,33
+7546,France,Peru,109.0,27.0,0.042,0,42
+7546,France,Peru,112.0,29.0,0.093,0,42
+7546,Peru,France,93.0,39.0,0.059,0,49
+7546,Peru,France,101.0,30.0,0.008,0,57
+7546,Peru,France,94.0,37.0,0.051,0,60
+7546,Peru,France,105.0,40.0,0.013,0,66
+7546,Peru,France,98.0,61.0,0.007,0,67
+7546,Peru,France,116.0,29.0,0.017,0,73
+7546,France,Peru,105.0,44.0,0.071,0,81
+7546,Peru,France,87.0,43.0,0.01,0,87
+7546,France,Peru,97.0,40.0,0.008,0,91
+7546,Peru,France,107.0,30.0,0.025,0,92
+7546,France,Peru,106.0,32.0,0.073,0,93
+7545,Croatia,Argentina,109.0,27.0,0.047,0,4
+7545,Argentina,Croatia,104.0,41.0,0.056,0,12
+7545,Croatia,Argentina,87.0,35.0,0.001,0,20
+7545,Argentina,Croatia,106.0,33.0,0.036,0,29
+7545,Croatia,Argentina,115.0,34.0,0.1,0,32
+7545,Croatia,Argentina,99.0,34.0,0.01,0,46
+7545,Argentina,Croatia,96.0,28.0,0.013,0,48
+7545,Argentina,Croatia,111.0,29.0,0.113,0,52
+7545,Croatia,Argentina,108.0,30.0,0.146,1,52
+7545,Argentina,Croatia,113.0,34.0,0.069,0,63
+7545,Argentina,Croatia,117.0,36.0,0.182,0,63
+7545,Argentina,Croatia,109.0,43.0,0.034,0,63
+7545,Croatia,Argentina,115.0,49.0,0.043,0,65
+7545,Argentina,Croatia,107.0,59.0,0.013,0,70
+7545,Croatia,Argentina,103.0,24.0,0.029,0,79
+7545,Croatia,Argentina,93.0,45.0,0.326,1,79
+7545,Argentina,Croatia,100.0,27.0,0.022,0,83
+7545,Croatia,Argentina,89.0,36.0,0.022,0,85
+7545,Croatia,Argentina,103.0,34.0,0.037,0,85
+7545,Croatia,Argentina,99.0,50.0,0.007,0,88
+7545,Croatia,Argentina,87.0,54.0,0.006,0,88
+7545,Argentina,Croatia,108.0,31.0,0.053,0,90
+7545,Croatia,Argentina,98.0,38.0,0.006,0,90
+7545,Croatia,Argentina,112.0,40.0,0.419,1,90
+7585,England,Colombia,115.0,18.0,0.05,0,5
+7585,England,Colombia,112.0,54.0,0.017,0,7
+7585,England,Colombia,98.0,37.0,0.007,0,12
+7585,England,Colombia,119.0,36.0,0.244,0,15
+7585,Colombia,England,97.0,56.0,0.008,0,21
+7585,Colombia,England,90.0,18.0,0.001,0,21
+7585,England,Colombia,101.0,46.0,0.021,0,30
+7585,Colombia,England,92.0,49.0,0.004,0,32
+7585,England,Colombia,99.0,31.0,0.009,0,41
+7585,England,Colombia,94.0,59.0,0.076,0,44
+7585,Colombia,England,97.0,52.0,0.039,0,46
+7585,England,Colombia,108.0,50.0,0.034,0,46
+7585,England,Colombia,108.0,40.0,0.636,1,56
+7585,Colombia,England,78.0,41.0,0.001,0,58
+7585,England,Colombia,117.0,32.0,0.091,0,62
+7585,England,Colombia,108.0,45.0,0.027,0,72
+7585,Colombia,England,108.0,52.0,0.03,0,80
+7585,England,Colombia,115.0,31.0,0.011,0,83
+7585,Colombia,England,110.0,46.0,0.099,0,84
+7585,Colombia,England,114.0,45.0,0.051,0,85
+7585,Colombia,England,94.0,47.0,0.26,0,86
+7585,Colombia,England,82.0,41.0,0.002,0,91
+7585,Colombia,England,114.0,41.0,0.396,1,92
+7585,Colombia,England,109.0,42.0,0.034,0,100
+7585,Colombia,England,109.0,42.0,0.079,0,101
+7585,Colombia,England,108.0,39.0,0.011,0,103
+7585,England,Colombia,98.0,45.0,0.008,0,105
+7585,England,Colombia,112.0,56.0,0.053,0,107
+7585,England,Colombia,113.0,25.0,0.005,0,111
+7585,England,Colombia,112.0,44.0,0.148,0,114
+7585,England,Colombia,111.0,45.0,0.079,0,118
+7569,Tunisia,Panama,101.0,40.0,0.084,0,6
+7569,Tunisia,Panama,104.0,33.0,0.229,0,6
+7569,Panama,Tunisia,78.0,22.0,0.001,0,8
+7569,Tunisia,Panama,95.0,42.0,0.004,0,8
+7569,Panama,Tunisia,113.0,32.0,0.074,0,10
+7569,Tunisia,Panama,104.0,27.0,0.008,0,15
+7569,Tunisia,Panama,102.0,48.0,0.024,0,20
+7569,Panama,Tunisia,90.0,20.0,0.001,0,32
+7569,Panama,Tunisia,108.0,30.0,0.146,0,32
+7569,Panama,Tunisia,94.0,34.0,0.284,0,32
+7569,Tunisia,Panama,116.0,38.0,0.279,0,38
+7569,Tunisia,Panama,109.0,54.0,0.222,0,40
+7569,Tunisia,Panama,105.0,54.0,0.085,0,45
+7569,Tunisia,Panama,109.0,54.0,0.222,0,45
+7569,Tunisia,Panama,114.0,40.0,0.348,1,50
+7569,Tunisia,Panama,109.0,47.0,0.134,0,52
+7569,Tunisia,Panama,113.0,50.0,0.039,0,55
+7569,Tunisia,Panama,103.0,51.0,0.016,0,56
+7569,Tunisia,Panama,104.0,56.0,0.052,0,61
+7569,Panama,Tunisia,104.0,42.0,0.043,0,62
+7569,Tunisia,Panama,117.0,43.0,0.409,1,65
+7569,Panama,Tunisia,108.0,31.0,0.049,0,69
+7569,Panama,Tunisia,104.0,31.0,0.026,0,92
+7569,Panama,Tunisia,94.0,50.0,0.022,0,95
+7572,Japan,Poland,113.0,38.0,0.128,0,11
+7572,Japan,Poland,100.0,28.0,0.008,0,12
+7572,Poland,Japan,98.0,32.0,0.009,0,14
+7572,Japan,Poland,97.0,43.0,0.004,0,15
+7572,Poland,Japan,93.0,38.0,0.038,0,22
+7572,Poland,Japan,108.0,39.0,0.034,0,31
+7572,Poland,Japan,85.0,48.0,0.001,0,32
+7572,Japan,Poland,114.0,58.0,0.007,0,34
+7572,Poland,Japan,104.0,50.0,0.012,0,36
+7572,Japan,Poland,109.0,38.0,0.084,0,40
+7572,Japan,Poland,97.0,32.0,0.025,0,52
+7572,Japan,Poland,113.0,41.0,0.074,0,57
+7572,Japan,Poland,118.0,34.0,0.065,0,57
+7572,Poland,Japan,114.0,46.0,0.575,1,58
+7572,Japan,Poland,104.0,35.0,0.067,0,61
+7572,Poland,Japan,96.0,47.0,0.02,0,63
+7572,Poland,Japan,106.0,35.0,0.043,0,67
+7572,Japan,Poland,107.0,16.0,0.041,0,69
+7572,Japan,Poland,113.0,39.0,0.112,0,71
+7572,Poland,Japan,109.0,43.0,0.263,0,73
+7572,Poland,Japan,109.0,41.0,0.095,0,77
+7572,Poland,Japan,110.0,40.0,0.112,0,81
+7561,Croatia,Iceland,101.0,46.0,0.021,0,18
+7561,Iceland,Croatia,112.0,34.0,0.058,0,27
+7561,Iceland,Croatia,94.0,19.0,0.008,0,30
+7561,Iceland,Croatia,104.0,36.0,0.082,0,33
+7561,Iceland,Croatia,105.0,41.0,0.04,0,33
+7561,Croatia,Iceland,95.0,41.0,0.006,0,36
+7561,Croatia,Iceland,91.0,40.0,0.011,0,39
+7561,Iceland,Croatia,103.0,45.0,0.08,0,39
+7561,Croatia,Iceland,87.0,46.0,0.001,0,40
+7561,Iceland,Croatia,85.0,35.0,0.003,0,43
+7561,Iceland,Croatia,108.0,42.0,0.088,0,45
+7561,Iceland,Croatia,104.0,56.0,0.052,0,46
+7561,Croatia,Iceland,93.0,49.0,0.007,0,50
+7561,Croatia,Iceland,106.0,40.0,0.097,1,52
+7561,Iceland,Croatia,117.0,48.0,0.117,0,54
+7561,Iceland,Croatia,113.0,39.0,0.112,0,54
+7561,Iceland,Croatia,113.0,42.0,0.173,0,55
+7561,Iceland,Croatia,101.0,61.0,0.012,0,56
+7561,Iceland,Croatia,108.0,60.0,0.009,0,65
+7561,Croatia,Iceland,91.0,34.0,0.009,0,65
+7561,Iceland,Croatia,112.0,33.0,0.124,0,72
+7561,Croatia,Iceland,100.0,19.0,0.015,0,73
+7561,Iceland,Croatia,109.0,41.0,0.429,1,75
+7561,Iceland,Croatia,98.0,60.0,0.008,0,76
+7561,Croatia,Iceland,95.0,55.0,0.014,0,84
+7561,Croatia,Iceland,104.0,16.0,0.027,0,87
+7561,Croatia,Iceland,104.0,33.0,0.229,0,88
+7561,Croatia,Iceland,111.0,28.0,0.035,1,89
+7561,Croatia,Iceland,101.0,41.0,0.083,0,91
+7561,Iceland,Croatia,114.0,38.0,0.416,0,93
+7540,Russia,Egypt,100.0,22.0,0.034,0,4
+7540,Russia,Egypt,110.0,38.0,0.121,0,5
+7540,Russia,Egypt,96.0,37.0,0.007,0,5
+7540,Russia,Egypt,99.0,48.0,0.007,0,12
+7540,Egypt,Russia,116.0,33.0,0.091,0,14
+7540,Egypt,Russia,105.0,24.0,0.06,0,15
+7540,Russia,Egypt,92.0,34.0,0.013,0,18
+7540,Russia,Egypt,89.0,32.0,0.005,0,22
+7540,Egypt,Russia,99.0,28.0,0.062,0,24
+7540,Egypt,Russia,117.0,25.0,0.039,0,33
+7540,Egypt,Russia,113.0,34.0,0.013,0,34
+7540,Russia,Egypt,90.0,39.0,0.092,0,38
+7540,Egypt,Russia,107.0,41.0,0.011,0,38
+7540,Russia,Egypt,113.0,47.0,0.031,0,40
+7540,Egypt,Russia,104.0,46.0,0.074,0,41
+7540,Russia,Egypt,97.0,55.0,0.025,0,46
+7540,Egypt,Russia,107.0,33.0,0.044,0,55
+7540,Russia,Egypt,111.0,47.0,0.227,1,58
+7540,Russia,Egypt,108.0,44.0,0.217,1,61
+7540,Egypt,Russia,107.0,49.0,0.008,0,62
+7540,Egypt,Russia,101.0,40.0,0.048,0,66
+7540,Egypt,Russia,90.0,34.0,0.005,0,69
+7540,Egypt,Russia,108.0,40.0,0.636,1,72
+7540,Russia,Egypt,117.0,34.0,0.082,0,74
+7540,Egypt,Russia,102.0,38.0,0.061,0,87
+7540,Egypt,Russia,102.0,59.0,0.039,0,89
+7540,Egypt,Russia,93.0,50.0,0.006,0,93
+7531,Iceland,Argentina,96.0,53.0,0.017,0,0
+7531,Argentina,Iceland,111.0,43.0,0.285,0,4
+7531,Argentina,Iceland,105.0,45.0,0.013,0,7
+7531,Iceland,Argentina,115.0,57.0,0.025,0,8
+7531,Iceland,Argentina,100.0,54.0,0.017,0,8
+7531,Iceland,Argentina,107.0,32.0,0.038,0,8
+7531,Argentina,Iceland,86.0,50.0,0.001,0,12
+7531,Argentina,Iceland,97.0,49.0,0.006,0,16
+7531,Argentina,Iceland,90.0,23.0,0.007,0,18
+7531,Argentina,Iceland,106.0,37.0,0.456,1,18
+7531,Argentina,Iceland,96.0,26.0,0.005,0,20
+7531,Iceland,Argentina,114.0,40.0,0.348,0,22
+7531,Iceland,Argentina,113.0,39.0,0.249,1,22
+7531,Argentina,Iceland,111.0,34.0,0.014,0,26
+7531,Argentina,Iceland,109.0,35.0,0.009,0,27
+7531,Argentina,Iceland,95.0,31.0,0.019,0,32
+7531,Argentina,Iceland,111.0,22.0,0.038,0,38
+7531,Argentina,Iceland,116.0,48.0,0.169,0,41
+7531,Iceland,Argentina,111.0,26.0,0.026,0,44
+7531,Iceland,Argentina,102.0,29.0,0.008,0,45
+7531,Argentina,Iceland,113.0,44.0,0.032,0,47
+7531,Iceland,Argentina,118.0,24.0,0.019,0,49
+7531,Argentina,Iceland,111.0,49.0,0.059,0,55
+7531,Argentina,Iceland,107.0,55.0,0.034,0,56
+7531,Argentina,Iceland,101.0,37.0,0.097,0,58
+7531,Argentina,Iceland,109.0,41.0,0.429,0,63
+7531,Argentina,Iceland,105.0,58.0,0.013,0,63
+7531,Argentina,Iceland,92.0,58.0,0.04,0,65
+7531,Argentina,Iceland,100.0,53.0,0.114,0,69
+7531,Argentina,Iceland,97.0,20.0,0.004,0,70
+7531,Argentina,Iceland,92.0,61.0,0.017,0,72
+7531,Argentina,Iceland,97.0,44.0,0.007,0,80
+7531,Argentina,Iceland,100.0,27.0,0.022,0,82
+7531,Argentina,Iceland,98.0,44.0,0.009,0,83
+7531,Argentina,Iceland,95.0,55.0,0.004,0,87
+7531,Argentina,Iceland,105.0,52.0,0.032,0,91
+7531,Argentina,Iceland,90.0,36.0,0.042,0,94
+7570,Belgium,England,93.0,52.0,0.014,0,5
+7570,Belgium,England,117.0,40.0,0.271,0,9
+7570,England,Belgium,91.0,20.0,0.001,0,11
+7570,England,Belgium,112.0,42.0,0.077,0,13
+7570,Belgium,England,109.0,55.0,0.022,0,26
+7570,Belgium,England,107.0,33.0,0.065,0,26
+7570,Belgium,England,91.0,49.0,0.003,0,26
+7570,England,Belgium,113.0,40.0,0.152,0,33
+7570,Belgium,England,90.0,41.0,0.083,0,34
+7570,Belgium,England,111.0,43.0,0.14,0,35
+7570,England,Belgium,109.0,35.0,0.005,0,35
+7570,Belgium,England,99.0,34.0,0.008,0,37
+7570,Belgium,England,108.0,27.0,0.037,0,39
+7570,England,Belgium,107.0,27.0,0.013,0,47
+7570,Belgium,England,105.0,53.0,0.162,1,50
+7570,England,Belgium,93.0,42.0,0.034,0,53
+7570,Belgium,England,107.0,54.0,0.081,0,54
+7570,England,Belgium,104.0,33.0,0.229,0,65
+7570,England,Belgium,86.0,50.0,0.001,0,66
+7570,England,Belgium,99.0,33.0,0.01,0,69
+7570,England,Belgium,92.0,55.0,0.013,0,80
+7570,England,Belgium,106.0,31.0,0.087,0,82
+7570,England,Belgium,116.0,30.0,0.015,0,86
+7570,Belgium,England,99.0,49.0,0.007,0,88
+7570,Belgium,England,110.0,26.0,0.053,0,88
+7570,Belgium,England,113.0,29.0,0.019,0,91
+7586,Switzerland,Sweden,89.0,60.0,0.002,0,0
+7586,Switzerland,Sweden,103.0,22.0,0.025,0,6
+7586,Sweden,Switzerland,108.0,56.0,0.018,0,7
+7586,Sweden,Switzerland,104.0,41.0,0.056,0,7
+7586,Sweden,Switzerland,101.0,41.0,0.083,0,8
+7586,Sweden,Switzerland,93.0,50.0,0.011,0,13
+7586,Switzerland,Sweden,112.0,51.0,0.022,0,23
+7586,Sweden,Switzerland,108.0,49.0,0.024,0,27
+7586,Switzerland,Sweden,81.0,48.0,0.001,0,33
+7586,Switzerland,Sweden,98.0,60.0,0.008,0,35
+7586,Switzerland,Sweden,104.0,31.0,0.026,0,37
+7586,Sweden,Switzerland,90.0,51.0,0.01,0,39
+7586,Sweden,Switzerland,113.0,33.0,0.052,0,40
+7586,Sweden,Switzerland,109.0,47.0,0.09,0,48
+7586,Switzerland,Sweden,93.0,26.0,0.002,0,52
+7586,Sweden,Switzerland,104.0,16.0,0.027,0,63
+7586,Sweden,Switzerland,101.0,42.0,0.064,1,65
+7586,Sweden,Switzerland,93.0,49.0,0.007,0,68
+7586,Switzerland,Sweden,93.0,21.0,0.002,0,68
+7586,Switzerland,Sweden,104.0,58.0,0.01,0,70
+7586,Switzerland,Sweden,88.0,33.0,0.003,0,71
+7586,Switzerland,Sweden,95.0,52.0,0.011,0,77
+7586,Switzerland,Sweden,112.0,53.0,0.078,0,78
+7586,Switzerland,Sweden,113.0,36.0,0.041,0,78
+7586,Switzerland,Sweden,100.0,31.0,0.008,0,85
+7586,Switzerland,Sweden,101.0,38.0,0.12,0,85
+7586,Switzerland,Sweden,112.0,30.0,0.025,0,90
+7586,Sweden,Switzerland,102.0,38.0,0.115,0,96
+7557,Portugal,Iran,112.0,27.0,0.06,0,2
+7557,Iran,Portugal,101.0,29.0,0.008,0,6
+7557,Portugal,Iran,102.0,35.0,0.079,0,8
+7557,Portugal,Iran,95.0,55.0,0.014,0,15
+7557,Portugal,Iran,100.0,39.0,0.027,0,16
+7557,Portugal,Iran,114.0,35.0,0.046,0,17
+7557,Portugal,Iran,103.0,34.0,0.021,0,18
+7557,Iran,Portugal,93.0,23.0,0.014,0,21
+7557,Portugal,Iran,117.0,50.0,0.015,0,29
+7557,Iran,Portugal,109.0,47.0,0.028,0,33
+7557,Portugal,Iran,83.0,34.0,0.002,0,39
+7557,Portugal,Iran,112.0,55.0,0.008,0,40
+7557,Portugal,Iran,102.0,58.0,0.015,1,44
+7557,Portugal,Iran,108.0,40.0,0.636,0,52
+7557,Iran,Portugal,111.0,36.0,0.05,0,57
+7557,Portugal,Iran,93.0,30.0,0.008,0,61
+7557,Portugal,Iran,97.0,35.0,0.008,0,65
+7557,Portugal,Iran,96.0,24.0,0.002,0,70
+7557,Iran,Portugal,98.0,38.0,0.009,0,71
+7557,Portugal,Iran,95.0,51.0,0.016,0,76
+7557,Iran,Portugal,113.0,32.0,0.025,0,88
+7557,Iran,Portugal,109.0,41.0,0.429,1,92
+7557,Iran,Portugal,97.0,45.0,0.008,0,93
+7557,Iran,Portugal,113.0,33.0,0.052,0,93
+7542,Morocco,Portugal,109.0,30.0,0.027,0,1
+7542,Portugal,Morocco,91.0,39.0,0.012,0,3
+7542,Portugal,Morocco,115.0,41.0,0.403,1,3
+7542,Portugal,Morocco,108.0,56.0,0.007,0,8
+7542,Morocco,Portugal,114.0,33.0,0.025,0,10
+7542,Morocco,Portugal,109.0,45.0,0.011,0,13
+7542,Morocco,Portugal,109.0,26.0,0.088,0,17
+7542,Morocco,Portugal,92.0,25.0,0.001,0,22
+7542,Morocco,Portugal,108.0,44.0,0.02,0,29
+7542,Portugal,Morocco,100.0,34.0,0.033,0,31
+7542,Morocco,Portugal,87.0,28.0,0.001,0,33
+7542,Portugal,Morocco,109.0,34.0,0.051,0,38
+7542,Morocco,Portugal,112.0,41.0,0.045,0,46
+7542,Portugal,Morocco,111.0,42.0,0.059,0,47
+7542,Portugal,Morocco,107.0,31.0,0.045,0,50
+7542,Portugal,Morocco,103.0,53.0,0.028,0,50
+7542,Morocco,Portugal,105.0,57.0,0.013,0,54
+7542,Morocco,Portugal,112.0,50.0,0.024,0,56
+7542,Morocco,Portugal,107.0,42.0,0.136,0,59
+7542,Morocco,Portugal,113.0,34.0,0.033,0,63
+7542,Morocco,Portugal,96.0,54.0,0.04,0,67
+7542,Portugal,Morocco,93.0,17.0,0.002,0,70
+7542,Morocco,Portugal,113.0,47.0,0.102,0,77
+7542,Morocco,Portugal,86.0,54.0,0.001,0,80
+7542,Portugal,Morocco,97.0,52.0,0.011,0,81
+7542,Portugal,Morocco,102.0,31.0,0.016,0,84
+7542,Morocco,Portugal,112.0,50.0,0.096,0,89
+7542,Morocco,Portugal,111.0,38.0,0.324,0,92
+7542,Portugal,Morocco,90.0,21.0,0.001,0,94
+8656,England,Croatia,96.0,43.0,0.008,1,4
+8656,England,Croatia,111.0,37.0,0.078,0,13
+8656,Croatia,England,94.0,20.0,0.003,0,18
+8656,Croatia,England,98.0,41.0,0.008,0,20
+8656,Croatia,England,87.0,26.0,0.006,0,22
+8656,Croatia,England,101.0,50.0,0.008,0,31
+8656,England,Croatia,102.0,41.0,0.084,0,35
+8656,England,Croatia,104.0,52.0,0.018,0,36
+8656,Croatia,England,88.0,51.0,0.001,0,42
+8656,England,Croatia,96.0,45.0,0.006,0,55
+8656,Croatia,England,97.0,34.0,0.008,0,60
+8656,Croatia,England,103.0,41.0,0.084,0,64
+8656,England,Croatia,118.0,56.0,0.008,0,66
+8656,Croatia,England,114.0,40.0,0.348,1,67
+8656,Croatia,England,112.0,30.0,0.147,0,71
+8656,Croatia,England,111.0,44.0,0.353,0,71
+8656,Croatia,England,98.0,48.0,0.005,0,72
+8656,England,Croatia,115.0,55.0,0.007,0,76
+8656,England,Croatia,95.0,45.0,0.02,0,77
+8656,Croatia,England,113.0,52.0,0.147,0,82
+8656,Croatia,England,113.0,24.0,0.012,0,83
+8656,Croatia,England,89.0,57.0,0.001,0,89
+8656,England,Croatia,113.0,33.0,0.025,0,91
+8656,England,Croatia,92.0,51.0,0.039,0,97
+8656,England,Croatia,113.0,49.0,0.027,0,98
+8656,Croatia,England,106.0,58.0,0.013,0,101
+8656,Croatia,England,101.0,34.0,0.023,0,105
+8656,Croatia,England,114.0,39.0,0.25,0,106
+8656,Croatia,England,111.0,27.0,0.024,0,107
+8656,Croatia,England,114.0,33.0,0.052,1,108
+8656,Croatia,England,107.0,32.0,0.042,0,113
+8656,Croatia,England,97.0,22.0,0.021,0,115
+8656,Croatia,England,109.0,52.0,0.021,0,119
+7548,Brazil,Costa Rica,98.0,51.0,0.058,0,2
+7548,Costa Rica,Brazil,88.0,59.0,0.002,0,6
+7548,Costa Rica,Brazil,107.0,48.0,0.023,0,12
+7548,Costa Rica,Brazil,82.0,29.0,0.001,0,14
+7548,Brazil,Costa Rica,106.0,25.0,0.002,0,22
+7548,Brazil,Costa Rica,99.0,22.0,0.032,0,25
+7548,Brazil,Costa Rica,97.0,20.0,0.004,0,28
+7548,Brazil,Costa Rica,92.0,23.0,0.004,0,29
+7548,Brazil,Costa Rica,100.0,52.0,0.039,0,33
+7548,Brazil,Costa Rica,96.0,23.0,0.011,0,40
+7548,Brazil,Costa Rica,117.0,39.0,0.215,0,47
+7548,Brazil,Costa Rica,112.0,40.0,0.185,0,48
+7548,Brazil,Costa Rica,105.0,41.0,0.056,0,48
+7548,Brazil,Costa Rica,110.0,42.0,0.212,0,55
+7548,Brazil,Costa Rica,103.0,48.0,0.022,0,57
+7548,Costa Rica,Brazil,104.0,40.0,0.056,0,59
+7548,Brazil,Costa Rica,108.0,31.0,0.053,0,60
+7548,Brazil,Costa Rica,100.0,24.0,0.022,0,62
+7548,Brazil,Costa Rica,111.0,44.0,0.181,0,68
+7548,Brazil,Costa Rica,112.0,41.0,0.119,0,69
+7548,Brazil,Costa Rica,98.0,38.0,0.009,0,71
+7548,Brazil,Costa Rica,108.0,27.0,0.037,0,75
+7548,Brazil,Costa Rica,89.0,28.0,0.001,0,84
+7548,Brazil,Costa Rica,96.0,46.0,0.005,0,86
+7548,Brazil,Costa Rica,113.0,38.0,0.354,1,90
+7548,Brazil,Costa Rica,112.0,32.0,0.141,0,93
+7548,Brazil,Costa Rica,115.0,42.0,0.465,1,96
+7578,Uruguay,Egypt,97.0,32.0,0.032,0,7
+7578,Egypt,Uruguay,108.0,51.0,0.038,0,11
+7578,Uruguay,Egypt,109.0,55.0,0.022,0,13
+7578,Uruguay,Egypt,102.0,23.0,0.026,0,22
+7578,Uruguay,Egypt,114.0,48.0,0.076,0,23
+7578,Uruguay,Egypt,116.0,35.0,0.142,0,23
+7578,Egypt,Uruguay,100.0,51.0,0.054,0,25
+7578,Uruguay,Egypt,83.0,53.0,0.001,0,28
+7578,Uruguay,Egypt,88.0,38.0,0.022,0,31
+7578,Egypt,Uruguay,105.0,48.0,0.053,0,42
+7578,Egypt,Uruguay,88.0,37.0,0.005,0,45
+7578,Uruguay,Egypt,114.0,48.0,0.1,0,45
+7578,Egypt,Uruguay,92.0,19.0,0.002,0,55
+7578,Uruguay,Egypt,94.0,50.0,0.008,0,67
+7578,Uruguay,Egypt,108.0,49.0,0.024,0,69
+7578,Egypt,Uruguay,98.0,62.0,0.007,0,71
+7578,Egypt,Uruguay,105.0,52.0,0.032,0,80
+7578,Uruguay,Egypt,99.0,34.0,0.01,0,82
+7578,Uruguay,Egypt,112.0,44.0,0.063,0,82
+7578,Uruguay,Egypt,112.0,36.0,0.181,0,84
+7578,Uruguay,Egypt,98.0,21.0,0.082,0,87
+7578,Uruguay,Egypt,110.0,38.0,0.235,0,87
+7578,Uruguay,Egypt,113.0,37.0,0.132,1,88
+7578,Egypt,Uruguay,104.0,56.0,0.052,0,94
+7553,Mexico,South Korea,112.0,41.0,0.119,0,7
+7553,Mexico,South Korea,107.0,45.0,0.047,0,11
+7553,Mexico,South Korea,111.0,49.0,0.011,0,16
+7553,South Korea,Mexico,109.0,51.0,0.038,0,21
+7553,South Korea,Mexico,111.0,49.0,0.059,0,21
+7553,South Korea,Mexico,98.0,49.0,0.005,0,21
+7553,South Korea,Mexico,109.0,44.0,0.059,0,22
+7553,Mexico,South Korea,109.0,41.0,0.429,1,25
+7553,Mexico,South Korea,105.0,42.0,0.043,0,27
+7553,South Korea,Mexico,87.0,41.0,0.013,0,30
+7553,South Korea,Mexico,118.0,30.0,0.004,0,38
+7553,Mexico,South Korea,108.0,26.0,0.015,0,42
+7553,South Korea,Mexico,94.0,48.0,0.022,0,44
+7553,South Korea,Mexico,99.0,32.0,0.012,0,44
+7553,Mexico,South Korea,100.0,28.0,0.008,0,49
+7553,Mexico,South Korea,90.0,46.0,0.004,0,51
+7553,South Korea,Mexico,110.0,47.0,0.121,0,51
+7553,South Korea,Mexico,105.0,68.0,0.012,0,52
+7553,South Korea,Mexico,103.0,18.0,0.014,0,55
+7553,Mexico,South Korea,96.0,46.0,0.005,0,57
+7553,Mexico,South Korea,104.0,36.0,0.043,0,57
+7553,Mexico,South Korea,100.0,39.0,0.018,0,59
+7553,South Korea,Mexico,104.0,38.0,0.105,0,60
+7553,Mexico,South Korea,101.0,58.0,0.006,0,61
+7553,Mexico,South Korea,111.0,32.0,0.401,1,65
+7553,South Korea,Mexico,99.0,40.0,0.021,0,69
+7553,South Korea,Mexico,88.0,52.0,0.001,0,73
+7553,South Korea,Mexico,95.0,49.0,0.016,0,81
+7553,South Korea,Mexico,94.0,40.0,0.14,0,87
+7553,Mexico,South Korea,96.0,47.0,0.02,0,91
+7553,South Korea,Mexico,97.0,54.0,0.103,1,92
+7536,Belgium,Panama,113.0,34.0,0.027,0,0
+7536,Panama,Belgium,96.0,51.0,0.02,0,3
+7536,Belgium,Panama,104.0,24.0,0.024,0,5
+7536,Belgium,Panama,104.0,54.0,0.032,0,6
+7536,Belgium,Panama,118.0,30.0,0.004,0,11
+7536,Belgium,Panama,110.0,57.0,0.009,0,18
+7536,Belgium,Panama,98.0,22.0,0.054,0,21
+7536,Belgium,Panama,103.0,56.0,0.018,0,25
+7536,Belgium,Panama,109.0,54.0,0.089,0,37
+7536,Panama,Belgium,104.0,37.0,0.055,0,38
+7536,Belgium,Panama,103.0,50.0,0.013,0,40
+7536,Panama,Belgium,92.0,53.0,0.002,0,41
+7536,Belgium,Panama,105.0,59.0,0.195,1,46
+7536,Belgium,Panama,97.0,26.0,0.025,0,51
+7536,Panama,Belgium,111.0,49.0,0.059,0,53
+7536,Panama,Belgium,111.0,38.0,0.075,0,54
+7536,Panama,Belgium,99.0,33.0,0.01,0,57
+7536,Belgium,Panama,94.0,37.0,0.055,0,64
+7536,Belgium,Panama,114.0,43.0,0.459,1,68
+7536,Belgium,Panama,110.0,29.0,0.112,1,74
+7536,Belgium,Panama,95.0,29.0,0.009,0,82
+7536,Panama,Belgium,96.0,19.0,0.008,0,88
+7555,Poland,Colombia,104.0,21.0,0.092,0,1
+7555,Poland,Colombia,115.0,39.0,0.103,0,4
+7555,Colombia,Poland,95.0,52.0,0.011,0,14
+7555,Poland,Colombia,95.0,52.0,0.011,0,17
+7555,Colombia,Poland,82.0,30.0,0.001,0,34
+7555,Colombia,Poland,116.0,38.0,0.441,1,39
+7555,Poland,Colombia,105.0,55.0,0.003,0,46
+7555,Poland,Colombia,112.0,44.0,0.063,0,48
+7555,Colombia,Poland,85.0,57.0,0.001,0,50
+7555,Colombia,Poland,102.0,51.0,0.016,0,50
+7555,Colombia,Poland,105.0,53.0,0.05,0,52
+7555,Colombia,Poland,98.0,35.0,0.008,0,55
+7555,Colombia,Poland,88.0,50.0,0.001,0,56
+7555,Poland,Colombia,110.0,29.0,0.112,0,57
+7555,Poland,Colombia,112.0,41.0,0.045,0,65
+7555,Colombia,Poland,108.0,47.0,0.28,1,69
+7555,Poland,Colombia,94.0,50.0,0.008,0,73
+7555,Colombia,Poland,105.0,38.0,0.323,1,74
+7555,Poland,Colombia,109.0,34.0,0.008,0,80
+7555,Poland,Colombia,116.0,33.0,0.236,0,80
+7555,Colombia,Poland,118.0,47.0,0.169,0,83
+7555,Colombia,Poland,89.0,15.0,0.004,0,84
+7555,Poland,Colombia,91.0,33.0,0.026,0,87
+7555,Colombia,Poland,92.0,50.0,0.004,0,89
+7576,Portugal,Spain,109.0,41.0,0.429,1,3
+7576,Spain,Portugal,106.0,38.0,0.509,0,9
+7576,Portugal,Spain,96.0,53.0,0.013,0,15
+7576,Portugal,Spain,99.0,63.0,0.094,0,17
+7576,Spain,Portugal,113.0,31.0,0.024,0,20
+7576,Spain,Portugal,105.0,45.0,0.045,1,23
+7576,Spain,Portugal,103.0,20.0,0.014,0,25
+7576,Spain,Portugal,100.0,54.0,0.178,0,28
+7576,Spain,Portugal,110.0,29.0,0.159,0,34
+7576,Spain,Portugal,111.0,40.0,0.169,0,38
+7576,Spain,Portugal,101.0,55.0,0.013,0,41
+7576,Portugal,Spain,101.0,36.0,0.104,1,43
+7576,Portugal,Spain,87.0,35.0,0.001,0,48
+7576,Spain,Portugal,118.0,41.0,0.65,1,54
+7576,Spain,Portugal,99.0,52.0,0.204,1,57
+7576,Spain,Portugal,110.0,35.0,0.05,0,70
+7576,Portugal,Spain,116.0,34.0,0.123,0,71
+7576,Portugal,Spain,107.0,64.0,0.022,0,75
+7576,Spain,Portugal,100.0,48.0,0.005,0,81
+7576,Portugal,Spain,96.0,44.0,0.013,1,87
+7576,Portugal,Spain,108.0,31.0,0.053,0,91
+7576,Portugal,Spain,113.0,44.0,0.08,0,91
+7565,Brazil,Serbia,104.0,37.0,0.055,0,1
+7565,Brazil,Serbia,114.0,28.0,0.063,0,3
+7565,Serbia,Brazil,96.0,46.0,0.005,0,13
+7565,Serbia,Brazil,108.0,43.0,0.008,0,14
+7565,Brazil,Serbia,117.0,30.0,0.004,0,24
+7565,Brazil,Serbia,114.0,29.0,0.008,0,28
+7565,Serbia,Brazil,110.0,42.0,0.212,0,33
+7565,Brazil,Serbia,106.0,39.0,0.509,1,34
+7565,Serbia,Brazil,95.0,45.0,0.02,0,39
+7565,Brazil,Serbia,101.0,18.0,0.014,0,45
+7565,Serbia,Brazil,96.0,50.0,0.018,0,54
+7565,Brazil,Serbia,111.0,28.0,0.035,0,56
+7565,Serbia,Brazil,112.0,41.0,0.119,0,60
+7565,Serbia,Brazil,104.0,28.0,0.008,0,62
+7565,Serbia,Brazil,113.0,37.0,0.223,0,64
+7565,Brazil,Serbia,116.0,36.0,0.494,1,67
+7565,Brazil,Serbia,101.0,43.0,0.054,0,69
+7565,Brazil,Serbia,95.0,40.0,0.006,0,70
+7565,Brazil,Serbia,104.0,30.0,0.022,0,72
+7565,Brazil,Serbia,80.0,43.0,0.001,0,77
+7565,Serbia,Brazil,109.0,40.0,0.208,0,78
+7565,Brazil,Serbia,106.0,43.0,0.08,0,82
+7565,Serbia,Brazil,106.0,43.0,0.08,0,86
+7565,Brazil,Serbia,108.0,30.0,0.146,0,88
+7565,Serbia,Brazil,99.0,59.0,0.085,0,91
+7565,Brazil,Serbia,114.0,52.0,0.232,0,92
+7551,Germany,Sweden,113.0,42.0,0.384,0,2
+7551,Germany,Sweden,104.0,40.0,0.056,0,2
+7551,Sweden,Germany,106.0,40.0,0.133,0,11
+7551,Germany,Sweden,97.0,53.0,0.058,0,15
+7551,Sweden,Germany,105.0,43.0,0.043,0,17
+7551,Germany,Sweden,92.0,42.0,0.027,0,18
+7551,Sweden,Germany,112.0,48.0,0.2,1,31
+7551,Germany,Sweden,94.0,28.0,0.008,0,38
+7551,Germany,Sweden,96.0,62.0,0.003,0,44
+7551,Sweden,Germany,107.0,47.0,0.012,0,46
+7551,Germany,Sweden,112.0,40.0,0.419,1,47
+7551,Germany,Sweden,101.0,29.0,0.008,0,48
+7551,Germany,Sweden,111.0,54.0,0.008,0,50
+7551,Germany,Sweden,112.0,30.0,0.147,0,55
+7551,Germany,Sweden,105.0,29.0,0.026,0,62
+7551,Germany,Sweden,93.0,38.0,0.038,0,64
+7551,Germany,Sweden,106.0,22.0,0.042,0,72
+7551,Germany,Sweden,105.0,26.0,0.023,0,72
+7551,Sweden,Germany,98.0,20.0,0.013,0,75
+7551,Germany,Sweden,109.0,49.0,0.035,0,80
+7551,Sweden,Germany,110.0,45.0,0.038,0,82
+7551,Germany,Sweden,111.0,40.0,0.169,0,87
+7551,Germany,Sweden,101.0,46.0,0.021,0,91
+7551,Sweden,Germany,107.0,59.0,0.005,0,93
+7551,Germany,Sweden,111.0,20.0,0.438,1,94
+7537,England,Tunisia,113.0,39.0,0.249,0,2
+7537,England,Tunisia,108.0,41.0,0.034,0,2
+7537,England,Tunisia,97.0,36.0,0.009,0,10
+7537,England,Tunisia,112.0,47.0,0.17,0,10
+7537,England,Tunisia,116.0,46.0,0.683,1,10
+7537,England,Tunisia,94.0,48.0,0.022,0,17
+7537,Tunisia,England,91.0,21.0,0.001,0,22
+7537,England,Tunisia,116.0,50.0,0.03,0,23
+7537,Tunisia,England,98.0,46.0,0.007,0,26
+7537,Tunisia,England,108.0,36.0,0.026,0,27
+7537,England,Tunisia,111.0,58.0,0.006,0,30
+7537,Tunisia,England,108.0,40.0,0.636,1,34
+7537,England,Tunisia,118.0,47.0,0.136,0,38
+7537,England,Tunisia,117.0,37.0,0.209,0,38
+7537,England,Tunisia,114.0,39.0,0.25,0,38
+7537,England,Tunisia,106.0,41.0,0.132,0,42
+7537,England,Tunisia,108.0,54.0,0.065,0,43
+7537,England,Tunisia,112.0,40.0,0.088,0,50
+7537,England,Tunisia,106.0,40.0,0.015,0,60
+7537,England,Tunisia,93.0,27.0,0.024,0,68
+7537,Tunisia,England,106.0,60.0,0.013,0,71
+7537,Tunisia,England,93.0,43.0,0.025,0,71
+7537,England,Tunisia,96.0,34.0,0.008,0,78
+7537,England,Tunisia,116.0,36.0,0.504,1,90
+7580,France,Argentina,95.0,50.0,0.036,0,8
+7580,France,Argentina,108.0,40.0,0.636,1,12
+7580,France,Argentina,102.0,33.0,0.05,0,20
+7580,Argentina,France,96.0,27.0,0.006,0,21
+7580,Argentina,France,90.0,38.0,0.129,1,40
+7580,Argentina,France,104.0,56.0,0.052,0,47
+7580,Argentina,France,111.0,42.0,0.285,1,47
+7580,France,Argentina,116.0,45.0,0.239,0,55
+7580,France,Argentina,100.0,56.0,0.095,1,56
+7580,France,Argentina,108.0,35.0,0.166,0,63
+7580,France,Argentina,112.0,30.0,0.147,1,63
+7580,Argentina,France,95.0,24.0,0.002,0,65
+7580,Argentina,France,96.0,22.0,0.042,0,65
+7580,France,Argentina,107.0,51.0,0.101,1,67
+7580,France,Argentina,108.0,27.0,0.028,0,69
+7580,Argentina,France,114.0,36.0,0.274,0,72
+7580,Argentina,France,107.0,49.0,0.024,0,84
+7580,Argentina,France,106.0,48.0,0.023,0,85
+7580,Argentina,France,114.0,55.0,0.007,0,89
+7580,Argentina,France,112.0,37.0,0.17,1,92
+7580,Argentina,France,113.0,38.0,0.354,0,94
+7581,Denmark,Croatia,115.0,34.0,0.316,1,0
+7581,Croatia,Denmark,112.0,36.0,0.347,1,3
+7581,Croatia,Denmark,101.0,55.0,0.144,0,11
+7581,Croatia,Denmark,103.0,24.0,0.029,0,18
+7581,Denmark,Croatia,96.0,37.0,0.007,0,22
+7581,Denmark,Croatia,111.0,50.0,0.097,0,26
+7581,Croatia,Denmark,94.0,32.0,0.047,0,28
+7581,Croatia,Denmark,110.0,32.0,0.206,0,28
+7581,Croatia,Denmark,111.0,34.0,0.1,0,28
+7581,Croatia,Denmark,97.0,30.0,0.007,0,31
+7581,Denmark,Croatia,96.0,57.0,0.004,0,33
+7581,Croatia,Denmark,115.0,39.0,0.103,0,38
+7581,Croatia,Denmark,104.0,31.0,0.026,0,43
+7581,Croatia,Denmark,98.0,62.0,0.005,0,45
+7581,Denmark,Croatia,115.0,52.0,0.016,0,55
+7581,Croatia,Denmark,108.0,21.0,0.074,0,63
+7581,Croatia,Denmark,102.0,26.0,0.049,0,64
+7581,Denmark,Croatia,107.0,50.0,0.022,0,71
+7581,Denmark,Croatia,101.0,30.0,0.008,0,73
+7581,Croatia,Denmark,96.0,51.0,0.02,0,76
+7581,Croatia,Denmark,97.0,58.0,0.008,0,77
+7581,Croatia,Denmark,113.0,31.0,0.009,0,83
+7581,Croatia,Denmark,98.0,30.0,0.007,0,85
+7581,Denmark,Croatia,97.0,50.0,0.006,0,86
+7581,Croatia,Denmark,88.0,40.0,0.005,0,91
+7581,Denmark,Croatia,100.0,50.0,0.008,0,92
+7581,Denmark,Croatia,78.0,47.0,0.001,0,91
+7581,Denmark,Croatia,95.0,45.0,0.02,0,92
+7581,Denmark,Croatia,95.0,47.0,0.007,0,98
+7581,Croatia,Denmark,98.0,30.0,0.005,0,105
+7581,Denmark,Croatia,106.0,20.0,0.013,0,107
+7581,Denmark,Croatia,112.0,27.0,0.06,0,112
+7581,Croatia,Denmark,109.0,41.0,0.429,0,115
+7581,Croatia,Denmark,97.0,33.0,0.006,0,118
+7581,Croatia,Denmark,98.0,28.0,0.016,0,119
+7549,Iceland,Nigeria,92.0,40.0,0.028,0,2
+7549,Iceland,Nigeria,99.0,39.0,0.016,0,4
+7549,Nigeria,Iceland,104.0,39.0,0.044,0,7
+7549,Iceland,Nigeria,114.0,27.0,0.011,0,20
+7549,Iceland,Nigeria,109.0,24.0,0.01,0,33
+7549,Iceland,Nigeria,113.0,40.0,0.309,0,44
+7549,Iceland,Nigeria,113.0,51.0,0.008,0,46
+7549,Nigeria,Iceland,96.0,47.0,0.02,0,45
+7549,Nigeria,Iceland,112.0,46.0,0.303,1,48
+7549,Nigeria,Iceland,84.0,26.0,0.001,0,56
+7549,Nigeria,Iceland,106.0,61.0,0.013,0,65
+7549,Iceland,Nigeria,99.0,28.0,0.047,0,67
+7549,Nigeria,Iceland,101.0,55.0,0.053,0,67
+7549,Nigeria,Iceland,95.0,38.0,0.007,0,68
+7549,Nigeria,Iceland,107.0,48.0,0.008,0,69
+7549,Nigeria,Iceland,112.0,43.0,0.133,0,71
+7549,Nigeria,Iceland,98.0,54.0,0.082,0,73
+7549,Nigeria,Iceland,101.0,27.0,0.057,0,73
+7549,Nigeria,Iceland,104.0,50.0,0.012,0,73
+7549,Nigeria,Iceland,113.0,41.0,0.413,1,74
+7549,Nigeria,Iceland,92.0,39.0,0.023,0,78
+7549,Iceland,Nigeria,108.0,40.0,0.636,0,82
+7549,Nigeria,Iceland,98.0,48.0,0.005,0,83
+7549,Iceland,Nigeria,112.0,27.0,0.06,0,87
+7549,Nigeria,Iceland,91.0,42.0,0.008,0,88
+7549,Iceland,Nigeria,107.0,41.0,0.014,0,89
+7549,Nigeria,Iceland,103.0,39.0,0.086,0,96
+7529,Nigeria,Croatia,89.0,40.0,0.005,0,12
+7529,Croatia,Nigeria,99.0,46.0,0.01,0,13
+7529,Croatia,Nigeria,86.0,35.0,0.001,0,15
+7529,Nigeria,Croatia,109.0,59.0,0.032,0,20
+7529,Nigeria,Croatia,93.0,41.0,0.034,0,21
+7529,Croatia,Nigeria,101.0,23.0,0.026,0,31
+7529,Croatia,Nigeria,113.0,41.0,0.147,0,31
+7529,Nigeria,Croatia,106.0,33.0,0.036,0,33
+7529,Croatia,Nigeria,107.0,37.0,0.043,0,38
+7529,Croatia,Nigeria,104.0,59.0,0.076,0,41
+7529,Nigeria,Croatia,104.0,31.0,0.026,0,45
+7529,Nigeria,Croatia,91.0,47.0,0.025,0,45
+7529,Nigeria,Croatia,108.0,57.0,0.006,0,48
+7529,Croatia,Nigeria,88.0,41.0,0.005,0,49
+7529,Nigeria,Croatia,112.0,21.0,0.098,0,51
+7529,Nigeria,Croatia,108.0,34.0,0.024,0,58
+7529,Croatia,Nigeria,112.0,44.0,0.148,0,62
+7529,Croatia,Nigeria,109.0,41.0,0.429,1,70
+7529,Croatia,Nigeria,108.0,46.0,0.044,0,73
+7529,Nigeria,Croatia,108.0,52.0,0.03,0,76
+7529,Nigeria,Croatia,106.0,40.0,0.015,0,81
+7529,Nigeria,Croatia,86.0,29.0,0.001,0,86
+7529,Nigeria,Croatia,108.0,49.0,0.024,0,86
+7529,Croatia,Nigeria,111.0,52.0,0.021,0,91
+7562,Australia,Peru,97.0,53.0,0.058,0,4
+7562,Australia,Peru,95.0,46.0,0.006,0,11
+7562,Peru,Australia,104.0,53.0,0.009,1,17
+7562,Australia,Peru,112.0,42.0,0.077,0,20
+7562,Peru,Australia,109.0,37.0,0.084,0,24
+7562,Australia,Peru,105.0,40.0,0.056,0,26
+7562,Peru,Australia,83.0,33.0,0.002,0,32
+7562,Australia,Peru,116.0,43.0,0.304,0,34
+7562,Australia,Peru,115.0,34.0,0.1,0,39
+7562,Peru,Australia,111.0,36.0,0.262,1,49
+7562,Australia,Peru,113.0,50.0,0.012,0,51
+7562,Australia,Peru,96.0,61.0,0.065,0,54
+7562,Australia,Peru,113.0,52.0,0.065,0,55
+7562,Australia,Peru,116.0,39.0,0.299,0,58
+7562,Australia,Peru,111.0,51.0,0.016,0,58
+7562,Australia,Peru,107.0,32.0,0.042,0,58
+7562,Australia,Peru,110.0,35.0,0.113,0,59
+7562,Australia,Peru,112.0,50.0,0.096,0,65
+7562,Australia,Peru,96.0,31.0,0.005,0,66
+7562,Australia,Peru,93.0,36.0,0.187,0,82
+7571,Senegal,Colombia,96.0,26.0,0.005,0,0
+7571,Colombia,Senegal,96.0,53.0,0.044,0,11
+7571,Senegal,Colombia,107.0,23.0,0.025,0,26
+7571,Senegal,Colombia,104.0,59.0,0.076,0,27
+7571,Senegal,Colombia,90.0,41.0,0.083,0,36
+7571,Senegal,Colombia,95.0,51.0,0.045,0,63
+7571,Colombia,Senegal,105.0,49.0,0.047,0,64
+7571,Colombia,Senegal,114.0,43.0,0.459,0,65
+7571,Colombia,Senegal,114.0,47.0,0.069,1,73
+7571,Senegal,Colombia,113.0,52.0,0.079,0,76
+7571,Senegal,Colombia,108.0,51.0,0.038,0,78
+7568,Switzerland,Costa Rica,111.0,49.0,0.059,0,3
+7568,Costa Rica,Switzerland,99.0,54.0,0.06,0,5
+7568,Costa Rica,Switzerland,111.0,40.0,0.169,0,5
+7568,Costa Rica,Switzerland,98.0,50.0,0.006,0,5
+7568,Costa Rica,Switzerland,98.0,31.0,0.004,0,6
+7568,Costa Rica,Switzerland,103.0,18.0,0.014,0,9
+7568,Switzerland,Costa Rica,97.0,37.0,0.009,0,16
+7568,Costa Rica,Switzerland,104.0,18.0,0.015,0,18
+7568,Costa Rica,Switzerland,109.0,29.0,0.159,0,23
+7568,Switzerland,Costa Rica,113.0,43.0,0.403,1,30
+7568,Switzerland,Costa Rica,105.0,42.0,0.043,0,32
+7568,Switzerland,Costa Rica,91.0,51.0,0.003,0,38
+7568,Switzerland,Costa Rica,114.0,49.0,0.023,0,39
+7568,Switzerland,Costa Rica,87.0,40.0,0.003,0,45
+7568,Costa Rica,Switzerland,108.0,36.0,0.26,0,47
+7568,Switzerland,Costa Rica,91.0,21.0,0.001,0,48
+7568,Switzerland,Costa Rica,111.0,39.0,0.065,0,51
+7568,Switzerland,Costa Rica,119.0,53.0,0.009,0,51
+7568,Costa Rica,Switzerland,97.0,28.0,0.015,0,53
+7568,Costa Rica,Switzerland,109.0,29.0,0.112,0,53
+7568,Costa Rica,Switzerland,115.0,42.0,0.383,1,55
+7568,Costa Rica,Switzerland,87.0,31.0,0.001,0,63
+7568,Switzerland,Costa Rica,96.0,32.0,0.009,0,70
+7568,Switzerland,Costa Rica,112.0,41.0,0.119,0,77
+7568,Costa Rica,Switzerland,104.0,57.0,0.03,0,78
+7568,Switzerland,Costa Rica,106.0,34.0,0.083,1,87
+7568,Costa Rica,Switzerland,109.0,41.0,0.429,0,92
+7530,France,Australia,114.0,56.0,0.009,0,1
+7530,France,Australia,94.0,28.0,0.008,0,4
+7530,France,Australia,95.0,43.0,0.003,0,5
+7530,France,Australia,109.0,31.0,0.008,0,7
+7530,Australia,France,110.0,34.0,0.021,0,11
+7530,Australia,France,105.0,32.0,0.047,0,16
+7530,France,Australia,109.0,26.0,0.088,0,32
+7530,Australia,France,101.0,21.0,0.055,0,44
+7530,France,Australia,108.0,40.0,0.636,1,57
+7530,France,Australia,104.0,37.0,0.083,0,58
+7530,France,Australia,104.0,43.0,0.029,0,58
+7530,Australia,France,109.0,41.0,0.429,1,61
+7530,France,Australia,86.0,30.0,0.001,0,68
+7530,France,Australia,95.0,42.0,0.004,0,71
+7530,France,Australia,100.0,31.0,0.008,0,83
+7530,France,Australia,100.0,63.0,0.094,0,87
+7530,Australia,France,97.0,47.0,0.007,0,93
+7558,Uruguay,Russia,87.0,30.0,0.001,0,1
+7558,Uruguay,Russia,101.0,36.0,0.173,1,9
+7558,Russia,Uruguay,103.0,32.0,0.03,0,11
+7558,Uruguay,Russia,96.0,24.0,0.002,0,22
+7558,Uruguay,Russia,111.0,45.0,0.252,0,27
+7558,Uruguay,Russia,94.0,45.0,0.065,0,46
+7558,Uruguay,Russia,111.0,57.0,0.011,0,58
+7558,Uruguay,Russia,59.0,32.0,0.002,0,67
+7558,Uruguay,Russia,105.0,33.0,0.083,0,68
+7558,Russia,Uruguay,96.0,55.0,0.008,0,69
+7558,Russia,Uruguay,105.0,52.0,0.009,0,73
+7558,Uruguay,Russia,94.0,25.0,0.018,0,81
+7558,Uruguay,Russia,116.0,42.0,0.509,0,83
+7558,Uruguay,Russia,107.0,47.0,0.041,0,85
+7558,Uruguay,Russia,101.0,22.0,0.025,0,89
+7558,Uruguay,Russia,114.0,39.0,0.104,0,89
+7558,Uruguay,Russia,119.0,39.0,0.408,1,89
+7558,Uruguay,Russia,113.0,44.0,0.18,0,94
+7558,Uruguay,Russia,91.0,31.0,0.003,0,94
+7583,Mexico,Brazil,111.0,52.0,0.021,0,1
+7583,Brazil,Mexico,96.0,43.0,0.004,0,4
+7583,Mexico,Brazil,107.0,43.0,0.025,0,8
+7583,Mexico,Brazil,111.0,58.0,0.008,0,17
+7583,Mexico,Brazil,105.0,41.0,0.056,0,21
+7583,Brazil,Mexico,116.0,30.0,0.015,0,24
+7583,Brazil,Mexico,112.0,48.0,0.089,0,25
+7583,Brazil,Mexico,102.0,30.0,0.015,0,26
+7583,Mexico,Brazil,101.0,26.0,0.014,0,29
+7583,Brazil,Mexico,111.0,30.0,0.198,0,32
+7583,Brazil,Mexico,115.0,32.0,0.064,0,32
+7583,Brazil,Mexico,100.0,31.0,0.008,0,33
+7583,Brazil,Mexico,93.0,31.0,0.009,0,37
+7583,Brazil,Mexico,90.0,27.0,0.003,0,39
+7583,Brazil,Mexico,102.0,48.0,0.017,0,46
+7583,Brazil,Mexico,107.0,31.0,0.045,0,47
+7583,Mexico,Brazil,95.0,33.0,0.009,0,49
+7583,Brazil,Mexico,119.0,43.0,0.744,1,50
+7583,Mexico,Brazil,92.0,33.0,0.013,0,51
+7583,Mexico,Brazil,97.0,54.0,0.049,0,53
+7583,Brazil,Mexico,99.0,54.0,0.06,0,55
+7583,Brazil,Mexico,107.0,43.0,0.206,0,58
+7583,Mexico,Brazil,91.0,41.0,0.011,0,60
+7583,Mexico,Brazil,100.0,56.0,0.095,0,60
+7583,Brazil,Mexico,106.0,54.0,0.026,0,62
+7583,Brazil,Mexico,104.0,40.0,0.056,0,67
+7583,Mexico,Brazil,93.0,41.0,0.034,0,69
+7583,Brazil,Mexico,97.0,55.0,0.025,0,74
+7583,Mexico,Brazil,109.0,29.0,0.112,0,86
+7583,Brazil,Mexico,112.0,33.0,0.065,0,87
+7583,Brazil,Mexico,119.0,43.0,0.744,1,87
+7583,Mexico,Brazil,111.0,59.0,0.011,0,91
+7583,Mexico,Brazil,105.0,52.0,0.032,0,94
+7547,Denmark,Australia,114.0,38.0,0.287,0,1
+7547,Australia,Denmark,101.0,53.0,0.053,0,4
+7547,Australia,Denmark,113.0,42.0,0.173,0,4
+7547,Denmark,Australia,104.0,39.0,0.323,1,6
+7547,Denmark,Australia,88.0,38.0,0.005,0,21
+7547,Australia,Denmark,93.0,33.0,0.015,0,22
+7547,Denmark,Australia,113.0,42.0,0.173,0,23
+7547,Australia,Denmark,111.0,44.0,0.353,0,29
+7547,Australia,Denmark,92.0,40.0,0.021,0,29
+7547,Australia,Denmark,110.0,41.0,0.064,0,35
+7547,Australia,Denmark,109.0,41.0,0.429,1,37
+7547,Denmark,Australia,108.0,32.0,0.013,0,42
+7547,Denmark,Australia,107.0,40.0,0.126,0,50
+7547,Australia,Denmark,94.0,26.0,0.013,0,70
+7547,Australia,Denmark,94.0,47.0,0.315,0,71
+7547,Denmark,Australia,96.0,27.0,0.011,0,71
+7547,Australia,Denmark,104.0,59.0,0.035,0,75
+7547,Australia,Denmark,108.0,42.0,0.088,0,78
+7547,Denmark,Australia,106.0,34.0,0.045,0,82
+7547,Australia,Denmark,114.0,24.0,0.012,0,87
+7547,Australia,Denmark,107.0,37.0,0.37,0,87
+7547,Denmark,Australia,97.0,47.0,0.007,0,89
+7547,Denmark,Australia,105.0,29.0,0.02,0,91
+7535,Serbia,Costa Rica,112.0,42.0,0.077,0,0
+7535,Costa Rica,Serbia,119.0,52.0,0.01,0,1
+7535,Costa Rica,Serbia,112.0,45.0,0.147,0,2
+7535,Serbia,Costa Rica,93.0,20.0,0.002,0,6
+7535,Costa Rica,Serbia,116.0,48.0,0.169,0,11
+7535,Serbia,Costa Rica,104.0,53.0,0.031,0,12
+7535,Serbia,Costa Rica,116.0,32.0,0.375,0,15
+7535,Costa Rica,Serbia,96.0,42.0,0.004,0,38
+7535,Costa Rica,Serbia,101.0,29.0,0.008,0,41
+7535,Serbia,Costa Rica,109.0,39.0,0.321,0,49
+7535,Serbia,Costa Rica,114.0,41.0,0.396,0,53
+7535,Serbia,Costa Rica,94.0,59.0,0.535,1,55
+7535,Serbia,Costa Rica,109.0,45.0,0.019,0,65
+7535,Serbia,Costa Rica,94.0,37.0,0.051,0,74
+7535,Serbia,Costa Rica,118.0,42.0,0.642,0,75
+7535,Serbia,Costa Rica,100.0,36.0,0.027,0,76
+7535,Costa Rica,Serbia,102.0,57.0,0.015,0,78
+7535,Costa Rica,Serbia,100.0,43.0,0.018,0,78
+7535,Serbia,Costa Rica,101.0,30.0,0.006,0,89
+7535,Costa Rica,Serbia,79.0,33.0,0.001,0,90
+7535,Costa Rica,Serbia,112.0,31.0,0.017,0,92
+7535,Costa Rica,Serbia,106.0,42.0,0.102,0,94
+8649,Uruguay,France,112.0,56.0,0.053,0,4
+8649,France,Uruguay,91.0,22.0,0.002,0,6
+8649,France,Uruguay,112.0,48.0,0.037,0,10
+8649,France,Uruguay,96.0,45.0,0.004,0,11
+8649,Uruguay,France,109.0,32.0,0.057,0,13
+8649,France,Uruguay,115.0,48.0,0.057,0,14
+8649,France,Uruguay,84.0,45.0,0.002,0,18
+8649,Uruguay,France,108.0,50.0,0.034,0,34
+8649,France,Uruguay,109.0,44.0,0.176,1,39
+8649,Uruguay,France,89.0,30.0,0.001,0,41
+8649,Uruguay,France,108.0,38.0,0.009,0,43
+8649,Uruguay,France,118.0,34.0,0.065,0,43
+8649,France,Uruguay,86.0,51.0,0.001,0,52
+8649,Uruguay,France,101.0,54.0,0.049,0,55
+8649,Uruguay,France,104.0,62.0,0.012,0,58
+8649,France,Uruguay,97.0,21.0,0.474,1,60
+8649,Uruguay,France,96.0,34.0,0.005,0,63
+8649,Uruguay,France,99.0,35.0,0.01,0,63
+8649,France,Uruguay,99.0,32.0,0.012,0,72
+8649,France,Uruguay,102.0,52.0,0.103,0,75
+8649,France,Uruguay,90.0,44.0,0.033,0,88
+8658,Croatia,France,112.0,49.0,0.024,0,20
+8658,Croatia,France,108.0,29.0,0.125,0,23
+8658,Croatia,France,105.0,32.0,0.257,1,27
+8658,France,Croatia,108.0,40.0,0.636,1,37
+8658,Croatia,France,108.0,41.0,0.25,0,39
+8658,Croatia,France,117.0,34.0,0.084,0,42
+8658,Croatia,France,113.0,26.0,0.01,0,42
+8658,Croatia,France,115.0,40.0,0.318,0,45
+8658,France,Croatia,95.0,45.0,0.02,0,46
+8658,Croatia,France,108.0,26.0,0.02,0,47
+8658,Croatia,France,110.0,33.0,0.008,0,47
+8658,Croatia,France,91.0,48.0,0.019,0,49
+8658,France,Croatia,115.0,55.0,0.007,0,51
+8658,France,Croatia,99.0,41.0,0.021,0,58
+8658,France,Croatia,102.0,39.0,0.144,1,58
+8658,France,Croatia,112.0,29.0,0.093,0,60
+8658,Croatia,France,96.0,29.0,0.01,0,63
+8658,France,Croatia,94.0,40.0,0.14,1,64
+8658,Croatia,France,114.0,43.0,0.572,1,68
+8658,Croatia,France,78.0,40.0,0.001,0,75
+8658,Croatia,France,101.0,30.0,0.006,0,77
+8658,France,Croatia,98.0,61.0,0.005,0,86
+8658,Croatia,France,90.0,24.0,0.004,0,88
+7582,Russia,Spain,91.0,21.0,0.002,0,4
+7582,Russia,Spain,96.0,52.0,0.011,0,13
+7582,Russia,Spain,104.0,31.0,0.02,0,35
+7582,Russia,Spain,110.0,33.0,0.014,0,39
+7582,Russia,Spain,108.0,40.0,0.636,1,40
+7582,Spain,Russia,100.0,27.0,0.022,0,44
+7582,Spain,Russia,117.0,51.0,0.015,0,45
+7582,Spain,Russia,113.0,47.0,0.068,0,45
+7582,Spain,Russia,111.0,47.0,0.227,0,46
+7582,Spain,Russia,110.0,34.0,0.217,0,46
+7582,Spain,Russia,109.0,34.0,0.008,0,50
+7582,Spain,Russia,97.0,33.0,0.008,0,52
+7582,Spain,Russia,111.0,46.0,0.09,0,59
+7582,Spain,Russia,109.0,41.0,0.429,0,81
+7582,Spain,Russia,99.0,34.0,0.01,0,84
+7582,Spain,Russia,115.0,26.0,0.009,0,84
+7582,Spain,Russia,112.0,35.0,0.024,0,88
+7582,Spain,Russia,112.0,42.0,0.031,0,89
+7582,Russia,Spain,104.0,24.0,0.024,0,92
+7582,Russia,Spain,112.0,39.0,0.11,0,92
+7582,Spain,Russia,95.0,26.0,0.004,0,92
+7582,Spain,Russia,84.0,40.0,0.001,0,96
+7582,Spain,Russia,97.0,32.0,0.032,0,99
+7582,Spain,Russia,106.0,27.0,0.013,0,101
+7582,Spain,Russia,108.0,40.0,0.092,0,105
+7582,Spain,Russia,99.0,33.0,0.01,0,106
+7582,Spain,Russia,114.0,54.0,0.004,0,108
+7582,Spain,Russia,108.0,42.0,0.088,0,108
+7582,Spain,Russia,101.0,44.0,0.089,0,108
+7582,Spain,Russia,108.0,59.0,0.008,0,111
+7582,Russia,Spain,113.0,45.0,0.066,0,116
+7582,Spain,Russia,99.0,35.0,0.01,0,120
+7552,Belgium,Tunisia,100.0,51.0,0.054,0,2
+7552,Belgium,Tunisia,108.0,40.0,0.636,1,6
+7552,Belgium,Tunisia,109.0,24.0,0.01,0,11
+7552,Belgium,Tunisia,110.0,44.0,0.331,0,12
+7552,Belgium,Tunisia,101.0,21.0,0.068,0,14
+7552,Belgium,Tunisia,104.0,33.0,0.229,1,15
+7552,Tunisia,Belgium,112.0,41.0,0.119,1,17
+7552,Belgium,Tunisia,107.0,33.0,0.065,0,18
+7552,Belgium,Tunisia,102.0,56.0,0.046,0,20
+7552,Belgium,Tunisia,100.0,34.0,0.023,0,27
+7552,Tunisia,Belgium,106.0,69.0,0.007,0,29
+7552,Tunisia,Belgium,101.0,45.0,0.038,0,30
+7552,Tunisia,Belgium,88.0,26.0,0.002,0,32
+7552,Tunisia,Belgium,96.0,37.0,0.007,0,38
+7552,Tunisia,Belgium,117.0,27.0,0.019,0,41
+7552,Belgium,Tunisia,112.0,45.0,0.316,1,47
+7552,Belgium,Tunisia,115.0,48.0,0.088,0,46
+7552,Tunisia,Belgium,113.0,44.0,0.18,0,49
+7552,Tunisia,Belgium,99.0,24.0,0.016,0,49
+7552,Belgium,Tunisia,109.0,38.0,0.294,1,50
+7552,Tunisia,Belgium,112.0,37.0,0.074,0,53
+7552,Tunisia,Belgium,94.0,55.0,0.026,0,55
+7552,Tunisia,Belgium,109.0,42.0,0.263,0,60
+7552,Belgium,Tunisia,102.0,29.0,0.008,0,60
+7552,Belgium,Tunisia,97.0,30.0,0.007,0,63
+7552,Tunisia,Belgium,101.0,16.0,0.003,0,65
+7552,Tunisia,Belgium,101.0,45.0,0.038,0,65
+7552,Tunisia,Belgium,100.0,30.0,0.008,0,66
+7552,Tunisia,Belgium,93.0,41.0,0.034,0,69
+7552,Belgium,Tunisia,114.0,29.0,0.008,0,75
+7552,Belgium,Tunisia,104.0,23.0,0.142,0,78
+7552,Belgium,Tunisia,114.0,39.0,0.25,0,79
+7552,Belgium,Tunisia,108.0,58.0,0.011,0,79
+7552,Belgium,Tunisia,113.0,39.0,0.249,0,80
+7552,Belgium,Tunisia,113.0,54.0,0.009,0,80
+7552,Belgium,Tunisia,94.0,56.0,0.003,0,81
+7552,Belgium,Tunisia,113.0,35.0,0.363,1,89
+7552,Tunisia,Belgium,63.0,42.0,0.001,0,90
+7552,Belgium,Tunisia,103.0,37.0,0.086,0,91
+7552,Tunisia,Belgium,111.0,44.0,0.353,1,92
+7532,Peru,Denmark,87.0,57.0,0.001,0,4
+7532,Peru,Denmark,84.0,24.0,0.001,0,7
+7532,Peru,Denmark,87.0,41.0,0.003,0,10
+7532,Peru,Denmark,103.0,58.0,0.006,0,12
+7532,Peru,Denmark,86.0,43.0,0.001,0,13
+7532,Peru,Denmark,107.0,37.0,0.028,0,14
+7532,Denmark,Peru,113.0,26.0,0.01,0,19
+7532,Denmark,Peru,88.0,36.0,0.005,0,26
+7532,Peru,Denmark,108.0,51.0,0.038,0,28
+7532,Denmark,Peru,100.0,52.0,0.125,0,38
+7532,Denmark,Peru,94.0,43.0,0.034,0,38
+7532,Denmark,Peru,102.0,24.0,0.017,0,40
+7532,Peru,Denmark,108.0,40.0,0.636,0,45
+7532,Denmark,Peru,115.0,45.0,0.029,0,46
+7532,Peru,Denmark,110.0,60.0,0.016,0,49
+7532,Denmark,Peru,90.0,36.0,0.014,0,50
+7532,Denmark,Peru,103.0,59.0,0.039,0,52
+7532,Peru,Denmark,114.0,50.0,0.044,0,56
+7532,Denmark,Peru,108.0,28.0,0.114,1,58
+7532,Peru,Denmark,108.0,29.0,0.125,0,60
+7532,Peru,Denmark,113.0,41.0,0.147,0,63
+7532,Peru,Denmark,113.0,50.0,0.012,0,68
+7532,Peru,Denmark,109.0,59.0,0.032,0,72
+7532,Peru,Denmark,112.0,40.0,0.419,0,78
+7532,Denmark,Peru,104.0,49.0,0.022,0,81
+7532,Peru,Denmark,108.0,43.0,0.088,0,83
+7532,Denmark,Peru,105.0,32.0,0.257,0,85
+7532,Peru,Denmark,112.0,41.0,0.045,0,94
+7560,Morocco,Spain,107.0,45.0,0.296,1,13
+7560,Spain,Morocco,97.0,27.0,0.018,0,17
+7560,Spain,Morocco,114.0,38.0,0.379,1,18
+7560,Spain,Morocco,112.0,45.0,0.062,0,22
+7560,Spain,Morocco,102.0,34.0,0.034,0,23
+7560,Morocco,Spain,114.0,34.0,0.221,0,24
+7560,Spain,Morocco,106.0,31.0,0.087,0,26
+7560,Spain,Morocco,112.0,38.0,0.1,0,36
+7560,Morocco,Spain,94.0,30.0,0.01,0,42
+7560,Spain,Morocco,116.0,37.0,0.319,0,46
+7560,Morocco,Spain,117.0,50.0,0.015,0,46
+7560,Spain,Morocco,99.0,43.0,0.015,0,51
+7560,Morocco,Spain,97.0,60.0,0.008,0,54
+7560,Spain,Morocco,87.0,53.0,0.002,0,55
+7560,Morocco,Spain,110.0,52.0,0.021,0,56
+7560,Spain,Morocco,106.0,51.0,0.055,0,58
+7560,Spain,Morocco,115.0,37.0,0.117,0,61
+7560,Spain,Morocco,111.0,40.0,0.066,0,62
+7560,Spain,Morocco,110.0,52.0,0.021,0,66
+7560,Spain,Morocco,101.0,31.0,0.011,0,68
+7560,Spain,Morocco,88.0,27.0,0.001,0,77
+7560,Morocco,Spain,112.0,50.0,0.096,0,79
+7560,Morocco,Spain,110.0,40.0,0.112,1,80
+7560,Spain,Morocco,113.0,41.0,0.147,0,85
+7560,Spain,Morocco,114.0,34.0,0.067,0,86
+7560,Spain,Morocco,116.0,44.0,0.636,1,90
+7533,Switzerland,Brazil,109.0,44.0,0.348,0,2
+7533,Brazil,Switzerland,115.0,36.0,0.203,0,10
+7533,Brazil,Switzerland,91.0,35.0,0.014,0,15
+7533,Brazil,Switzerland,99.0,21.0,0.323,1,19
+7533,Switzerland,Brazil,115.0,57.0,0.01,0,27
+7533,Brazil,Switzerland,116.0,44.0,0.586,0,32
+7533,Switzerland,Brazil,105.0,26.0,0.023,0,39
+7533,Brazil,Switzerland,116.0,32.0,0.375,0,46
+7533,Switzerland,Brazil,88.0,23.0,0.002,0,45
+7533,Switzerland,Brazil,116.0,41.0,0.533,1,49
+7533,Brazil,Switzerland,97.0,33.0,0.008,0,56
+7533,Brazil,Switzerland,104.0,36.0,0.082,0,56
+7533,Brazil,Switzerland,116.0,30.0,0.015,0,56
+7533,Brazil,Switzerland,110.0,43.0,0.061,0,58
+7533,Brazil,Switzerland,89.0,36.0,0.005,0,58
+7533,Brazil,Switzerland,94.0,41.0,0.057,0,65
+7533,Brazil,Switzerland,101.0,51.0,0.006,0,66
+7533,Brazil,Switzerland,100.0,57.0,0.01,0,66
+7533,Brazil,Switzerland,108.0,32.0,0.087,0,69
+7533,Switzerland,Brazil,100.0,42.0,0.012,0,72
+7533,Brazil,Switzerland,92.0,52.0,0.003,0,76
+7533,Brazil,Switzerland,96.0,21.0,0.023,0,77
+7533,Brazil,Switzerland,114.0,54.0,0.004,0,81
+7533,Brazil,Switzerland,109.0,38.0,0.084,0,87
+7533,Switzerland,Brazil,99.0,51.0,0.017,0,88
+7533,Brazil,Switzerland,112.0,40.0,0.185,0,89
+7533,Brazil,Switzerland,105.0,40.0,0.04,0,90
+7533,Brazil,Switzerland,115.0,32.0,0.064,0,95
+7564,Nigeria,Argentina,98.0,38.0,0.009,0,6
+7564,Argentina,Nigeria,105.0,28.0,0.012,0,7
+7564,Nigeria,Argentina,97.0,24.0,0.005,0,8
+7564,Argentina,Nigeria,112.0,50.0,0.094,1,13
+7564,Argentina,Nigeria,112.0,52.0,0.021,0,26
+7564,Argentina,Nigeria,100.0,29.0,0.029,0,33
+7564,Argentina,Nigeria,111.0,26.0,0.03,0,38
+7564,Nigeria,Argentina,93.0,49.0,0.007,0,40
+7564,Nigeria,Argentina,103.0,48.0,0.009,0,47
+7564,Nigeria,Argentina,109.0,41.0,0.429,1,50
+7564,Nigeria,Argentina,93.0,40.0,0.053,0,70
+7564,Nigeria,Argentina,108.0,47.0,0.28,0,74
+7564,Argentina,Nigeria,105.0,23.0,0.065,0,78
+7564,Argentina,Nigeria,108.0,36.0,0.26,0,79
+7564,Nigeria,Argentina,116.0,29.0,0.017,0,82
+7564,Nigeria,Argentina,94.0,53.0,0.044,0,83
+7564,Argentina,Nigeria,107.0,37.0,0.37,1,85
+7579,Portugal,Uruguay,115.0,50.0,0.014,0,1
+7579,Portugal,Uruguay,97.0,50.0,0.006,0,5
+7579,Uruguay,Portugal,114.0,46.0,0.268,1,6
+7579,Portugal,Uruguay,115.0,34.0,0.042,0,10
+7579,Portugal,Uruguay,95.0,20.0,0.002,0,11
+7579,Uruguay,Portugal,110.0,57.0,0.005,0,13
+7579,Portugal,Uruguay,97.0,47.0,0.007,0,15
+7579,Portugal,Uruguay,92.0,38.0,0.03,0,15
+7579,Uruguay,Portugal,91.0,41.0,0.014,0,21
+7579,Uruguay,Portugal,101.0,62.0,0.012,0,21
+7579,Portugal,Uruguay,95.0,33.0,0.01,0,31
+7579,Uruguay,Portugal,111.0,37.0,0.078,0,34
+7579,Portugal,Uruguay,110.0,46.0,0.041,0,37
+7579,Uruguay,Portugal,113.0,25.0,0.005,0,46
+7579,Portugal,Uruguay,96.0,27.0,0.006,0,51
+7579,Portugal,Uruguay,100.0,44.0,0.027,0,53
+7579,Portugal,Uruguay,112.0,43.0,0.133,1,54
+7579,Portugal,Uruguay,96.0,26.0,0.005,0,59
+7579,Uruguay,Portugal,103.0,26.0,0.228,1,61
+7579,Portugal,Uruguay,103.0,40.0,0.061,0,69
+7579,Portugal,Uruguay,96.0,24.0,0.002,0,72
+7579,Portugal,Uruguay,100.0,23.0,0.033,0,76
+7579,Portugal,Uruguay,87.0,30.0,0.001,0,77
+7579,Portugal,Uruguay,93.0,52.0,0.014,0,84
+7579,Portugal,Uruguay,90.0,19.0,0.001,0,86
+7579,Portugal,Uruguay,91.0,22.0,0.001,0,90
+7579,Portugal,Uruguay,110.0,54.0,0.14,0,94
+7579,Portugal,Uruguay,109.0,39.0,0.036,0,94
+7577,Morocco,Iran,103.0,30.0,0.024,0,1
+7577,Morocco,Iran,115.0,52.0,0.007,0,3
+7577,Morocco,Iran,102.0,42.0,0.031,0,7
+7577,Morocco,Iran,111.0,27.0,0.036,0,18
+7577,Morocco,Iran,113.0,46.0,0.215,0,18
+7577,Morocco,Iran,110.0,44.0,0.331,0,18
+7577,Iran,Morocco,113.0,34.0,0.069,0,24
+7577,Morocco,Iran,104.0,23.0,0.142,0,25
+7577,Morocco,Iran,92.0,41.0,0.021,0,25
+7577,Morocco,Iran,110.0,24.0,0.004,0,29
+7577,Iran,Morocco,114.0,53.0,0.015,0,31
+7577,Iran,Morocco,84.0,47.0,0.005,0,34
+7577,Iran,Morocco,98.0,52.0,0.017,0,40
+7577,Iran,Morocco,109.0,51.0,0.038,0,42
+7577,Iran,Morocco,108.0,52.0,0.03,0,42
+7577,Iran,Morocco,98.0,35.0,0.008,0,43
+7577,Iran,Morocco,82.0,42.0,0.007,0,44
+7577,Morocco,Iran,112.0,30.0,0.147,0,48
+7577,Morocco,Iran,99.0,34.0,0.01,0,79
+7577,Morocco,Iran,114.0,41.0,0.396,0,80
+7577,Morocco,Iran,97.0,50.0,0.006,0,86
+7577,Morocco,Iran,82.0,51.0,0.001,0,90
+7525,Saudi Arabia,Russia,103.0,21.0,0.05,0,5
+7525,Russia,Saudi Arabia,111.0,52.0,0.021,0,6
+7525,Russia,Saudi Arabia,107.0,26.0,0.02,0,8
+7525,Russia,Saudi Arabia,106.0,49.0,0.034,0,10
+7525,Russia,Saudi Arabia,112.0,47.0,0.17,1,11
+7525,Saudi Arabia,Russia,103.0,29.0,0.008,0,21
+7525,Saudi Arabia,Russia,92.0,39.0,0.023,0,27
+7525,Saudi Arabia,Russia,110.0,42.0,0.116,0,30
+7525,Russia,Saudi Arabia,110.0,34.0,0.217,1,42
+7525,Russia,Saudi Arabia,97.0,50.0,0.006,0,51
+7525,Russia,Saudi Arabia,108.0,24.0,0.007,0,62
+7525,Russia,Saudi Arabia,107.0,39.0,0.018,0,64
+7525,Russia,Saudi Arabia,104.0,56.0,0.02,0,67
+7525,Russia,Saudi Arabia,115.0,37.0,0.307,1,70
+7525,Saudi Arabia,Russia,97.0,25.0,0.013,0,72
+7525,Russia,Saudi Arabia,110.0,42.0,0.116,0,76
+7525,Saudi Arabia,Russia,104.0,57.0,0.03,0,81
+7525,Russia,Saudi Arabia,86.0,38.0,0.001,0,83
+7525,Russia,Saudi Arabia,104.0,23.0,0.142,1,90
+7525,Russia,Saudi Arabia,99.0,52.0,0.473,1,93
+7566,Sweden,Mexico,114.0,17.0,0.021,0,4
+7566,Mexico,Sweden,92.0,58.0,0.004,0,9
+7566,Sweden,Mexico,112.0,36.0,0.081,0,11
+7566,Sweden,Mexico,116.0,36.0,0.397,0,11
+7566,Sweden,Mexico,96.0,56.0,0.004,0,14
+7566,Mexico,Sweden,104.0,46.0,0.074,0,16
+7566,Sweden,Mexico,110.0,38.0,0.235,0,17
+7566,Mexico,Sweden,99.0,63.0,0.006,0,21
+7566,Mexico,Sweden,116.0,40.0,0.308,0,22
+7566,Mexico,Sweden,117.0,22.0,0.054,0,22
+7566,Mexico,Sweden,93.0,34.0,0.023,0,22
+7566,Sweden,Mexico,101.0,34.0,0.017,0,27
+7566,Sweden,Mexico,115.0,42.0,0.465,0,30
+7566,Sweden,Mexico,105.0,30.0,0.104,0,32
+7566,Mexico,Sweden,99.0,28.0,0.062,0,35
+7566,Mexico,Sweden,106.0,54.0,0.026,0,38
+7566,Mexico,Sweden,104.0,28.0,0.011,0,39
+7566,Mexico,Sweden,105.0,61.0,0.014,0,44
+7566,Sweden,Mexico,109.0,28.0,0.125,0,46
+7566,Sweden,Mexico,109.0,41.0,0.429,0,49
+7566,Sweden,Mexico,116.0,32.0,0.562,1,49
+7566,Sweden,Mexico,103.0,36.0,0.142,0,51
+7566,Mexico,Sweden,115.0,19.0,0.065,0,52
+7566,Sweden,Mexico,106.0,25.0,0.008,0,53
+7566,Sweden,Mexico,108.0,29.0,0.054,0,58
+7566,Sweden,Mexico,109.0,41.0,0.429,1,61
+7566,Mexico,Sweden,80.0,54.0,0.001,0,63
+7566,Mexico,Sweden,90.0,48.0,0.003,0,65
+7566,Mexico,Sweden,111.0,31.0,0.01,0,67
+7566,Mexico,Sweden,106.0,40.0,0.015,0,69
+7566,Mexico,Sweden,111.0,42.0,0.059,0,75
+7566,Mexico,Sweden,96.0,54.0,0.04,0,80
+7566,Mexico,Sweden,116.0,29.0,0.029,0,80
+7566,Mexico,Sweden,117.0,42.0,0.352,0,80
+7566,Mexico,Sweden,98.0,51.0,0.058,0,88
+7566,Mexico,Sweden,91.0,48.0,0.024,0,92
+7566,Mexico,Sweden,102.0,21.0,0.051,0,92
+8651,Sweden,England,86.0,43.0,0.001,0,11
+8651,England,Sweden,97.0,46.0,0.007,0,18
+8651,England,Sweden,110.0,44.0,0.116,1,29
+8651,England,Sweden,94.0,58.0,0.009,0,34
+8651,England,Sweden,111.0,51.0,0.023,0,44
+8651,Sweden,England,113.0,48.0,0.045,0,46
+8651,Sweden,England,97.0,13.0,0.006,0,51
+8651,England,Sweden,115.0,32.0,0.029,0,53
+8651,England,Sweden,95.0,23.0,0.004,0,56
+8651,England,Sweden,98.0,48.0,0.004,0,57
+8651,England,Sweden,116.0,32.0,0.375,1,58
+8651,Sweden,England,106.0,43.0,0.08,0,61
+8651,Sweden,England,113.0,36.0,0.157,0,61
+8651,Sweden,England,105.0,47.0,0.009,0,61
+8651,England,Sweden,111.0,30.0,0.198,0,65
+8651,England,Sweden,102.0,29.0,0.008,0,67
+8651,England,Sweden,107.0,20.0,0.014,0,68
+8651,Sweden,England,110.0,42.0,0.212,0,70
+8651,England,Sweden,98.0,43.0,0.006,0,81
+8651,Sweden,England,100.0,50.0,0.028,0,89
+7567,Germany,South Korea,113.0,22.0,0.064,0,5
+7567,Germany,South Korea,111.0,42.0,0.059,0,13
+7567,South Korea,Germany,87.0,49.0,0.004,0,18
+7567,South Korea,Germany,91.0,50.0,0.003,0,19
+7567,South Korea,Germany,108.0,51.0,0.038,0,24
+7567,Germany,South Korea,97.0,42.0,0.006,0,32
+7567,Germany,South Korea,108.0,51.0,0.038,0,38
+7567,Germany,South Korea,112.0,43.0,0.133,0,38
+7567,Germany,South Korea,116.0,37.0,0.319,0,38
+7567,Germany,South Korea,105.0,60.0,0.014,0,46
+7567,South Korea,Germany,99.0,53.0,0.053,0,47
+7567,South Korea,Germany,89.0,38.0,0.008,0,45
+7567,Germany,South Korea,111.0,39.0,0.155,0,47
+7567,Germany,South Korea,85.0,38.0,0.001,0,48
+7567,Germany,South Korea,108.0,37.0,0.179,0,50
+7567,South Korea,Germany,119.0,31.0,0.011,0,51
+7567,Germany,South Korea,103.0,56.0,0.05,0,53
+7567,Germany,South Korea,94.0,52.0,0.015,0,53
+7567,Germany,South Korea,104.0,31.0,0.026,0,60
+7567,South Korea,Germany,96.0,42.0,0.004,0,62
+7567,Germany,South Korea,112.0,28.0,0.051,0,63
+7567,Germany,South Korea,113.0,39.0,0.112,0,67
+7567,Germany,South Korea,94.0,39.0,0.048,0,69
+7567,Germany,South Korea,115.0,43.0,0.479,0,70
+7567,South Korea,Germany,102.0,29.0,0.008,0,77
+7567,Germany,South Korea,112.0,44.0,0.063,0,81
+7567,Germany,South Korea,97.0,54.0,0.103,0,82
+7567,Germany,South Korea,109.0,29.0,0.112,0,83
+7567,Germany,South Korea,95.0,33.0,0.009,0,83
+7567,Germany,South Korea,112.0,39.0,0.183,0,86
+7567,Germany,South Korea,98.0,41.0,0.008,0,87
+7567,South Korea,Germany,86.0,39.0,0.001,0,88
+7567,South Korea,Germany,98.0,42.0,0.004,0,89
+7567,South Korea,Germany,115.0,42.0,0.465,1,91
+7567,Germany,South Korea,108.0,36.0,0.026,0,94
+7567,Germany,South Korea,115.0,47.0,0.105,0,94
+7567,South Korea,Germany,116.0,32.0,0.562,1,95
+7567,Germany,South Korea,99.0,35.0,0.01,0,97
+7567,Germany,South Korea,102.0,49.0,0.008,0,97
+7567,Germany,South Korea,106.0,35.0,0.22,0,98
+7567,Germany,South Korea,113.0,39.0,0.112,0,98
+7541,Japan,Colombia,104.0,48.0,0.046,0,2
+7541,Japan,Colombia,103.0,39.0,0.086,0,2
+7541,Japan,Colombia,108.0,40.0,0.636,1,5
+7541,Colombia,Japan,112.0,43.0,0.275,0,11
+7541,Japan,Colombia,108.0,30.0,0.146,0,14
+7541,Colombia,Japan,93.0,49.0,0.007,0,15
+7541,Colombia,Japan,110.0,34.0,0.021,0,25
+7541,Colombia,Japan,101.0,60.0,0.151,0,25
+7541,Japan,Colombia,112.0,26.0,0.021,0,31
+7541,Colombia,Japan,109.0,45.0,0.093,0,33
+7541,Colombia,Japan,100.0,60.0,0.504,1,38
+7541,Japan,Colombia,117.0,30.0,0.004,0,53
+7541,Japan,Colombia,106.0,28.0,0.015,0,56
+7541,Japan,Colombia,113.0,39.0,0.06,0,58
+7541,Japan,Colombia,110.0,57.0,0.009,0,60
+7541,Japan,Colombia,105.0,25.0,0.007,0,65
+7541,Japan,Colombia,96.0,60.0,0.005,0,70
+7541,Japan,Colombia,114.0,49.0,0.058,0,72
+7541,Japan,Colombia,117.0,39.0,0.318,1,72
+7541,Colombia,Japan,112.0,54.0,0.017,0,77
+7541,Colombia,Japan,113.0,47.0,0.102,0,77
+7541,Colombia,Japan,109.0,31.0,0.044,0,77
+7541,Colombia,Japan,111.0,42.0,0.14,0,77
+7541,Japan,Colombia,108.0,43.0,0.012,0,81
+8655,Belgium,France,109.0,23.0,0.029,0,14
+8655,France,Belgium,92.0,38.0,0.03,0,17
+8655,Belgium,France,107.0,21.0,0.033,0,18
+8655,Belgium,France,105.0,41.0,0.056,0,21
+8655,France,Belgium,103.0,48.0,0.022,0,22
+8655,France,Belgium,108.0,44.0,0.033,0,30
+8655,France,Belgium,107.0,32.0,0.042,0,31
+8655,France,Belgium,98.0,30.0,0.007,0,32
+8655,France,Belgium,109.0,36.0,0.131,0,33
+8655,France,Belgium,91.0,32.0,0.033,0,36
+8655,France,Belgium,96.0,50.0,0.018,0,38
+8655,France,Belgium,114.0,53.0,0.015,0,38
+8655,France,Belgium,105.0,30.0,0.023,0,41
+8655,France,Belgium,96.0,57.0,0.016,0,44
+8655,Belgium,France,111.0,40.0,0.066,0,47
+8655,France,Belgium,107.0,31.0,0.045,0,50
+8655,France,Belgium,118.0,47.0,0.183,1,50
+8655,France,Belgium,99.0,30.0,0.007,0,55
+8655,France,Belgium,112.0,34.0,0.109,0,55
+8655,Belgium,France,93.0,60.0,0.003,0,57
+8655,Belgium,France,107.0,38.0,0.263,0,60
+8655,Belgium,France,108.0,40.0,0.092,0,64
+8655,France,Belgium,100.0,32.0,0.014,0,66
+8655,Belgium,France,95.0,34.0,0.009,0,75
+8655,France,Belgium,108.0,42.0,0.012,0,78
+8655,Belgium,France,91.0,27.0,0.001,0,80
+8655,France,Belgium,103.0,46.0,0.113,0,92
+8655,France,Belgium,107.0,31.0,0.045,0,95
+8657,Belgium,England,113.0,41.0,0.413,1,3
+8657,England,Belgium,100.0,53.0,0.114,0,11
+8657,Belgium,England,108.0,29.0,0.125,0,11
+8657,England,Belgium,91.0,31.0,0.003,0,13
+8657,England,Belgium,108.0,45.0,0.027,0,14
+8657,England,Belgium,108.0,37.0,0.009,0,19
+8657,England,Belgium,104.0,41.0,0.056,0,22
+8657,England,Belgium,97.0,29.0,0.022,0,23
+8657,Belgium,England,97.0,40.0,0.008,0,29
+8657,Belgium,England,106.0,51.0,0.055,0,33
+8657,Belgium,England,96.0,43.0,0.004,0,34
+8657,Belgium,England,110.0,34.0,0.217,0,34
+8657,Belgium,England,104.0,52.0,0.018,0,44
+8657,Belgium,England,104.0,30.0,0.022,0,46
+8657,England,Belgium,109.0,54.0,0.089,0,53
+8657,England,Belgium,107.0,58.0,0.037,0,55
+8657,England,Belgium,100.0,48.0,0.008,0,65
+8657,England,Belgium,94.0,50.0,0.014,0,68
+8657,England,Belgium,112.0,50.0,0.096,0,69
+8657,England,Belgium,110.0,40.0,0.22,0,69
+8657,England,Belgium,109.0,43.0,0.079,0,72
+8657,England,Belgium,111.0,33.0,0.018,0,73
+8657,Belgium,England,104.0,30.0,0.022,0,75
+8657,Belgium,England,109.0,55.0,0.022,0,79
+8657,England,Belgium,99.0,23.0,0.034,0,79
+8657,Belgium,England,112.0,35.0,0.138,1,81
+8652,Russia,Croatia,109.0,56.0,0.007,0,1
+8652,Russia,Croatia,110.0,52.0,0.021,0,4
+8652,Croatia,Russia,113.0,42.0,0.173,0,6
+8652,Croatia,Russia,109.0,43.0,0.263,0,10
+8652,Croatia,Russia,98.0,23.0,0.022,0,15
+8652,Croatia,Russia,109.0,50.0,0.01,0,27
+8652,Russia,Croatia,94.0,34.0,0.284,1,30
+8652,Croatia,Russia,94.0,30.0,0.01,0,32
+8652,Croatia,Russia,115.0,37.0,0.117,0,33
+8652,Russia,Croatia,118.0,27.0,0.012,0,36
+8652,Russia,Croatia,115.0,29.0,0.008,0,38
+8652,Croatia,Russia,113.0,38.0,0.223,1,38
+8652,Croatia,Russia,88.0,53.0,0.001,0,49
+8652,Croatia,Russia,105.0,40.0,0.056,0,51
+8652,Croatia,Russia,97.0,20.0,0.004,0,57
+8652,Croatia,Russia,112.0,44.0,0.328,0,59
+8652,Russia,Croatia,110.0,40.0,0.112,0,61
+8652,Croatia,Russia,90.0,31.0,0.004,0,62
+8652,Russia,Croatia,113.0,44.0,0.08,0,71
+8652,Croatia,Russia,105.0,39.0,0.323,0,75
+8652,Croatia,Russia,114.0,57.0,0.028,0,75
+8652,Croatia,Russia,111.0,39.0,0.155,0,76
+8652,Russia,Croatia,117.0,64.0,0.007,0,93
+8652,Croatia,Russia,110.0,40.0,0.22,1,100
+8652,Russia,Croatia,115.0,37.0,0.307,0,103
+8652,Russia,Croatia,114.0,35.0,0.108,0,104
+8652,Croatia,Russia,101.0,20.0,0.148,0,109
+8652,Russia,Croatia,103.0,52.0,0.018,0,111
+8652,Russia,Croatia,114.0,41.0,0.396,1,114
+8652,Croatia,Russia,99.0,20.0,0.121,0,116
+8652,Russia,Croatia,94.0,32.0,0.079,0,118
+7563,France,Denmark,106.0,28.0,0.015,0,14
+7563,France,Denmark,112.0,42.0,0.031,0,15
+7563,France,Denmark,99.0,60.0,0.124,0,32
+7563,France,Denmark,101.0,60.0,0.151,0,38
+7563,France,Denmark,96.0,59.0,0.068,0,44
+7563,Denmark,France,95.0,51.0,0.016,0,46
+7563,France,Denmark,92.0,53.0,0.002,0,50
+7563,Denmark,France,81.0,44.0,0.024,0,53
+7563,France,Denmark,92.0,40.0,0.021,0,54
+7563,Denmark,France,101.0,37.0,0.097,0,58
+7563,Denmark,France,91.0,33.0,0.026,0,62
+7563,Denmark,France,104.0,66.0,0.01,0,65
+7563,France,Denmark,101.0,19.0,0.025,0,69
+7563,France,Denmark,108.0,33.0,0.023,0,73
+7563,France,Denmark,102.0,54.0,0.203,0,78
+7563,France,Denmark,96.0,49.0,0.005,0,81
+7556,Senegal,Japan,87.0,40.0,0.003,0,5
+7556,Senegal,Japan,110.0,23.0,0.036,0,10
+7556,Senegal,Japan,116.0,38.0,0.365,1,10
+7556,Senegal,Japan,116.0,63.0,0.011,0,13
+7556,Japan,Senegal,95.0,34.0,0.009,0,15
+7556,Senegal,Japan,108.0,43.0,0.088,0,21
+7556,Senegal,Japan,112.0,42.0,0.031,0,26
+7556,Japan,Senegal,108.0,29.0,0.177,1,33
+7556,Senegal,Japan,102.0,53.0,0.043,0,38
+7556,Japan,Senegal,101.0,57.0,0.015,0,39
+7556,Japan,Senegal,112.0,37.0,0.17,0,48
+7556,Senegal,Japan,104.0,54.0,0.032,0,49
+7556,Senegal,Japan,99.0,37.0,0.023,0,50
+7556,Senegal,Japan,96.0,50.0,0.018,0,54
+7556,Japan,Senegal,108.0,23.0,0.025,0,63
+7556,Senegal,Japan,115.0,36.0,0.203,0,70
+7556,Senegal,Japan,114.0,52.0,0.232,1,70
+7556,Japan,Senegal,111.0,43.0,0.285,0,74
+7556,Japan,Senegal,113.0,43.0,0.403,1,77
+7556,Senegal,Japan,115.0,43.0,0.137,0,83
+7556,Senegal,Japan,102.0,41.0,0.024,0,91
+7556,Senegal,Japan,112.0,45.0,0.316,0,93
+7559,Saudi Arabia,Egypt,98.0,56.0,0.03,0,2
+7559,Saudi Arabia,Egypt,94.0,26.0,0.007,0,11
+7559,Egypt,Saudi Arabia,102.0,23.0,0.03,0,12
+7559,Saudi Arabia,Egypt,99.0,44.0,0.023,0,14
+7559,Egypt,Saudi Arabia,101.0,48.0,0.008,1,21
+7559,Egypt,Saudi Arabia,107.0,38.0,0.263,0,23
+7559,Saudi Arabia,Egypt,86.0,36.0,0.001,0,24
+7559,Saudi Arabia,Egypt,100.0,22.0,0.042,0,29
+7559,Saudi Arabia,Egypt,95.0,60.0,0.005,0,31
+7559,Egypt,Saudi Arabia,105.0,30.0,0.104,0,32
+7559,Egypt,Saudi Arabia,101.0,29.0,0.006,0,33
+7559,Saudi Arabia,Egypt,103.0,45.0,0.08,0,36
+7559,Saudi Arabia,Egypt,108.0,40.0,0.636,0,40
+7559,Saudi Arabia,Egypt,104.0,45.0,0.056,0,40
+7559,Saudi Arabia,Egypt,108.0,40.0,0.636,1,50
+7559,Saudi Arabia,Egypt,112.0,54.0,0.017,0,53
+7559,Egypt,Saudi Arabia,108.0,40.0,0.028,0,56
+7559,Saudi Arabia,Egypt,100.0,61.0,0.012,0,57
+7559,Saudi Arabia,Egypt,90.0,49.0,0.002,0,59
+7559,Saudi Arabia,Egypt,96.0,41.0,0.006,0,62
+7559,Saudi Arabia,Egypt,110.0,49.0,0.024,0,68
+7559,Saudi Arabia,Egypt,115.0,49.0,0.035,0,69
+7559,Egypt,Saudi Arabia,98.0,51.0,0.058,0,70
+7559,Saudi Arabia,Egypt,88.0,43.0,0.014,0,73
+7559,Egypt,Saudi Arabia,102.0,22.0,0.022,0,76
+7559,Saudi Arabia,Egypt,95.0,30.0,0.014,0,80
+7559,Saudi Arabia,Egypt,116.0,30.0,0.015,0,80
+7559,Saudi Arabia,Egypt,101.0,58.0,0.006,0,90
+7559,Saudi Arabia,Egypt,116.0,53.0,0.028,1,94
