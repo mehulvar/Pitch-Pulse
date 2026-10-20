@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Pitch Intel</title>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+    .cards { display: flex; gap: 12px; margin: 1rem 0; flex-wrap: wrap; }
+    .card { border: 1px solid #ddd; border-radius: 8px; padding: 10px 14px; }
+    .card b { display: block; font-size: 1.4rem; }
+    svg { width: 100%; border-radius: 8px; }
+    #report { white-space: pre-line; }
+  </style>
+</head>
+<body>
+  <h1>Pitch Intel</h1>
+  <div>
+    <select id="team"></select>
+    vs
+    <select id="opp"><option value="">(no opponent)</option></select>
+    <button id="go">Scout</button>
+  </div>
+
+  <div class="cards" id="cards"></div>
+  <p id="report"></p>
+  <p><small>Shot map: every shot this team conceded. Bigger dot is a better chance, yellow is a goal.</small></p>
+  <svg id="pitch" viewBox="58 -2 64 84"></svg>
+
+<script>
+const teamSel = document.getElementById("team")
+const oppSel = document.getElementById("opp")
+
+// Fill both dropdowns with the teams from the API
+fetch("/api/teams").then(r => r.json()).then(teams => {
+  for (const t of teams) {
+    teamSel.add(new Option(t, t))
+    oppSel.add(new Option(t, t))
+  }
+})
+
+// On click, ask the API for the scouting data and draw it
+document.getElementById("go").onclick = async () => {
+  const opp = oppSel.value ? `?opponent=${encodeURIComponent(oppSel.value)}` : ""
+  const res = await fetch(`/api/team/${encodeURIComponent(teamSel.value)}${opp}`)
+  const data = await res.json()
+  renderCards(data)
+  document.getElementById("report").textContent = data.report
+  drawMap(data.shots)
+}
+
+// Small stat boxes at the top
+function renderCards(d) {
+  const cards = [
+    ["Shots against / match", d.shots_against_per_match],
+    ["xG against / match", d.xg_against_per_match],
+  ]
+  if (d.expected_shots_against_next_match !== undefined) {
+    cards.push([`Expected shots vs ${d.opponent}`, d.expected_shots_against_next_match])
+  }
+  document.getElementById("cards").innerHTML =
+    cards.map(([label, value]) => `<div class="card"><b>${value}</b>${label}</div>`).join("")
+}
+
+// Draw the attacking half of the pitch, then one dot per shot conceded
+function drawMap(shots) {
+  const svg = d3.select("#pitch")
+  svg.selectAll("*").remove()
+
+  // Grass. Coordinates match StatsBomb: the goal sits at x = 120
+  svg.append("rect").attr("x", 60).attr("y", 0).attr("width", 60).attr("height", 80).attr("fill", "#2e7d32")
+
+  const line = (x, y, w, h) => svg.append("rect")
+    .attr("x", x).attr("y", y).attr("width", w).attr("height", h)
+    .attr("fill", "none").attr("stroke", "white").attr("stroke-width", 0.3)
+  line(60, 0, 60, 80)     // outline of the half
+  line(102, 18, 18, 44)   // penalty box
+  line(114, 30, 6, 20)    // six-yard box
+  line(120, 36, 1.5, 8)   // goal
+
+  // One circle per shot. Radius grows with xG so dangerous chances stand out
+  svg.selectAll("circle").data(shots).join("circle")
+    .attr("cx", d => d.x)
+    .attr("cy", d => d.y)
+    .attr("r", d => 0.8 + d.xg * 6)
+    .attr("fill", d => d.goal ? "#ffd600" : "#ef5350")
+    .attr("fill-opacity", 0.7)
+    .attr("stroke", "white")
+    .attr("stroke-width", 0.15)
+}
+</script>
+</body>
+</html>

@@ -5,4 +5,5 @@ scikit-learn
 lightgbm
 fastapi
 uvicorn
-anthropic
+google-genai
+python-dotenv

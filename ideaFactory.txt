@@ -32,3 +32,15 @@ LLM: Claude Sonnet 5.5 (`claude-sonnet-5-5`).
 Example output: 
     Real Madrid concede about 13 shots a game, mostly from the left side of the box. Their 
     press weakens late in matches, so expect chances after the 70th minute.
+
+
+Frontend: one plain HTML page with D3 (v7) drawing the shot map.
+
+Backend: Python with FastAPI, run by uvicorn. It also serves the HTML page.
+
+Data: StatsBomb free World Cup 2018 data via statsbombpy, stored in a CSV and handled with pandas.
+
+Models:
+
+LightGBM for expected goals (xG)
+A simple average for expected shots against (a Poisson regression comes later)
