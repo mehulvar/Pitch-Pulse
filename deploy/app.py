@@ -48,3 +48,30 @@ def debug():
         return {"started": True, "teams": len(pitch_app.league)}
     except BaseException:
         return {"started": False, "error": traceback.format_exc().splitlines()[-8:]}
+
+@app.get("/api/gomp")
+def gomp():
+    """Report what the server sees, then try loading libgomp and LightGBM."""
+    import ctypes
+    import os
+
+    here = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.join(here, "lib", "libgomp.so.1")
+    info = {
+        "path": path,
+        "exists": os.path.exists(path),
+        "ld_library_path": os.environ.get("LD_LIBRARY_PATH"),
+        "files_next_to_app": sorted(os.listdir(here)),
+    }
+    try:
+        # Load the library ourselves first, so LightGBM finds it already in memory
+        ctypes.CDLL(path, mode=ctypes.RTLD_GLOBAL)
+        info["preload"] = "ok"
+    except BaseException as e:
+        info["preload"] = f"failed: {e}"
+    try:
+        import lightgbm
+        info["lightgbm"] = "ok, version " + lightgbm.__version__
+    except BaseException as e:
+        info["lightgbm"] = f"failed: {str(e)[:200]}"
+    return info
