@@ -5,33 +5,77 @@
   <title>Pitch Intel</title>
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+    body { font-family: system-ui, sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; }
+    .controls { margin: 0.5rem 0; }
     .cards { display: flex; gap: 12px; margin: 1rem 0; flex-wrap: wrap; }
-    .card { border: 1px solid #ddd; border-radius: 8px; padding: 10px 14px; }
+    .card { border: 1px solid #ddd; border-radius: 8px; padding: 10px 14px; max-width: 210px; }
     .card b { display: block; font-size: 1.4rem; }
-    svg { width: 100%; border-radius: 8px; }
+    .card small { display: block; color: #666; font-size: 0.75rem; margin-top: 4px; }
     #report { white-space: pre-line; }
+    svg { width: 100%; border-radius: 8px; cursor: crosshair; }
+    .steps div { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 4px 0; }
+    .up { color: #2e7d32; }
+    .down { color: #c62828; }
   </style>
 </head>
 <body>
   <h1>Pitch Intel</h1>
-  <div>
+  <div class="controls">
     <select id="team"></select>
     vs
     <select id="opp"><option value="">(no opponent)</option></select>
+    <select id="venue">
+      <option value="home">team plays at home</option>
+      <option value="away">team plays away</option>
+    </select>
     <button id="go">Scout</button>
   </div>
 
   <div class="cards" id="cards"></div>
+  <p><small id="modelnote"></small></p>
   <p id="report"></p>
-  <p><small>Shot map: every shot this team conceded. Bigger dot is a better chance, yellow is a goal.</small></p>
+
+  <h2>Where they get hurt</h2>
+  <p><small>Every shot they conceded. Bigger dot is a better chance, yellow is a goal.</small></p>
   <svg id="pitch" viewBox="58 -2 64 84"></svg>
+
+  <h2>How is xG calculated?</h2>
+  <p>Click the pitch to place a shot, then change the details below. The list shows how much each factor moves the chance of scoring, starting from a typical shot.</p>
+  <div class="controls">
+    <select class="xg-input" id="shotType">
+      <option value="RightFoot">Right foot</option>
+      <option value="LeftFoot">Left foot</option>
+      <option value="Head">Header</option>
+      <option value="OtherBodyPart">Other body part</option>
+    </select>
+    <select class="xg-input" id="situation">
+      <option value="OpenPlay">Open play</option>
+      <option value="FromCorner">From a corner</option>
+      <option value="SetPiece">Set piece</option>
+      <option value="DirectFreekick">Direct free kick</option>
+      <option value="Penalty">Penalty</option>
+    </select>
+    <select class="xg-input" id="lastAction">
+      <option value="Pass">After a pass</option>
+      <option value="Cross">After a cross</option>
+      <option value="Throughball">After a through ball</option>
+      <option value="TakeOn">After a dribble</option>
+      <option value="Rebound">Rebound</option>
+      <option value="Aerial">After an aerial duel</option>
+      <option value="BallRecovery">After winning the ball</option>
+      <option value="Standard">Standard</option>
+    </select>
+  </div>
+  <svg id="explainer" viewBox="58 -2 64 84"></svg>
+  <p id="xg-result"></p>
+  <div class="steps" id="xg-steps"></div>
 
 <script>
 const teamSel = document.getElementById("team")
 const oppSel = document.getElementById("opp")
+const venueSel = document.getElementById("venue")
 
-// Fill both dropdowns with the teams from the API
+// Fill both team dropdowns from the API
 fetch("/api/teams").then(r => r.json()).then(teams => {
   for (const t of teams) {
     teamSel.add(new Option(t, t))
@@ -39,46 +83,65 @@ fetch("/api/teams").then(r => r.json()).then(teams => {
   }
 })
 
-// On click, ask the API for the scouting data and draw it
+// On click, ask the server for the scouting data and draw everything
 document.getElementById("go").onclick = async () => {
-  const opp = oppSel.value ? `?opponent=${encodeURIComponent(oppSel.value)}` : ""
-  const res = await fetch(`/api/team/${encodeURIComponent(teamSel.value)}${opp}`)
+  const params = new URLSearchParams({ venue: venueSel.value })
+  if (oppSel.value) params.set("opponent", oppSel.value)
+  const res = await fetch(`/api/team/${encodeURIComponent(teamSel.value)}?${params}`)
+  if (!res.ok) {
+    document.getElementById("report").textContent = "Something went wrong: " + await res.text()
+    return
+  }
   const data = await res.json()
   renderCards(data)
   document.getElementById("report").textContent = data.report
   drawMap(data.shots)
 }
 
-// Small stat boxes at the top
+// The four stat cards, each with a plain meaning and a comparison
 function renderCards(d) {
   const cards = [
-    ["Shots against / match", d.shots_against_per_match],
-    ["xG against / match", d.xg_against_per_match],
+    ["Shots against / match", d.shots_against_per_match,
+      "Shots opponents take against this team per match.",
+      `League avg ${d.league_avg_shots_against}, rank ${d.rank_shots_against} of ${d.teams_in_comparison} (1 = fewest)`],
+    ["xG against / match", d.xg_against_per_match,
+      "How many goals those shots should produce, based on chance quality.",
+      `League avg ${d.league_avg_xg_against}, rank ${d.rank_xg_against} of ${d.teams_in_comparison} (1 = fewest)`],
   ]
-  if (d.expected_shots_against_next_match !== undefined) {
-    cards.push([`Expected shots vs ${d.opponent}`, d.expected_shots_against_next_match])
+  let note = `Based on ${d.seasons_covered} (${d.matches} matches).`
+  if (d.opponent) {
+    cards.push([`Expected shots vs ${d.opponent}`, d.expected_shots_against_next_match,
+      "Predicted shots this team concedes in this matchup.",
+      `${d.opponent} recently take ${d.opponent_shots_per_match_recently} shots per match`])
+    cards.push([`Expected goals vs ${d.opponent}`, d.expected_xg_against_next_match,
+      "Predicted xG conceded: expected shots times typical chance quality.",
+      `${d.opponent} recently average ${d.opponent_xg_per_shot_recently} xG per shot`])
+    const m = d.shots_model
+    note += ` Shots predicted by ${m.name}. On past matches it missed by ${m.avg_miss} shots on average, against ${m.simple_average_miss} for a simple average.`
   }
-  document.getElementById("cards").innerHTML =
-    cards.map(([label, value]) => `<div class="card"><b>${value}</b>${label}</div>`).join("")
+  document.getElementById("cards").innerHTML = cards.map(([label, value, meaning, comparison]) =>
+    `<div class="card"><b>${value}</b>${label}<small>${meaning}</small><small>${comparison}</small></div>`
+  ).join("")
+  document.getElementById("modelnote").textContent = note
 }
 
-// Draw the attacking half of the pitch, then one dot per shot conceded
-function drawMap(shots) {
-  const svg = d3.select("#pitch")
+// Draw the attacking half of a pitch. Coordinates are 120 x 80 with the goal at x = 120
+function drawPitch(svg) {
   svg.selectAll("*").remove()
-
-  // Grass. Coordinates match StatsBomb: the goal sits at x = 120
   svg.append("rect").attr("x", 60).attr("y", 0).attr("width", 60).attr("height", 80).attr("fill", "#2e7d32")
-
   const line = (x, y, w, h) => svg.append("rect")
     .attr("x", x).attr("y", y).attr("width", w).attr("height", h)
     .attr("fill", "none").attr("stroke", "white").attr("stroke-width", 0.3)
-  line(60, 0, 60, 80)     // outline of the half
-  line(102, 18, 18, 44)   // penalty box
-  line(114, 30, 6, 20)    // six-yard box
-  line(120, 36, 1.5, 8)   // goal
+  line(60, 0, 60, 80)           // outline of the half
+  line(101.2, 16.3, 18.8, 47.4) // penalty box
+  line(113.7, 29.2, 6.3, 21.6)  // six-yard box
+  line(120, 35.7, 1.5, 8.6)     // goal
+}
 
-  // One circle per shot. Radius grows with xG so dangerous chances stand out
+// One dot per shot conceded. Bigger dot means a better chance
+function drawMap(shots) {
+  const svg = d3.select("#pitch")
+  drawPitch(svg)
   svg.selectAll("circle").data(shots).join("circle")
     .attr("cx", d => d.x)
     .attr("cy", d => d.y)
@@ -87,6 +150,45 @@ function drawMap(shots) {
     .attr("fill-opacity", 0.7)
     .attr("stroke", "white")
     .attr("stroke-width", 0.15)
+}
+
+// ---- xG explainer: click the pitch to place a shot ----
+let shotSpot = null
+const explainer = d3.select("#explainer")
+drawPitch(explainer)
+
+explainer.on("click", (event) => {
+  const [x, y] = d3.pointer(event, explainer.node())
+  shotSpot = { x: Math.min(Math.max(x, 60), 120), y: Math.min(Math.max(y, 0), 80) }
+  runExplainer()
+})
+document.querySelectorAll(".xg-input").forEach(el => el.onchange = runExplainer)
+
+async function runExplainer() {
+  if (!shotSpot) return
+  const params = new URLSearchParams({
+    x: shotSpot.x,
+    y: shotSpot.y,
+    shot_type: document.getElementById("shotType").value,
+    situation: document.getElementById("situation").value,
+    last_action: document.getElementById("lastAction").value,
+  })
+  const d = await (await fetch(`/api/explain?${params}`)).json()
+
+  // Show the dot where the shot was placed, sized by its xG
+  explainer.selectAll(".spot").remove()
+  explainer.append("circle").attr("class", "spot")
+    .attr("cx", shotSpot.x).attr("cy", shotSpot.y)
+    .attr("r", 0.8 + d.xg * 6).attr("fill", "#ffd600")
+    .attr("stroke", "white").attr("stroke-width", 0.2)
+
+  document.getElementById("xg-result").textContent =
+    `This shot has a ${(d.xg * 100).toFixed(0)}% chance of scoring (xG ${d.xg}). The list starts from a ${(d.average_shot * 100).toFixed(0)}% baseline and shows what moves it.`
+  document.getElementById("xg-steps").innerHTML = d.steps.map(s => {
+    const cls = s.points >= 0 ? "up" : "down"
+    const sign = s.points >= 0 ? "+" : ""
+    return `<div><span>${s.factor}</span><span class="${cls}">${sign}${s.points} points</span></div>`
+  }).join("")
 }
 </script>
 </body>

@@ -1,9 +1,11 @@
-statsbombpy
 pandas
 numpy
-scikit-learn
+joblib
 lightgbm
+scikit-learn
 fastapi
 uvicorn
 google-genai
 python-dotenv
+requests
+understatapi
