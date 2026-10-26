@@ -2,13 +2,20 @@ import traceback
 
 from fastapi import FastAPI
 
-try:
-    from main import app  # the real app
-except Exception:
-    # If the real app crashes while starting, serve the error text instead
-    app = FastAPI()
-    error_text = traceback.format_exc()
+app = FastAPI()  # tiny app that starts instantly
 
-    @app.get("/{path:path}")
-    def show_error(path: str):
-        return {"error": error_text.splitlines()}
+
+@app.get("/api/ping")
+def ping():
+    # If this answers, the function itself boots fine on Vercel
+    return {"ok": True}
+
+
+@app.get("/api/debug")
+def debug():
+    # Load the real app only when asked, so a crash here can't take down /api/ping
+    try:
+        import pitch_app
+        return {"started": True, "teams": len(pitch_app.league)}
+    except Exception:
+        return {"started": False, "error": traceback.format_exc().splitlines()}
