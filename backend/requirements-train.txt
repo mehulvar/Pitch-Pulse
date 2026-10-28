@@ -1,0 +1,6 @@
+# Training only: tuning (Optuna) and the Bayesian match model (PyMC + nutpie sampler).
+# The app itself only needs requirements.txt, so the deploy stays small.
+-r requirements.txt
+optuna==5.0.0
+pymc==6.3.2
+nutpie==0.16.11

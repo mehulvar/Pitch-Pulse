@@ -156,8 +156,17 @@ def latest_quality(tm, team):
         "xg_per_shot_against": last.xg_against.sum() / max(last.shots_against.sum(), 1),
     }
 
-def train_mask(dates, test_share=0.2):
-    """True for older rows to learn from, False for the newest 20% to test on.
-    Splitting by date means the model is always graded on matches after the ones it learned from."""
-    cutoff = dates.quantile(1 - test_share)
-    return (dates < cutoff).values
+def holdout_split(seasons, n_holdout=2):
+    """Split seasons into ones for building the model and the newest ones, kept back for the final test.
+    The held-out seasons are scored once at the very end, never used to choose settings."""
+    ordered = sorted(set(int(s) for s in seasons))
+    return ordered[:-n_holdout], ordered[-n_holdout:]
+
+
+def season_folds(seasons, n_folds=3):
+    """Practice rounds for choosing settings: train on every earlier season, test on the next one.
+    Returns [(train_seasons, test_season), ...] for the last n_folds seasons."""
+    ordered = sorted(set(int(s) for s in seasons))
+    if len(ordered) <= n_folds:
+        raise ValueError(f"Need more than {n_folds} seasons for {n_folds} folds, got {len(ordered)}")
+    return [(ordered[:i], ordered[i]) for i in range(len(ordered) - n_folds, len(ordered))]
