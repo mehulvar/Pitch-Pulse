@@ -1,0 +1,152 @@
+{
+  "match_model": {
+    "chosen": {
+      "target": "goals",
+      "half_life_days": 1460,
+      "rps": 0.1917
+    },
+    "tuning": [
+      {
+        "target": "goals",
+        "half_life_days": 180,
+        "rps": 0.2002
+      },
+      {
+        "target": "goals",
+        "half_life_days": 365,
+        "rps": 0.1938
+      },
+      {
+        "target": "goals",
+        "half_life_days": 730,
+        "rps": 0.1918
+      },
+      {
+        "target": "goals",
+        "half_life_days": 1460,
+        "rps": 0.1917
+      },
+      {
+        "target": "xg",
+        "half_life_days": 180,
+        "rps": 0.1967
+      },
+      {
+        "target": "xg",
+        "half_life_days": 365,
+        "rps": 0.1935
+      },
+      {
+        "target": "xg",
+        "half_life_days": 730,
+        "rps": 0.1935
+      },
+      {
+        "target": "xg",
+        "half_life_days": 1460,
+        "rps": 0.1943
+      }
+    ],
+    "tuning_season": 2023,
+    "holdout_seasons": [
+      2024,
+      2025
+    ],
+    "holdout_matches": 760,
+    "scores": {
+      "Our match model": {
+        "rps": {
+          "estimate": 0.2095,
+          "low": 0.2012,
+          "high": 0.2174
+        },
+        "log_loss": {
+          "estimate": 1.018,
+          "low": 0.9868,
+          "high": 1.0454
+        },
+        "brier": {
+          "estimate": 0.6105,
+          "low": 0.5885,
+          "high": 0.63
+        },
+        "rps_minus_market": {
+          "estimate": 0.0089,
+          "low": 0.0046,
+          "high": 0.0135
+        }
+      },
+      "Bookmaker closing odds": {
+        "rps": {
+          "estimate": 0.2006,
+          "low": 0.1912,
+          "high": 0.2093
+        },
+        "log_loss": {
+          "estimate": 0.9901,
+          "low": 0.9563,
+          "high": 1.0213
+        },
+        "brier": {
+          "estimate": 0.5922,
+          "low": 0.5682,
+          "high": 0.6139
+        },
+        "rps_minus_market": {
+          "estimate": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      },
+      "Base rates (home/draw/away %)": {
+        "rps": {
+          "estimate": 0.2315,
+          "low": 0.2265,
+          "high": 0.2372
+        },
+        "log_loss": {
+          "estimate": 1.0824,
+          "low": 1.0633,
+          "high": 1.1012
+        },
+        "brier": {
+          "estimate": 0.6558,
+          "low": 0.6429,
+          "high": 0.6687
+        },
+        "rps_minus_market": {
+          "estimate": 0.0309,
+          "low": 0.0227,
+          "high": 0.0403
+        }
+      },
+      "Hindsight: the match's own xG": {
+        "rps": {
+          "estimate": 0.1708,
+          "low": 0.1605,
+          "high": 0.1821
+        },
+        "log_loss": {
+          "estimate": 0.8982,
+          "low": 0.852,
+          "high": 0.9505
+        },
+        "brier": {
+          "estimate": 0.5289,
+          "low": 0.4987,
+          "high": 0.5608
+        },
+        "rps_minus_market": {
+          "estimate": -0.0298,
+          "low": -0.0413,
+          "high": -0.0173
+        }
+      }
+    },
+    "market_source": {
+      "Pinnacle closing": 590,
+      "Market average closing": 170
+    },
+    "fitted_through": "2026-05-24"
+  }
+}
