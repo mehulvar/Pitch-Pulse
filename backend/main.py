@@ -7,24 +7,31 @@ import numpy as np
 import pandas as pd
 from google.genai import types
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.staticfiles import StaticFiles
 from google import genai
 import time
 from concurrent.futures import ThreadPoolExecutor
+from scipy.stats import poisson
 from features import (
-    FEATURES, SET_PIECE_SITUATIONS, add_form, factor_of, latest_form,
-    latest_quality, load_shots, score_shots, team_match_table, xg_features,
+    FEATURES, FORM_WINDOW, QUALITY_WINDOW, SET_PIECE_SITUATIONS, add_form, factor_of,
+    latest_form, latest_quality, load_shots, score_shots, team_match_table, xg_features,
 )
+from match_predict import MODEL_FILE as MATCH_MODEL_FILE, load_bundle, predict_match
 
 load_dotenv()
 BASE = Path(__file__).parent
 GEMINI_MODEL = "gemini-3.5-flash-lite"
 POOL = ThreadPoolExecutor(max_workers=2)  # lets us stop waiting on Gemini after a time limit
+SHOTS_RANGE = (0.1, 0.9)  # the 80% range of shots conceded shown on the page
+METRICS_FILE = BASE / "models" / "metrics.json"  # what the training scripts measured
 
 # ---- Runs once when the server starts ----
 xg_model = joblib.load(BASE / "models" / "xg_model.joblib")           # chance a shot scores
 shots_bundle = joblib.load(BASE / "models" / "shots_model.joblib")    # shots a team concedes
+# Win/draw/loss model and the training results. The app still runs if they haven't been made yet
+MATCH_MODEL = load_bundle(MATCH_MODEL_FILE) if MATCH_MODEL_FILE.exists() else None
+METRICS = json.loads(METRICS_FILE.read_text()) if METRICS_FILE.exists() else {}
 
 shots = load_shots()
 shots["our_xg"] = score_shots(shots, xg_model)  # our xG model scores every shot
@@ -40,8 +47,22 @@ def season_label(s):
     return f"{int(s)}/{(int(s) + 1) % 100:02d}"
 
 
-seasons = sorted(recent_shots.season.unique())
-window = season_label(seasons[0]) if len(seasons) == 1 else f"{season_label(seasons[0])} to {season_label(seasons[-1])}"
+def seasons_window(df):
+    """Readable span of the seasons in a table, like 2016/17 or 2014/15 to 2016/17."""
+    seasons = sorted(df.season.unique())
+    if len(seasons) == 1:
+        return season_label(seasons[0])
+    return f"{season_label(seasons[0])} to {season_label(seasons[-1])}"
+
+
+window = seasons_window(recent_shots)
+
+# What the xG model learned from, so the page can say so
+XG_MODEL_INFO = {
+    "training_shots": len(shots), "training_seasons": seasons_window(shots),
+    "trees": int(xg_model.n_estimators),
+    "monotone_constraints": bool(METRICS.get("xg_model", {}).get("monotone_constraints", False)),
+}
 
 # League table: one row per team. It gives every number something to be compared against
 by_team = recent_tm.groupby("team")
@@ -76,6 +97,12 @@ def shares(df):
 
 LEAGUE_SHARES = shares(recent_shots)  # computed once for comparison
 
+# The two candidates in train_shots.py. Whichever won, the other is the one it beat
+OTHER_SHOTS_CANDIDATE = {
+    "Poisson regression": "LightGBM (Poisson)",
+    "LightGBM (Poisson)": "Poisson regression",
+}
+
 
 def team_profile(team, opponent=None, venue="home"):
     """All the numbers about how a team defends. The report writer only sees these."""
@@ -96,6 +123,9 @@ def team_profile(team, opponent=None, venue="home"):
         "league_avg_shots_against": round(float(league.shots_against.mean()), 1),
         "league_avg_xg_against": round(float(league.xg_against.mean()), 2),
         "teams_in_comparison": len(league),
+        # How many past matches count as "recent" for the matchup numbers
+        "form_matches": FORM_WINDOW,
+        "quality_matches": QUALITY_WINDOW,
         # Rank 1 means fewest conceded, so a low rank number is a strong defense
         "rank_shots_against": int(league.shots_against.rank().loc[team]),
         "rank_xg_against": int(league.xg_against.rank().loc[team]),
@@ -109,36 +139,72 @@ def team_profile(team, opponent=None, venue="home"):
     if opponent:
         if opponent == team or opponent not in league.index:
             raise HTTPException(400, f"Pick a different opponent: {opponent}")
-        t, o = latest_form(tm, team), latest_form(tm, opponent)
-        tq, oq = latest_quality(tm, team), latest_quality(tm, opponent)
-
-        # Inputs for the shots model: both teams' recent form and who plays at home
-        model_input = pd.DataFrame([{
-            "t_shots_against_form": t.shots_against, "t_xg_against_form": t.xg_against,
-            "t_shots_for_form": t.shots_for,
-            "o_shots_for_form": o.shots_for, "o_xg_for_form": o.xg_for,
-            "o_shots_against_form": o.shots_against,
-            "o_is_home": 1 if venue == "away" else 0,
-        }])[FEATURES]
-        exp_shots = max(float(shots_bundle["model"].predict(model_input)[0]), 0.0)
-
-        # Danger per shot: blend the chances this team gives up with the chances the opponent creates
-        exp_quality = (tq["xg_per_shot_against"] + oq["xg_per_shot_for"]) / 2
-        profile.update({
-            "opponent": opponent,
-            "venue": f"{team} plays {venue}",
-            "opponent_shots_per_match_recently": round(float(o.shots_for), 1),
-            "opponent_xg_per_shot_recently": round(float(oq["xg_per_shot_for"]), 3),
-            "expected_shots_against_next_match": round(exp_shots, 1),
-            # Expected goals = expected shots times the typical danger of each shot
-            "expected_xg_against_next_match": round(exp_shots * exp_quality, 2),
-            "shots_model": {
-                "name": shots_bundle["name"],
-                "avg_miss": round(float(shots_bundle["mae"]), 1),
-                "simple_average_miss": round(float(shots_bundle["baseline_mae"]), 1),
-            },
-        })
+        return {**profile, **matchup(team, opponent, venue)}
     return profile
+
+
+def matchup(team, opponent, venue):
+    """Predictions for one upcoming match: shots and xG conceded, and the result."""
+    t, o = latest_form(tm, team), latest_form(tm, opponent)
+    tq, oq = latest_quality(tm, team), latest_quality(tm, opponent)
+
+    # Inputs for the shots model: both teams' recent form and who plays at home
+    model_input = pd.DataFrame([{
+        "t_shots_against_form": t.shots_against, "t_xg_against_form": t.xg_against,
+        "t_shots_for_form": t.shots_for,
+        "o_shots_for_form": o.shots_for, "o_xg_for_form": o.xg_for,
+        "o_shots_against_form": o.shots_against,
+        "o_is_home": 1 if venue == "away" else 0,
+    }])[FEATURES]
+    exp_shots = max(float(shots_bundle["model"].predict(model_input)[0]), 0.0)
+
+    # Danger per shot: blend the chances this team gives up with the chances the opponent creates
+    exp_quality = (tq["xg_per_shot_against"] + oq["xg_per_shot_for"]) / 2
+    return {
+        "opponent": opponent,
+        "venue": f"{team} plays {venue}",
+        "opponent_shots_per_match_recently": round(float(o.shots_for), 1),
+        "opponent_xg_per_shot_recently": round(float(oq["xg_per_shot_for"]), 3),
+        "team_xg_per_shot_against_recently": round(float(tq["xg_per_shot_against"]), 3),
+        "expected_shots_against_next_match": round(exp_shots, 1),
+        # Shot counts are Poisson, so 80% of matches should land between these two numbers
+        "expected_shots_range_80": [int(poisson.ppf(q, exp_shots)) for q in SHOTS_RANGE],
+        # Expected goals = expected shots times the typical danger of each shot
+        "expected_xg_against_next_match": round(exp_shots * exp_quality, 2),
+        "shots_model": {
+            "name": shots_bundle["name"],
+            "avg_miss": round(float(shots_bundle["mae"]), 1),
+            "simple_average_miss": round(float(shots_bundle["baseline_mae"]), 1),
+            # train_shots.py compares two candidates and keeps the better one
+            "chosen_over": OTHER_SHOTS_CANDIDATE[shots_bundle["name"]],
+            "range_80_hit_rate": shots_bundle.get("interval_80_coverage"),
+        },
+        "match_prediction": match_prediction(team, opponent, venue),
+    }
+
+
+def match_prediction(team, opponent, venue):
+    """Win/draw/loss from the Bayesian match model, from this team's side. None if it has no rating."""
+    if MATCH_MODEL is None:
+        return None
+    home, away = (team, opponent) if venue == "home" else (opponent, team)
+    try:
+        p = predict_match(MATCH_MODEL, home, away)
+    except KeyError:
+        return None  # a club the match model hasn't rated yet
+    team_home = venue == "home"
+    return {
+        "home_team": home, "away_team": away,
+        "p_team_win": p["p_home"] if team_home else p["p_away"],
+        "p_draw": p["p_draw"],
+        "p_team_loss": p["p_away"] if team_home else p["p_home"],
+        "expected_goals_team": p["expected_goals_home"] if team_home else p["expected_goals_away"],
+        "expected_goals_opponent": p["expected_goals_away"] if team_home else p["expected_goals_home"],
+        "top_scorelines": p["top_scorelines"],  # home goals first, as football scores are written
+        "setup": METRICS.get("match_model", {}).get("chosen"),  # goals or xG, and the half-life
+        "backtest": METRICS.get("match_model", {}).get("scores"),
+        "fitted_through": METRICS.get("match_model", {}).get("fitted_through"),
+    }
 
 
 INSTRUCTIONS = (
@@ -156,7 +222,8 @@ INSTRUCTIONS = (
     "Name the one or two biggest gaps of 0.03 or more, such as set pieces, headers, or the penalty box. "
     "Next match: only if an opponent is in the data. Give the expected shots and expected goals, "
     "say whether the team plays at home or away, and compare the opponent's recent shots per match "
-    "and xG per shot to the league. Say these are model estimates. "
+    "and xG per shot to the league. If match_prediction is present, give the win, draw and loss "
+    "chances from the team's side as percentages. Say these are model estimates. "
     "What to do: two concrete tactical suggestions for attacking this team, tied to the numbers above. "
     "Aim for 170 to 220 words. Never invent numbers."
 )
@@ -180,6 +247,9 @@ def write_report(profile):
     if not os.getenv("GEMINI_API_KEY"):
         return None
     facts = {k: v for k, v in profile.items() if k != "shots"}  # skip the raw shot list
+    if facts.get("match_prediction"):
+        # The backtest table is for the page's explanation, not the report
+        facts["match_prediction"] = {k: v for k, v in facts["match_prediction"].items() if k != "backtest"}
     try:
         start = time.time()
         client = genai.Client()
@@ -210,8 +280,15 @@ def list_teams():
     return sorted(league.index)
 
 
+@app.get("/api/model-card")
+def model_card():
+    """How every model was trained and how it scored on seasons it never saw."""
+    return METRICS
+
+
 @app.get("/api/team/{team}")
-def get_team(team: str, opponent: str | None = None, venue: str = "home"):
+def get_team(team: str, opponent: str | None = None,
+             venue: str = Query("home", pattern="^(home|away)$")):
     profile = team_profile(team, opponent, venue)
     key = (team, opponent, venue)
     report = REPORT_CACHE.get(key) or write_report(profile)
@@ -222,7 +299,8 @@ def get_team(team: str, opponent: str | None = None, venue: str = "home"):
 
 
 @app.get("/api/explain")
-def explain(x: float, y: float, shot_type: str = "RightFoot",
+def explain(x: float = Query(ge=60, le=120), y: float = Query(ge=0, le=80),
+            shot_type: str = "RightFoot",
             situation: str = "OpenPlay", last_action: str = "Pass"):
     """Show what pushes the xG of one shot up or down."""
     # The page sends map coordinates (0 to 120 and 0 to 80). The model wants fractions
@@ -244,11 +322,19 @@ def explain(x: float, y: float, shot_type: str = "RightFoot",
     for name, c in sorted(factors.items(), key=lambda kv: -abs(kv[1])):
         before = sigmoid(running)
         running += c
-        steps.append({"factor": name, "points": round(float((sigmoid(running) - before) * 100), 1)})
+        steps.append({"factor": name, "points": round(float((sigmoid(running) - before) * 100), 1),
+                      "log_odds": round(float(c), 3)})  # the push itself, for the formula on the page
     return {
         "xg": round(float(sigmoid(running)), 3),
         "average_shot": round(float(sigmoid(start)), 3),
+        # The score z before it becomes a chance: xG = 1 / (1 + e^-z)
+        "start_log_odds": round(float(start), 3),
+        "log_odds": round(float(running), 3),
+        # The two measurements the model works out from where the shot was taken
+        "distance_m": round(float(feats.distance[0]), 1),
+        "angle_deg": round(float(np.degrees(feats.angle[0])), 1),
         "steps": steps,
+        "xg_model_info": XG_MODEL_INFO,
     }
 
 

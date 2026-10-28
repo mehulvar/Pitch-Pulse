@@ -7,13 +7,13 @@ import numpy as np
 import pandas as pd
 from google.genai import types
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from google import genai
 import time
 from concurrent.futures import ThreadPoolExecutor
 from features import (
-    FEATURES, SET_PIECE_SITUATIONS, add_form, factor_of, latest_form,
-    latest_quality, load_shots, score_shots, team_match_table, xg_features,
+    FEATURES, FORM_WINDOW, QUALITY_WINDOW, SET_PIECE_SITUATIONS, add_form, factor_of,
+    latest_form, latest_quality, load_shots, score_shots, team_match_table, xg_features,
 )
 
 load_dotenv()
@@ -39,8 +39,18 @@ def season_label(s):
     return f"{int(s)}/{(int(s) + 1) % 100:02d}"
 
 
-seasons = sorted(recent_shots.season.unique())
-window = season_label(seasons[0]) if len(seasons) == 1 else f"{season_label(seasons[0])} to {season_label(seasons[-1])}"
+def seasons_window(df):
+    """Readable span of the seasons in a table, like 2016/17 or 2014/15 to 2016/17."""
+    seasons = sorted(df.season.unique())
+    if len(seasons) == 1:
+        return season_label(seasons[0])
+    return f"{season_label(seasons[0])} to {season_label(seasons[-1])}"
+
+
+window = seasons_window(recent_shots)
+
+# What the xG model learned from, so the page can say so
+XG_MODEL_INFO = {"training_shots": len(shots), "training_seasons": seasons_window(shots)}
 
 # League table: one row per team. It gives every number something to be compared against
 by_team = recent_tm.groupby("team")
@@ -75,6 +85,12 @@ def shares(df):
 
 LEAGUE_SHARES = shares(recent_shots)  # computed once for comparison
 
+# The two candidates in train_shots.py. Whichever won, the other is the one it beat
+OTHER_SHOTS_CANDIDATE = {
+    "Poisson regression": "LightGBM (Poisson)",
+    "LightGBM (Poisson)": "Poisson regression",
+}
+
 
 def team_profile(team, opponent=None, venue="home"):
     """All the numbers about how a team defends. The report writer only sees these."""
@@ -95,6 +111,9 @@ def team_profile(team, opponent=None, venue="home"):
         "league_avg_shots_against": round(float(league.shots_against.mean()), 1),
         "league_avg_xg_against": round(float(league.xg_against.mean()), 2),
         "teams_in_comparison": len(league),
+        # How many past matches count as "recent" for the matchup numbers
+        "form_matches": FORM_WINDOW,
+        "quality_matches": QUALITY_WINDOW,
         # Rank 1 means fewest conceded, so a low rank number is a strong defense
         "rank_shots_against": int(league.shots_against.rank().loc[team]),
         "rank_xg_against": int(league.xg_against.rank().loc[team]),
@@ -128,6 +147,7 @@ def team_profile(team, opponent=None, venue="home"):
             "venue": f"{team} plays {venue}",
             "opponent_shots_per_match_recently": round(float(o.shots_for), 1),
             "opponent_xg_per_shot_recently": round(float(oq["xg_per_shot_for"]), 3),
+            "team_xg_per_shot_against_recently": round(float(tq["xg_per_shot_against"]), 3),
             "expected_shots_against_next_match": round(exp_shots, 1),
             # Expected goals = expected shots times the typical danger of each shot
             "expected_xg_against_next_match": round(exp_shots * exp_quality, 2),
@@ -135,6 +155,8 @@ def team_profile(team, opponent=None, venue="home"):
                 "name": shots_bundle["name"],
                 "avg_miss": round(float(shots_bundle["mae"]), 1),
                 "simple_average_miss": round(float(shots_bundle["baseline_mae"]), 1),
+                # train_shots.py compares two candidates and keeps the better one
+                "chosen_over": OTHER_SHOTS_CANDIDATE[shots_bundle["name"]],
             },
         })
     return profile
@@ -221,7 +243,8 @@ def get_team(team: str, opponent: str | None = None, venue: str = "home"):
 
 
 @app.get("/api/explain")
-def explain(x: float, y: float, shot_type: str = "RightFoot",
+def explain(x: float = Query(ge=60, le=120), y: float = Query(ge=0, le=80),
+            shot_type: str = "RightFoot",
             situation: str = "OpenPlay", last_action: str = "Pass"):
     """Show what pushes the xG of one shot up or down."""
     # The page sends map coordinates (0 to 120 and 0 to 80). The model wants fractions
@@ -243,11 +266,19 @@ def explain(x: float, y: float, shot_type: str = "RightFoot",
     for name, c in sorted(factors.items(), key=lambda kv: -abs(kv[1])):
         before = sigmoid(running)
         running += c
-        steps.append({"factor": name, "points": round(float((sigmoid(running) - before) * 100), 1)})
+        steps.append({"factor": name, "points": round(float((sigmoid(running) - before) * 100), 1),
+                      "log_odds": round(float(c), 3)})  # the push itself, for the formula on the page
     return {
         "xg": round(float(sigmoid(running)), 3),
         "average_shot": round(float(sigmoid(start)), 3),
+        # The score z before it becomes a chance: xG = 1 / (1 + e^-z)
+        "start_log_odds": round(float(start), 3),
+        "log_odds": round(float(running), 3),
+        # The two measurements the model works out from where the shot was taken
+        "distance_m": round(float(feats.distance[0]), 1),
+        "angle_deg": round(float(np.degrees(feats.angle[0])), 1),
         "steps": steps,
+        "xg_model_info": XG_MODEL_INFO,
     }
 
 

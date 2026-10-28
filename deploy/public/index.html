@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <title>Pitch Intel</title>
+  <link rel="icon" href="data:,"> <!-- no icon file, so the browser doesn't request one and log a 404 -->
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <style>
     body { font-family: system-ui, sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; }
     .controls { margin: 0.5rem 0; }
-    .cards { display: flex; gap: 12px; margin: 1rem 0; flex-wrap: wrap; }
+    .cards { display: flex; gap: 12px; margin: 1rem 0; flex-wrap: wrap; align-items: flex-start; }
     .card { border: 1px solid #ddd; border-radius: 8px; padding: 10px 14px; max-width: 210px; }
     .card b { display: block; font-size: 1.4rem; }
     .card small { display: block; color: #666; font-size: 0.75rem; margin-top: 4px; }
@@ -16,6 +17,14 @@
     .steps div { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 4px 0; }
     .up { color: #2e7d32; }
     .down { color: #c62828; }
+    /* "How this works" dropdowns on the cards and under the xG result */
+    details { margin-top: 8px; font-size: 0.8rem; color: #444; }
+    summary { cursor: pointer; color: #1565c0; }
+    details p { margin: 6px 0; }
+    details ul { margin: 4px 0; padding-left: 1.2rem; }
+    .formula { background: #f5f5f5; border-radius: 6px; padding: 4px 12px; }
+    .eq { font-family: ui-monospace, Menlo, monospace; padding-left: 1rem; line-height: 1.6; }
+    #xg-formula-live { white-space: pre-wrap; }  /* keeps the line breaks and lined-up pushes */
   </style>
 </head>
 <body>
@@ -28,7 +37,7 @@
       <option value="home">team plays at home</option>
       <option value="away">team plays away</option>
     </select>
-    <button id="go">Scout</button>
+    <button id="go" disabled>Scout</button>
   </div>
 
   <div class="cards" id="cards"></div>
@@ -69,36 +78,138 @@
   <svg id="explainer" viewBox="58 -2 64 84"></svg>
   <p id="xg-result"></p>
   <div class="steps" id="xg-steps"></div>
+  <details id="xg-about" hidden>
+    <summary>How is this chance calculated?</summary>
+    <p><strong>What xG is:</strong> the chance a shot like this one scores, from 0 (never) to 1 (always). It is learned from what really happened to thousands of similar shots.</p>
+    <p><strong>The model:</strong> a LightGBM classifier, which is a set of decision trees that each correct the mistakes of the ones before. It was trained on <span id="xg-train-shots"></span> Premier League shots from <span id="xg-train-seasons"></span>, each labelled goal or no goal. It was checked against Understat's own xG, and for calibration: shots it gives a 10% chance should go in about 10% of the time.</p>
+    <p><strong>What goes into it:</strong></p>
+    <ul>
+      <li>Distance to goal, in metres</li>
+      <li>Angle: how much of the goal mouth the shooter can see</li>
+      <li>How far wide of the centre of the pitch the shot was taken</li>
+      <li>Body part: right foot, left foot, header or other</li>
+      <li>Type of chance: open play, corner, set piece, direct free kick or penalty</li>
+      <li>What happened just before: a pass, cross, through ball, dribble, rebound and so on</li>
+    </ul>
+    <p><strong>The formula:</strong></p>
+    <div class="formula">
+      <p>1. Measure where the shot was taken. dx is metres from the goal line, dy is metres off centre, and the goal is 7.32 m wide:</p>
+      <p class="eq">distance = √(dx² + dy²)<br>angle = arctan( 7.32·dx / (dx² + dy² − 3.66²) )</p>
+      <p>2. The model's 300 decision trees turn the inputs into a score z. It splits into a starting score z₀ for an average shot plus one push φ per factor:</p>
+      <p class="eq">z = z₀ + φ<sub>distance</sub> + φ<sub>angle</sub> + φ<sub>width</sub> + φ<sub>body part</sub> + φ<sub>type of chance</sub> + φ<sub>previous action</sub></p>
+      <p>3. The score becomes a chance between 0 and 1:</p>
+      <p class="eq">xG = 1 / (1 + e<sup>−z</sup>)</p>
+      <p><strong>For this shot:</strong></p>
+      <p class="eq" id="xg-formula-live"></p>
+    </div>
+    <p><strong>How the list above works:</strong> the pushes φ are added to z₀ one at a time, biggest first, and each row shows how much that step moved the chance: 100 × (xG after − xG before) percentage points. Because 1 / (1 + e<sup>−z</sup>) is a curve, not a straight line, a factor's points depend a little on the order, but the total always lands on the final chance.</p>
+    <p><strong>What it doesn't know:</strong> where defenders and the goalkeeper were, how hard the ball was hit, or who took the shot. Two shots from the same spot in the same way get the same xG.</p>
+  </details>
 
 <script>
 const teamSel = document.getElementById("team")
 const oppSel = document.getElementById("opp")
 const venueSel = document.getElementById("venue")
 
-// Fill both team dropdowns from the API
-fetch("/api/teams").then(r => r.json()).then(teams => {
+const goBtn = document.getElementById("go")
+const reportEl = document.getElementById("report")
+
+// Fetch JSON from our API. Throws with the server's message if the request fails
+async function getJson(url) {
+  // fetch only throws when there is no answer at all, which means the server isn't reachable
+  const res = await fetch(url).catch(() => {
+    // Opened by double-clicking the file, so there is no server behind the page at all
+    if (location.protocol === "file:") {
+      throw new Error("this page was opened as a file. Start the server and open http://127.0.0.1:8000 instead")
+    }
+    throw new Error("can't reach the server. Is it running?")
+  })
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}))
+    throw new Error(typeof body.detail === "string" ? body.detail : `server answered ${res.status}`)
+  }
+  return res.json()
+}
+
+// Fill both team dropdowns from the API. Scout stays off until there are teams to pick
+getJson("/api/teams").then(teams => {
   for (const t of teams) {
     teamSel.add(new Option(t, t))
     oppSel.add(new Option(t, t))
   }
+  goBtn.disabled = false
+}).catch(err => {
+  reportEl.textContent = `Couldn't load teams: ${err.message}. Is the server running?`
 })
 
 // On click, ask the server for the scouting data and draw everything
-document.getElementById("go").onclick = async () => {
-  const params = new URLSearchParams({ venue: venueSel.value })
-  if (oppSel.value) params.set("opponent", oppSel.value)
-  const res = await fetch(`/api/team/${encodeURIComponent(teamSel.value)}?${params}`)
-  if (!res.ok) {
-    document.getElementById("report").textContent = "Something went wrong: " + await res.text()
+goBtn.onclick = async () => {
+  if (oppSel.value === teamSel.value) {
+    reportEl.textContent = "Pick an opponent other than the team itself."
     return
   }
-  const data = await res.json()
-  renderCards(data)
-  document.getElementById("report").textContent = data.report
-  drawMap(data.shots)
+  const params = new URLSearchParams({ venue: venueSel.value })
+  if (oppSel.value) params.set("opponent", oppSel.value)
+  goBtn.disabled = true
+  reportEl.textContent = "Scouting… (the written report can take up to 40 seconds)"
+  try {
+    const data = await getJson(`/api/team/${encodeURIComponent(teamSel.value)}?${params}`)
+    renderCards(data)
+    reportEl.textContent = data.report
+    drawMap(data.shots)
+  } catch (err) {
+    reportEl.textContent = `Something went wrong: ${err.message}`
+  } finally {
+    goBtn.disabled = false
+  }
 }
 
-// The four stat cards, each with a plain meaning and a comparison
+// What each card means, how it is worked out, and why it matters. Numbers come from the API
+function cardExplanations(d) {
+  const shotsAgainst = {
+    what: "How many shots opponents take against this team in a typical match.",
+    how: `No model here, just counting. Every shot opponents took is counted from Understat's match data, then averaged over ${d.matches} matches in ${d.seasons_covered}. The rank compares all ${d.teams_in_comparison} teams, where 1 means fewest shots allowed.`,
+    why: "It shows how often a defence lets opponents shoot at all. More shots means more chances to concede, and it reflects how well a team presses and stays compact.",
+  }
+  const xgAgainst = {
+    what: "How many goals the shots this team allows should produce, given how good those chances were.",
+    how: `Every shot conceded is scored by our expected goals (xG) model, a LightGBM classifier that looks at distance, angle, how wide the shot was, body part, type of chance and the action before it. Those chances are added up per match and averaged. A typical shot against them is worth ${d.xg_per_shot_conceded} xG.`,
+    why: "It separates a defence that allows lots of harmless long shots from one that allows a few clear chances. It predicts future goals conceded better than actual goals, which swing a lot on luck.",
+  }
+  if (!d.opponent) return [shotsAgainst, xgAgainst]
+
+  const m = d.shots_model
+  const quality = ((d.team_xg_per_shot_against_recently + d.opponent_xg_per_shot_recently) / 2).toFixed(3)
+  const expShots = {
+    what: `How many shots ${d.team} are likely to concede against ${d.opponent} (${d.venue}).`,
+    how: `Predicted by a ${m.name} model, trained on past Premier League matchups. Its inputs are ${d.team}'s last ${d.form_matches} matches (shots conceded, xG conceded, shots taken), ${d.opponent}'s last ${d.form_matches} matches (shots taken, xG created, shots conceded), and who plays at home. It was picked over ${m.chosen_over} because it predicted the newest 20% of matches better. It misses by ${m.avg_miss} shots on average, against ${m.simple_average_miss} for a simple average.`,
+    why: "A team's season average ignores who they are playing. This adjusts for the opponent's attack and for home advantage.",
+  }
+  const expGoals = {
+    what: `How many goals ${d.team} are likely to concede against ${d.opponent}, based on chance quality.`,
+    how: `No extra model, just arithmetic: expected shots × typical value of each shot. The typical value is the average of ${d.team}'s xG per shot conceded over their last ${d.quality_matches} matches (${d.team_xg_per_shot_against_recently}) and ${d.opponent}'s xG per shot created (${d.opponent_xg_per_shot_recently}). So ${d.expected_shots_against_next_match} × ${quality} ≈ ${d.expected_xg_against_next_match}.`,
+    why: "It combines how many chances and how good they are into one number, the closest thing here to how many goals they will probably let in.",
+  }
+  return [shotsAgainst, xgAgainst, expShots, expGoals]
+}
+
+// A dropdown with the three explanation paragraphs
+function explainDropdown({ what, how, why }) {
+  const details = document.createElement("details")
+  const summary = document.createElement("summary")
+  summary.textContent = "How this works"
+  details.append(summary)
+  for (const [label, text] of [["What it means: ", what], ["How it's calculated: ", how], ["Why it matters: ", why]]) {
+    const p = document.createElement("p")
+    const strong = document.createElement("strong")
+    strong.textContent = label
+    p.append(strong, text)
+    details.append(p)
+  }
+  return details
+}
+
+// The stat cards, each with a plain meaning, a comparison and a "How this works" dropdown
 function renderCards(d) {
   const cards = [
     ["Shots against / match", d.shots_against_per_match,
@@ -119,9 +230,18 @@ function renderCards(d) {
     const m = d.shots_model
     note += ` Shots predicted by ${m.name}. On past matches it missed by ${m.avg_miss} shots on average, against ${m.simple_average_miss} for a simple average.`
   }
-  document.getElementById("cards").innerHTML = cards.map(([label, value, meaning, comparison]) =>
-    `<div class="card"><b>${value}</b>${label}<small>${meaning}</small><small>${comparison}</small></div>`
-  ).join("")
+  // Built from elements, not an HTML string, so team names are always shown as plain text
+  const explanations = cardExplanations(d)
+  const cardEls = cards.map(([label, value, meaning, comparison], i) => {
+    const card = document.createElement("div")
+    card.className = "card"
+    const b = document.createElement("b")
+    b.textContent = value
+    const small = text => Object.assign(document.createElement("small"), { textContent: text })
+    card.append(b, label, small(meaning), small(comparison), explainDropdown(explanations[i]))
+    return card
+  })
+  document.getElementById("cards").replaceChildren(...cardEls)
   document.getElementById("modelnote").textContent = note
 }
 
@@ -173,7 +293,13 @@ async function runExplainer() {
     situation: document.getElementById("situation").value,
     last_action: document.getElementById("lastAction").value,
   })
-  const d = await (await fetch(`/api/explain?${params}`)).json()
+  let d
+  try {
+    d = await getJson(`/api/explain?${params}`)
+  } catch (err) {
+    document.getElementById("xg-result").textContent = `Couldn't score this shot: ${err.message}`
+    return
+  }
 
   // Show the dot where the shot was placed, sized by its xG
   explainer.selectAll(".spot").remove()
@@ -189,6 +315,26 @@ async function runExplainer() {
     const sign = s.points >= 0 ? "+" : ""
     return `<div><span>${s.factor}</span><span class="${cls}">${sign}${s.points} points</span></div>`
   }).join("")
+
+  // Fill in what the model was trained on and show the "How is this chance calculated?" dropdown
+  document.getElementById("xg-train-shots").textContent = d.xg_model_info.training_shots.toLocaleString()
+  document.getElementById("xg-train-seasons").textContent = d.xg_model_info.training_seasons
+  document.getElementById("xg-formula-live").innerText = formulaForShot(d)
+  document.getElementById("xg-about").hidden = false
+}
+
+// The formula with this shot's own numbers plugged in
+function formulaForShot(d) {
+  const num = v => v.toFixed(2).replace("-", "−")  // a real minus sign, to match the formula above
+  const signed = v => (v < 0 ? "− " : "+ ") + Math.abs(v).toFixed(2)
+  const pushes = d.steps.map(s => `      ${signed(s.log_odds)}  (${s.factor.toLowerCase()})`).join("\n")
+  return [
+    `distance = ${d.distance_m} m, angle = ${d.angle_deg}°`,
+    `z = ${num(d.start_log_odds)}  (average shot)`,
+    pushes,
+    `  = ${num(d.log_odds)}`,
+    `xG = 1 / (1 + e^(${num(-d.log_odds)})) = ${d.xg}`,
+  ].join("\n")
 }
 </script>
 </body>
