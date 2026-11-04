@@ -25,6 +25,11 @@
     .formula { background: #f5f5f5; border-radius: 6px; padding: 4px 12px; }
     .eq { font-family: ui-monospace, Menlo, monospace; padding-left: 1rem; line-height: 1.6; }
     #xg-formula-live { white-space: pre-wrap; }  /* keeps the line breaks and lined-up pushes */
+    /* Model card */
+    .mc-table { border-collapse: collapse; font-size: 0.85rem; margin: 6px 0 14px; }
+    .mc-table th, .mc-table td { text-align: left; padding: 4px 10px 4px 0; border-bottom: 1px solid #eee; }
+    .mc-table td.num { font-variant-numeric: tabular-nums; }
+    #calibration { width: 100%; max-width: 360px; cursor: default; }
   </style>
 </head>
 <body>
@@ -81,7 +86,7 @@
   <details id="xg-about" hidden>
     <summary>How is this chance calculated?</summary>
     <p><strong>What xG is:</strong> the chance a shot like this one scores, from 0 (never) to 1 (always). It is learned from what really happened to thousands of similar shots.</p>
-    <p><strong>The model:</strong> a LightGBM classifier, which is a set of decision trees that each correct the mistakes of the ones before. It was trained on <span id="xg-train-shots"></span> Premier League shots from <span id="xg-train-seasons"></span>, each labelled goal or no goal. It was checked against Understat's own xG, and for calibration: shots it gives a 10% chance should go in about 10% of the time.</p>
+    <p><strong>The model:</strong> a LightGBM classifier, which is a set of decision trees that each correct the mistakes of the ones before. It was trained on <span id="xg-train-shots"></span> Premier League shots from <span id="xg-train-seasons"></span>, each labelled goal or no goal. Its settings were tuned with Optuna on earlier seasons, and it was then tested on the two newest seasons against Understat's own xG and for calibration: shots it gives a 10% chance should go in about 10% of the time. The model card at the bottom of the page has the results.<span id="xg-monotone"></span></p>
     <p><strong>What goes into it:</strong></p>
     <ul>
       <li>Distance to goal, in metres</li>
@@ -95,7 +100,7 @@
     <div class="formula">
       <p>1. Measure where the shot was taken. dx is metres from the goal line, dy is metres off centre, and the goal is 7.32 m wide:</p>
       <p class="eq">distance = √(dx² + dy²)<br>angle = arctan( 7.32·dx / (dx² + dy² − 3.66²) )</p>
-      <p>2. The model's 300 decision trees turn the inputs into a score z. It splits into a starting score z₀ for an average shot plus one push φ per factor:</p>
+      <p>2. The model's <span id="xg-trees"></span> decision trees turn the inputs into a score z. It splits into a starting score z₀ for an average shot plus one push φ per factor:</p>
       <p class="eq">z = z₀ + φ<sub>distance</sub> + φ<sub>angle</sub> + φ<sub>width</sub> + φ<sub>body part</sub> + φ<sub>type of chance</sub> + φ<sub>previous action</sub></p>
       <p>3. The score becomes a chance between 0 and 1:</p>
       <p class="eq">xG = 1 / (1 + e<sup>−z</sup>)</p>
@@ -105,6 +110,9 @@
     <p><strong>How the list above works:</strong> the pushes φ are added to z₀ one at a time, biggest first, and each row shows how much that step moved the chance: 100 × (xG after − xG before) percentage points. Because 1 / (1 + e<sup>−z</sup>) is a curve, not a straight line, a factor's points depend a little on the order, but the total always lands on the final chance.</p>
     <p><strong>What it doesn't know:</strong> where defenders and the goalkeeper were, how hard the ball was hit, or who took the shot. Two shots from the same spot in the same way get the same xG.</p>
   </details>
+  <h2>Model card</h2>
+  <p>How each model was built and how it scored on the two newest seasons, which none of them saw while being built. Numbers in brackets are 95% confidence ranges.</p>
+  <div id="model-card"><p>Loading…</p></div>
 
 <script>
 const teamSel = document.getElementById("team")
@@ -182,15 +190,32 @@ function cardExplanations(d) {
   const quality = ((d.team_xg_per_shot_against_recently + d.opponent_xg_per_shot_recently) / 2).toFixed(3)
   const expShots = {
     what: `How many shots ${d.team} are likely to concede against ${d.opponent} (${d.venue}).`,
-    how: `Predicted by a ${m.name} model, trained on past Premier League matchups. Its inputs are ${d.team}'s last ${d.form_matches} matches (shots conceded, xG conceded, shots taken), ${d.opponent}'s last ${d.form_matches} matches (shots taken, xG created, shots conceded), and who plays at home. It was picked over ${m.chosen_over} because it predicted the newest 20% of matches better. It misses by ${m.avg_miss} shots on average, against ${m.simple_average_miss} for a simple average.`,
-    why: "A team's season average ignores who they are playing. This adjusts for the opponent's attack and for home advantage.",
+    how: `Predicted by a ${m.name} model, trained on past Premier League matchups. Its inputs are ${d.team}'s last ${d.form_matches} matches (shots conceded, xG conceded, shots taken), ${d.opponent}'s last ${d.form_matches} matches (shots taken, xG created, shots conceded), and who plays at home. It beat ${m.chosen_over} when both were tuned and tested on earlier seasons. On the two newest seasons, which it never saw while being built, it missed by ${m.avg_miss} shots on average, against ${m.simple_average_miss} for a simple average. The 80% range of ${d.expected_shots_range_80[0]} to ${d.expected_shots_range_80[1]} shots comes from a negative binomial distribution: shot counts swing more from match to match than a plain Poisson distribution allows, so it adds one extra number for that spread, measured on past seasons${m.range_80_hit_rate ? `. On the test seasons the real count landed inside the range ${pct(m.range_80_hit_rate)} of the time` : ""}.`,
+    why: "A team's season average ignores who they are playing. This adjusts for the opponent's attack and for home advantage, and the range shows how much a single match can vary.",
   }
   const expGoals = {
     what: `How many goals ${d.team} are likely to concede against ${d.opponent}, based on chance quality.`,
-    how: `No extra model, just arithmetic: expected shots × typical value of each shot. The typical value is the average of ${d.team}'s xG per shot conceded over their last ${d.quality_matches} matches (${d.team_xg_per_shot_against_recently}) and ${d.opponent}'s xG per shot created (${d.opponent_xg_per_shot_recently}). So ${d.expected_shots_against_next_match} × ${quality} ≈ ${d.expected_xg_against_next_match}.`,
+    how: `No extra model, just arithmetic: expected shots × typical value of each shot. The typical value is the average of ${d.team}'s xG per shot conceded over their last ${d.quality_matches} matches (${d.team_xg_per_shot_against_recently}) and ${d.opponent}'s xG per shot created (${d.opponent_xg_per_shot_recently}). So ${d.expected_shots_against_next_match} × ${quality} ≈ ${d.expected_xg_against_next_match}.${d.match_prediction ? ` For comparison, the Bayesian match model (next card) expects ${d.opponent} to score ${d.match_prediction.expected_goals_opponent}.` : ""}`,
     why: "It combines how many chances and how good they are into one number, the closest thing here to how many goals they will probably let in.",
   }
-  return [shotsAgainst, xgAgainst, expShots, expGoals]
+  const cards = [shotsAgainst, xgAgainst, expShots, expGoals]
+  return d.match_prediction ? [...cards, matchExplanation(d)] : cards
+}
+
+const pct = p => `${Math.round(p * 100)}%`
+
+// The win/draw/loss card: the Bayesian model, its formula, and how it did against the bookmakers
+function matchExplanation(d) {
+  const mp = d.match_prediction
+  const setup = mp.setup
+  const learnsFrom = setup && setup.target === "xg" ? "expected goals (xG) created" : "goals scored"
+  const scores = mp.backtest || {}
+  const rpsOf = name => scores[name] ? scores[name].rps.estimate.toFixed(4) : "?"
+  return {
+    what: `The chance ${d.team} win, draw or lose against ${d.opponent} (${d.venue}).`,
+    how: `A Bayesian hierarchical model, fitted in PyMC. Every club has an attack rating and a defence rating. Expected goals for the home side = e^(level + home advantage + home attack − away defence), and the same for the away side without home advantage. Ratings are learned from ${learnsFrom} over the last four seasons up to ${mp.fitted_through}${setup ? `, with a match ${setup.half_life_days} days old counting half as much as one today` : ""}. They're pulled toward the league average, so a few lucky results don't make a club look elite. The model gives thousands of plausible sets of ratings rather than one; each turns into a Poisson chance for every scoreline, and averaging them gives these chances, with the uncertainty included.`,
+    why: `It answers the question fans actually ask, and it was tested honestly: on the two newest seasons, refitted every week using only matches already played, it scored ${rpsOf("Our match model")} on the ranked probability score (lower is better), against ${rpsOf("Bookmaker closing odds")} for the bookmakers' closing odds and ${rpsOf("Base rates (home/draw/away %)")} for just using how often home wins, draws and away wins happen. It beats the simple base rates clearly but doesn't match the betting market, which also knows about injuries, line-ups and news.`,
+  }
 }
 
 // A dropdown with the three explanation paragraphs
@@ -223,10 +248,18 @@ function renderCards(d) {
   if (d.opponent) {
     cards.push([`Expected shots vs ${d.opponent}`, d.expected_shots_against_next_match,
       "Predicted shots this team concedes in this matchup.",
-      `${d.opponent} recently take ${d.opponent_shots_per_match_recently} shots per match`])
+      `80% range: ${d.expected_shots_range_80[0]} to ${d.expected_shots_range_80[1]} shots. ${d.opponent} recently take ${d.opponent_shots_per_match_recently} per match`])
     cards.push([`Expected goals vs ${d.opponent}`, d.expected_xg_against_next_match,
       "Predicted xG conceded: expected shots times typical chance quality.",
       `${d.opponent} recently average ${d.opponent_xg_per_shot_recently} xG per shot`])
+    const mp = d.match_prediction
+    if (mp) {
+      const likely = mp.top_scorelines.map(s => `${s.home}-${s.away} (${pct(s.chance)})`).join(", ")
+      cards.push([`Win / draw / loss vs ${d.opponent}`,
+        `${pct(mp.p_team_win)} / ${pct(mp.p_draw)} / ${pct(mp.p_team_loss)}`,
+        `Chances for ${d.team} in this match, from the Bayesian match model.`,
+        `Most likely scores, ${mp.home_team} first: ${likely}`])
+    }
     const m = d.shots_model
     note += ` Shots predicted by ${m.name}. On past matches it missed by ${m.avg_miss} shots on average, against ${m.simple_average_miss} for a simple average.`
   }
@@ -319,6 +352,10 @@ async function runExplainer() {
   // Fill in what the model was trained on and show the "How is this chance calculated?" dropdown
   document.getElementById("xg-train-shots").textContent = d.xg_model_info.training_shots.toLocaleString()
   document.getElementById("xg-train-seasons").textContent = d.xg_model_info.training_seasons
+  document.getElementById("xg-trees").textContent = d.xg_model_info.trees
+  document.getElementById("xg-monotone").textContent = d.xg_model_info.monotone_constraints
+    ? " It is also constrained so that moving further from goal, or to a tighter angle, can never raise the chance, which keeps it sensible where data is thin."
+    : ""
   document.getElementById("xg-formula-live").innerText = formulaForShot(d)
   document.getElementById("xg-about").hidden = false
 }
@@ -337,5 +374,6 @@ function formulaForShot(d) {
   ].join("\n")
 }
 </script>
+<script src="model-card.js"></script>
 </body>
 </html>
