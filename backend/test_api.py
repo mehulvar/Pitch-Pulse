@@ -35,7 +35,10 @@ class TeamProfileTests(unittest.TestCase):
         quality = (d["team_xg_per_shot_against_recently"] + d["opponent_xg_per_shot_recently"]) / 2
         self.assertAlmostEqual(d["expected_xg_against_next_match"],
                                d["expected_shots_against_next_match"] * quality, delta=0.05)
-        self.assertEqual(d["shots_model"]["chosen_over"], "LightGBM (Poisson)")
+        # Whichever candidate won training, the page names the other one as the one it beat
+        model = d["shots_model"]
+        self.assertEqual(model["chosen_over"], main.OTHER_SHOTS_CANDIDATE[model["name"]])
+        self.assertNotEqual(model["chosen_over"], model["name"])
 
     def test_falls_back_to_short_summary_without_gemini_key(self):
         d = client.get("/api/team/Arsenal").json()
@@ -100,7 +103,8 @@ class ExplainTests(unittest.TestCase):
 
         self.assertTrue(0 < d["xg"] < 1)
         self.assertGreater(d["xg_model_info"]["training_shots"], 0)
-        self.assertEqual(d["xg_model_info"]["training_seasons"], main.seasons_window(main.shots))
+        self.assertEqual(d["xg_model_info"], main.xg_model_info())
+        self.assertRegex(d["xg_model_info"]["training_seasons"], r"^\d{4}/\d{2}")
 
     def test_steps_add_up_to_final_xg(self):
         d = client.get("/api/explain", params={"x": 100, "y": 30, "shot_type": "Head"}).json()

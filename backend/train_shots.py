@@ -8,7 +8,6 @@ import joblib
 import lightgbm as lgb
 import numpy as np
 import optuna
-from scipy.stats import poisson
 from sklearn.linear_model import PoissonRegressor
 from sklearn.metrics import mean_absolute_error, mean_poisson_deviance
 from sklearn.pipeline import make_pipeline
@@ -16,8 +15,8 @@ from sklearn.preprocessing import StandardScaler
 
 from evaluation import bootstrap_ci, save_metrics
 from features import (
-    FEATURES, add_form, holdout_split, load_shots, matchup_table, score_shots, season_folds,
-    team_match_table,
+    FEATURES, add_form, count_range, fit_dispersion, holdout_split, load_shots, matchup_table,
+    score_shots, season_folds, team_match_table,
 )
 
 MODEL_DIR = Path(__file__).parent / "models"
@@ -78,15 +77,26 @@ def tune_candidates(data, folds):
     }
 
 
-def grade(test, pred):
-    """Average miss and deviance with 95% intervals, plus how often the real count fell in the 80% range."""
+def grade(test, pred, alpha):
+    """Average miss and deviance with 95% intervals, plus how often the real count fell in the 80% range:
+    once with a plain Poisson range, once with the negative binomial using the spread measured in training."""
     df = test.assign(pred=np.clip(pred, 0.1, None))
-    low, high = poisson.ppf(INTERVAL[0], df.pred), poisson.ppf(INTERVAL[1], df.pred)
     out = {name: {k: round(v, 3) for k, v in bootstrap_ci(
         lambda d, m=metric: m(d[TARGET], d.pred), df, "match_id").items()}
         for name, metric in [("avg_miss", mean_absolute_error), ("deviance", mean_poisson_deviance)]}
-    out["interval_80_coverage"] = round(float(((df[TARGET] >= low) & (df[TARGET] <= high)).mean()), 3)
+    for label, spread in [("poisson", 0.0), ("negative_binomial", alpha)]:
+        low, high = count_range(df.pred, spread, INTERVAL)
+        out[f"interval_80_coverage_{label}"] = round(float(((df[TARGET] >= low) & (df[TARGET] <= high)).mean()), 3)
+    out["interval_80_coverage"] = out["interval_80_coverage_negative_binomial"]  # the range the app shows
+    out["dispersion"] = round(alpha, 4)
     return out
+
+
+def fit_and_grade(make, train, test):
+    """Fit on the development seasons, measure the extra spread there, grade on the held-out seasons."""
+    model = make().fit(train[FEATURES], train[TARGET])
+    alpha = fit_dispersion(train[TARGET], np.clip(model.predict(train[FEATURES]), 0.1, None))
+    return grade(test, model.predict(test[FEATURES]), alpha)
 
 
 def main():
@@ -99,14 +109,16 @@ def main():
     winner = min(candidates, key=lambda n: candidates[n][2])
     print(f"Practice deviance: { {n: round(c[2], 4) for n, c in candidates.items()} } -> {winner}")
 
-    results = {BASELINE: grade(test, (test.t_shots_against_form + test.o_shots_for_form) / 2)}
+    baseline = lambda df: (df.t_shots_against_form + df.o_shots_for_form) / 2
+    results = {BASELINE: grade(test, baseline(test), fit_dispersion(train[TARGET], baseline(train)))}
     for name, (make, _, _) in candidates.items():
-        results[name] = grade(test, make().fit(train[FEATURES], train[TARGET]).predict(test[FEATURES]))
+        results[name] = fit_and_grade(make, train, test)
     print(f"\nHeld-out seasons {holdout}, {len(test)} team-matches (95% intervals)")
     for name, r in results.items():
         miss = r["avg_miss"]
         print(f"  {name:22} avg miss {miss['estimate']:.2f} shots [{miss['low']:.2f}, {miss['high']:.2f}]"
-              f"   80% range holds the real count {r['interval_80_coverage']:.0%} of the time")
+              f"   real count inside the 80% range: Poisson {r['interval_80_coverage_poisson']:.0%}, "
+              f"negative binomial {r['interval_80_coverage_negative_binomial']:.0%}")
 
     # The app's model: the winner refitted on every season, scored with the full xG model
     everything = matchups(joblib.load(MODEL_DIR / "xg_model.joblib"))
@@ -116,6 +128,7 @@ def main():
         "mae": results[winner]["avg_miss"]["estimate"],
         "baseline_mae": results[BASELINE]["avg_miss"]["estimate"],
         "interval_80_coverage": results[winner]["interval_80_coverage"],
+        "dispersion": fit_dispersion(everything[TARGET], np.clip(final.predict(everything[FEATURES]), 0.1, None)),
     }, MODEL_DIR / "shots_model.joblib")
     save_metrics("shots_model", {
         "winner": winner, "settings": {n: c[1] for n, c in candidates.items()},

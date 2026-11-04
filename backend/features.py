@@ -4,6 +4,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from scipy.stats import nbinom, poisson
 
 DATA_DIR = Path(__file__).parent / "data"
 
@@ -155,6 +156,23 @@ def latest_quality(tm, team):
         "xg_per_shot_for": last.xg_for.sum() / max(last.shots_for.sum(), 1),
         "xg_per_shot_against": last.xg_against.sum() / max(last.shots_against.sum(), 1),
     }
+
+def fit_dispersion(y, mu):
+    """How much more counts vary than a Poisson distribution allows (0 means not at all).
+    A negative binomial has variance mu + alpha·mu², so alpha is read off the leftover spread."""
+    y, mu = np.asarray(y, dtype=float), np.asarray(mu, dtype=float)
+    return max(float(np.sum((y - mu) ** 2 - y) / np.sum(mu**2)), 0.0)
+
+
+def count_range(mu, alpha, quantiles):
+    """Low and high count for each predicted mean, e.g. quantiles (0.1, 0.9) for an 80% range.
+    Uses a negative binomial with the measured extra spread, or a plain Poisson if there is none."""
+    mu = np.asarray(mu, dtype=float)
+    if alpha <= 0:
+        return tuple(poisson.ppf(q, mu).astype(int) for q in quantiles)
+    size = 1 / alpha
+    return tuple(nbinom.ppf(q, size, size / (size + mu)).astype(int) for q in quantiles)
+
 
 def holdout_split(seasons, n_holdout=2):
     """Split seasons into ones for building the model and the newest ones, kept back for the final test.

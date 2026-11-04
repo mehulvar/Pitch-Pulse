@@ -12,9 +12,8 @@ from fastapi.staticfiles import StaticFiles
 from google import genai
 import time
 from concurrent.futures import ThreadPoolExecutor
-from scipy.stats import poisson
 from features import (
-    FEATURES, FORM_WINDOW, QUALITY_WINDOW, SET_PIECE_SITUATIONS, add_form, factor_of,
+    FEATURES, FORM_WINDOW, QUALITY_WINDOW, SET_PIECE_SITUATIONS, add_form, count_range, factor_of,
     latest_form, latest_quality, load_shots, score_shots, team_match_table, xg_features,
 )
 from match_predict import MODEL_FILE as MATCH_MODEL_FILE, load_bundle, predict_match
@@ -47,22 +46,31 @@ def season_label(s):
     return f"{int(s)}/{(int(s) + 1) % 100:02d}"
 
 
-def seasons_window(df):
-    """Readable span of the seasons in a table, like 2016/17 or 2014/15 to 2016/17."""
-    seasons = sorted(df.season.unique())
+def seasons_window(seasons):
+    """Readable span of some seasons, like 2016/17 or 2014/15 to 2016/17."""
+    seasons = sorted(set(int(s) for s in seasons))
     if len(seasons) == 1:
         return season_label(seasons[0])
     return f"{season_label(seasons[0])} to {season_label(seasons[-1])}"
 
 
-window = seasons_window(recent_shots)
+window = seasons_window(recent_shots.season)
 
-# What the xG model learned from, so the page can say so
-XG_MODEL_INFO = {
-    "training_shots": len(shots), "training_seasons": seasons_window(shots),
-    "trees": int(xg_model.n_estimators),
-    "monotone_constraints": bool(METRICS.get("xg_model", {}).get("monotone_constraints", False)),
-}
+
+def xg_model_info():
+    """What the xG model learned from, so the page can say so. Read from the training results,
+    because the deployed app may only ship the recent seasons it needs for team numbers."""
+    trained = METRICS.get("xg_model", {})
+    trained_seasons = trained.get("dev_seasons", []) + trained.get("holdout_seasons", [])
+    return {
+        "training_shots": trained.get("training_shots", len(shots)),
+        "training_seasons": seasons_window(trained_seasons or shots.season),
+        "trees": int(xg_model.n_estimators),
+        "monotone_constraints": bool(trained.get("monotone_constraints", False)),
+    }
+
+
+XG_MODEL_INFO = xg_model_info()
 
 # League table: one row per team. It gives every number something to be compared against
 by_team = recent_tm.groupby("team")
@@ -167,8 +175,10 @@ def matchup(team, opponent, venue):
         "opponent_xg_per_shot_recently": round(float(oq["xg_per_shot_for"]), 3),
         "team_xg_per_shot_against_recently": round(float(tq["xg_per_shot_against"]), 3),
         "expected_shots_against_next_match": round(exp_shots, 1),
-        # Shot counts are Poisson, so 80% of matches should land between these two numbers
-        "expected_shots_range_80": [int(poisson.ppf(q, exp_shots)) for q in SHOTS_RANGE],
+        # 80% of matches should land between these two numbers. Shot counts vary more than a
+        # Poisson allows, so the range uses the negative binomial spread measured in training
+        "expected_shots_range_80": [int(v[0]) for v in count_range(
+            [exp_shots], shots_bundle.get("dispersion", 0.0), SHOTS_RANGE)],
         # Expected goals = expected shots times the typical danger of each shot
         "expected_xg_against_next_match": round(exp_shots * exp_quality, 2),
         "shots_model": {

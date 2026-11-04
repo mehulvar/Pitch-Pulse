@@ -9,7 +9,40 @@ import pandas as pd
 from evaluation import (
     bootstrap_ci, brier_3way, calibration_table, log_loss_3way, rps, save_metrics,
 )
-from features import holdout_split, season_folds
+from features import count_range, fit_dispersion, holdout_split, season_folds
+
+
+class CountRangeTests(unittest.TestCase):
+    def test_no_extra_spread_measured_on_poisson_counts(self):
+        rng = np.random.default_rng(0)
+        mu = rng.uniform(8, 18, 50_000)
+
+        self.assertAlmostEqual(fit_dispersion(rng.poisson(mu), mu), 0.0, delta=0.005)
+
+    def test_recovers_the_extra_spread_of_negative_binomial_counts(self):
+        rng = np.random.default_rng(1)
+        mu, alpha = rng.uniform(8, 18, 50_000), 0.05
+        y = rng.negative_binomial(1 / alpha, 1 / (1 + alpha * mu))  # mean mu, variance mu + alpha·mu²
+
+        self.assertAlmostEqual(fit_dispersion(y, mu), alpha, delta=0.005)
+
+    def test_fitted_spread_covers_as_often_as_the_true_spread(self):
+        rng = np.random.default_rng(2)
+        mu = rng.uniform(8, 18, 50_000)
+        y = rng.negative_binomial(1 / 0.05, 1 / (1 + 0.05 * mu))
+        inside = lambda bounds: np.mean((y >= bounds[0]) & (y <= bounds[1]))
+
+        fitted = inside(count_range(mu, fit_dispersion(y, mu), (0.1, 0.9)))
+
+        # Whole-number counts with both ends included cover a little over 80%, never under
+        self.assertAlmostEqual(fitted, inside(count_range(mu, 0.05, (0.1, 0.9))), delta=0.01)
+        self.assertGreaterEqual(fitted, 0.8)
+        self.assertLess(inside(count_range(mu, 0.0, (0.1, 0.9))), 0.8)  # Poisson range is too narrow
+
+    def test_zero_spread_gives_the_poisson_range(self):
+        low, high = count_range(np.array([12.0]), 0.0, (0.1, 0.9))
+
+        self.assertEqual((low[0], high[0]), (8, 17))  # Poisson(12): 10th and 90th percentiles
 
 
 class RpsTests(unittest.TestCase):

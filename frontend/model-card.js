@@ -66,14 +66,19 @@ function drawCalibration(node, rows) {
 }
 
 function shotsSection(m) {
+  const share = p => `${Math.round(p * 100)}%`
   const rows = Object.entries(m.holdout).map(([name, r]) => [
-    name + (name === m.winner ? " (used)" : ""), withRange(r.avg_miss, 2), `${Math.round(r.interval_80_coverage * 100)}%`,
+    name + (name === m.winner ? " (used)" : ""), withRange(r.avg_miss, 2),
+    share(r.interval_80_coverage_poisson), share(r.interval_80_coverage_negative_binomial),
   ])
   return { nodes: [
     el("h3", "Shots-conceded model"),
     el("p", `Two candidates tuned on earlier seasons; ${m.winner} won on practice rounds. ` +
       `Tested on ${seasonList(m.holdout_seasons)} (${m.holdout_team_matches.toLocaleString()} team-matches).`),
-    table(["", "Average miss (shots)", "Real count inside the 80% range"], rows),
+    table(["", "Average miss (shots)", "In 80% range: Poisson", "In 80% range: negative binomial"], rows),
+    el("p", "An honest 80% range should hold the real count at least 80% of the time. The Poisson range falls short " +
+      "because shot counts vary more than it assumes, so the page uses the negative binomial range, " +
+      "with the extra spread measured on the training seasons only."),
   ] }
 }
 

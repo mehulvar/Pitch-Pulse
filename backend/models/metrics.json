@@ -148,5 +148,195 @@
       "Market average closing": 170
     },
     "fitted_through": "2026-05-24"
+  },
+  "xg_model": {
+    "params": {
+      "n_estimators": 400,
+      "learning_rate": 0.01317297417201628,
+      "num_leaves": 15,
+      "min_child_samples": 98,
+      "subsample": 0.7176265142212933,
+      "colsample_bytree": 0.8121825562850897,
+      "reg_lambda": 0.08049569653290622
+    },
+    "monotone_constraints": true,
+    "practice_log_loss": {
+      "with_constraints": 0.27063,
+      "without_constraints": 0.27042
+    },
+    "dev_seasons": [
+      2014,
+      2015,
+      2016,
+      2017,
+      2018
+    ],
+    "holdout_seasons": [
+      2019,
+      2020
+    ],
+    "holdout": {
+      "shots": 15599,
+      "goals": 1671,
+      "total_xg_ours": 1727.0,
+      "total_xg_understat": 1814.0,
+      "brier_ours": {
+        "estimate": 0.07903,
+        "low": 0.07597,
+        "high": 0.08242
+      },
+      "brier_understat": {
+        "estimate": 0.07618,
+        "low": 0.07323,
+        "high": 0.07945
+      },
+      "brier_gap_to_understat": {
+        "estimate": 0.00285,
+        "low": 0.00164,
+        "high": 0.00392
+      },
+      "log_loss_ours": {
+        "estimate": 0.27739,
+        "low": 0.26817,
+        "high": 0.28714
+      },
+      "log_loss_understat": {
+        "estimate": 0.26769,
+        "low": 0.25824,
+        "high": 0.27804
+      },
+      "log_loss_gap_to_understat": {
+        "estimate": 0.0097,
+        "low": 0.0062,
+        "high": 0.01282
+      },
+      "calibration": [
+        {
+          "predicted": 0.016799618220802844,
+          "actual": 0.016666666666666666,
+          "count": 1560
+        },
+        {
+          "predicted": 0.02307916886783656,
+          "actual": 0.02435897435897436,
+          "count": 1560
+        },
+        {
+          "predicted": 0.03113975427968382,
+          "actual": 0.03397435897435897,
+          "count": 1560
+        },
+        {
+          "predicted": 0.039694657941811214,
+          "actual": 0.035897435897435895,
+          "count": 1560
+        },
+        {
+          "predicted": 0.05349389976029067,
+          "actual": 0.05384615384615385,
+          "count": 1560
+        },
+        {
+          "predicted": 0.07252469452893973,
+          "actual": 0.07756410256410257,
+          "count": 1560
+        },
+        {
+          "predicted": 0.09723804409554312,
+          "actual": 0.09429121231558692,
+          "count": 1559
+        },
+        {
+          "predicted": 0.13217316778894583,
+          "actual": 0.13068545803971812,
+          "count": 1561
+        },
+        {
+          "predicted": 0.19631112616928348,
+          "actual": 0.18473380372033354,
+          "count": 1559
+        },
+        {
+          "predicted": 0.444697727308948,
+          "actual": 0.41923076923076924,
+          "count": 1560
+        }
+      ]
+    },
+    "training_shots": 63872
+  },
+  "shots_model": {
+    "winner": "LightGBM (Poisson)",
+    "settings": {
+      "Poisson regression": {
+        "alpha": 0.01
+      },
+      "LightGBM (Poisson)": {
+        "n_estimators": 400,
+        "learning_rate": 0.043123059794908415,
+        "num_leaves": 4,
+        "min_child_samples": 46,
+        "subsample": 0.8005084835658764
+      }
+    },
+    "practice_deviance": {
+      "Poisson regression": 1.5889,
+      "LightGBM (Poisson)": 1.5824
+    },
+    "holdout_seasons": [
+      2019,
+      2020
+    ],
+    "holdout_team_matches": 1274,
+    "holdout": {
+      "Simple average": {
+        "avg_miss": {
+          "estimate": 3.729,
+          "low": 3.564,
+          "high": 3.891
+        },
+        "deviance": {
+          "estimate": 1.827,
+          "low": 1.686,
+          "high": 1.968
+        },
+        "interval_80_coverage_poisson": 0.712,
+        "interval_80_coverage_negative_binomial": 0.832,
+        "interval_80_coverage": 0.832,
+        "dispersion": 0.067
+      },
+      "Poisson regression": {
+        "avg_miss": {
+          "estimate": 3.598,
+          "low": 3.44,
+          "high": 3.765
+        },
+        "deviance": {
+          "estimate": 1.737,
+          "low": 1.592,
+          "high": 1.894
+        },
+        "interval_80_coverage_poisson": 0.735,
+        "interval_80_coverage_negative_binomial": 0.809,
+        "interval_80_coverage": 0.809,
+        "dispersion": 0.0448
+      },
+      "LightGBM (Poisson)": {
+        "avg_miss": {
+          "estimate": 3.614,
+          "low": 3.456,
+          "high": 3.779
+        },
+        "deviance": {
+          "estimate": 1.745,
+          "low": 1.608,
+          "high": 1.895
+        },
+        "interval_80_coverage_poisson": 0.732,
+        "interval_80_coverage_negative_binomial": 0.799,
+        "interval_80_coverage": 0.799,
+        "dispersion": 0.0354
+      }
+    }
   }
 }
